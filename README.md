@@ -23,6 +23,5 @@ Styles for Runnable brand and UI elements
 
 ## Dependencies
 
-- autoprefixer
 - gulp
 - Sass
