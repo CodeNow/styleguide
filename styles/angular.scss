@@ -1,0 +1,113 @@
+//                                                      __        __
+//                                                      88        88
+//                                                      88        88
+//   88,dPPY 88      88 88,dPYba,  88,dPYba,  :aPPYYba, 88,dPYba  88  ,adPYba
+//   88PPY'  88      88 88P'  `"8a 88P'  `"8a '     `Y8 88'   "8a 88 a8P____88
+//   88      88      88 88      88 88      88 ,adPPPP88 88     d8 88 8PP88888J
+//   88      "8a,  ,a88 88      88 88      88 88,   ,88 88,. ,a8" 88 "8b,  ,a
+//   88       `"YbdP'88 88      88 88      88 `"8bbd"Y8,8Y"Ybb8"  88  `"Ybd8"'
+
+//   California Style Sheets
+
+// global
+@import "angular/globals/var";
+@import "angular/globals/mixins";
+@import "angular/globals/reset";
+@import "angular/globals/globals";
+
+@import "angular/globals/animations";
+@import "angular/globals/images";
+@import "angular/globals/loader";
+@import "angular/globals/typography";
+
+// components
+@import "angular/components/buttons";
+@import "angular/components/cards";
+@import "angular/components/fancy-select";
+@import "angular/components/header";
+@import "angular/components/help";
+@import "angular/components/icons";
+@import "angular/components/lists";
+@import "angular/components/logo";
+@import "angular/components/notifications";
+@import "angular/components/select";
+@import "angular/components/spinner";
+@import "angular/components/tags";
+@import "angular/components/tooltips";
+@import "angular/components/wells";
+
+// external componenets
+@import "angular/components/external/intercom";
+@import "angular/components/external/jstag";
+@import "angular/components/external/termjs";
+
+// forms
+@import "angular/forms/forms";
+@import "angular/forms/forms-build-commands";
+@import "angular/forms/forms-inputs";
+@import "angular/forms/forms-table";
+@import "angular/forms/forms-table-actions";
+@import "angular/forms/forms-textarea";
+@import "angular/forms/forms-toggles";
+@import "angular/forms/forms-validation";
+
+// sidebar
+@import "angular/sidebar/sidebar";
+@import "angular/sidebar/sidebar-header";
+@import "angular/sidebar/sidebar-footer";
+
+// server
+@import "angular/server/server-header";
+@import "angular/server/server-sidebar";
+@import "angular/server/server-sidebar-dns-mapping";
+@import "angular/server/server-sidebar-repositories";
+
+// views
+@import "angular/views/views";
+@import "angular/views/views-file-tree";
+@import "angular/views/views-panel";
+@import "angular/views/views-prompt";
+@import "angular/views/views-tabs";
+@import "angular/views/views-themes";
+@import "angular/views/views-toolbar";
+
+// modals
+@import "angular/modals/modals";
+@import "angular/modals/modals-alerts";
+@import "angular/modals/modals-forms";
+@import "angular/modals/modals-welcome";
+
+// modal specific
+@import "angular/modals/modals-edit";
+@import "angular/modals/modals-edit-ace";
+@import "angular/modals/modals-error";
+@import "angular/modals/modals-integrations";
+@import "angular/modals/modals-server-select";
+
+// popovers
+@import "angular/popover/popover";
+@import "angular/popover/popover-arrows";
+@import "angular/popover/popover-fixed";
+@import "angular/popover/popover-more-containers";
+@import "angular/popover/popover-select";
+@import "angular/popover/popover-views";
+
+// popover specific
+@import "angular/popover/popover-account-menu";
+@import "angular/popover/popover-add-tab";
+@import "angular/popover/popover-debug";
+@import "angular/popover/popover-files";
+@import "angular/popover/popover-new-server";
+@import "angular/popover/popover-primary-options";
+@import "angular/popover/popover-repository-toggle";
+@import "angular/popover/popover-rules";
+
+// pages
+@import "angular/pages/environment";
+@import "angular/pages/server-selection";
+
+//deprecated
+@import "angular/deprecated/card-status";
+
+// shame
+@import "angular/shame";
