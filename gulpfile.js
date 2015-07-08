@@ -20,7 +20,7 @@ gulp.task('styles', function() {
 });
 
 //Watch task
-gulp.task('default',function() {
+gulp.task('default', ['fileinclude', 'styles'], function() {
     gulp.watch('styles/**/*.scss',['styles']);
     gulp.watch('html/*.html', ['fileinclude']);
 });
