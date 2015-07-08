@@ -1,0 +1,49 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+.nav {
+  border: 1px solid $gray-light;
+  border-radius: 6px;
+  float: left;
+  margin-left: 15px;
+  margin-top: 30px;
+  width: 240px;
+}
+
+.nav-link {
+  display: block;
+  padding: 6px 12px;
+}
+
+.main {
+  margin-left: 270px;
+  padding: 30px;
+  position: relative;
+}
+
+.h1 {
+  margin-bottom: 15px;
+}
+
+.figure {
+  display: inline-block;
+}
+
+.figcaption {
+  color: $gray-light;
+  font-style: italic;
+  text-align: center;
+}
+
+.p {
+  margin: 15px 0;
+}
+
+.pre {
+  background: $gray-lighterest;
+  border: 1px solid $gray-lighter;
+  border-radius: 3px;
+  margin: 15px 0;
+}
