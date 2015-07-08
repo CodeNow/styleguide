@@ -24,8 +24,15 @@
 }
 
 .h1 {
+  color: $gray-light;
   font-size: 32px;
   margin-bottom: 15px;
+}
+
+.h2 {
+  font-size: 39px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .figure {
