@@ -1,13 +1,36 @@
-.figure-bears-wrapper {
+.figure-bears-wrapper,
+.figure-logo-lockup-wrapper,
+.figure-logo-icon-wrapper {
   margin: 0 -6px;
 }
 
-.figure-bears {
+.figure-bears,
+.figure-logo-lockup,
+.figure-logo-icon {
   background: $gray-lighterest;
   border: 1px solid $gray-lighter;
   border-radius: 3px;
   margin: 6px 3px;
   padding: 15px;
+}
+
+.figure-logo-lockup,
+.figure-logo-icon {
+  background: $gray-lighterest;
+  border: 1px solid $gray-lighter;
+  border-radius: 3px;
+  margin: 6px 3px;
+  padding: 15px;
+
+  &:first-child .img {
+    background-color: $purple;
+  }
+  
+  .img {
+    background-color: $white;
+    padding: 45px;
+    border-radius: 3px;
+  }
 }
 
 .figcaption {
