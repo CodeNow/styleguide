@@ -1,0 +1,103 @@
+// header.server-header
+.server-header {
+  border-bottom: 1px solid rgba($black,.1);
+  display: flex;
+  height: 72px;
+  padding: 0 6px 0 15px;
+}
+
+// h1.server-info
+.server-info {
+  flex: 1 1 auto;
+  float: left;
+  height: 72px;
+}
+
+// wrapper for container name, branch name, and status icon
+.container-label {
+  font-size: 24px;
+  font-weight: 400;
+  margin-top: 12px;
+
+  &.centered {
+    line-height: 70px;
+    margin-top: 0;
+  }
+
+  .icons-status {
+    left: 6px;
+    top: -3px;
+  }
+}
+
+.container-url {
+  color: $gray;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+// clear input for urls
+.container-url[readonly] {
+  background: none;
+  color: $gray;
+  display: block;
+  height: 20px;
+  line-height: 20px;
+  padding: 0;
+}
+
+.container-url-ghost {
+  height: 20px;
+  line-height: 0;
+  margin-top: -20px; // line up with container-url
+
+  // matches width of url input
+  .no-touching {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    visibility: hidden;
+  }
+
+  // external link
+  .link {
+    color: $gray;
+    height: 21px;
+    margin-left: 6px;
+    text-decoration: none;
+    width: 15px;
+
+    &:hover {
+      color: $gray-dark;
+    }
+
+    &:active {
+      color: $purple-light;
+    }
+
+    .iconnables {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+// header.server-header actions
+.primary-actions {
+  flex: 0 0 auto;
+  height: 72px;
+  line-height: 72px;
+  padding-left: 9px;
+  position: relative;
+
+  // offset for vertical-align: middle
+  .btn-group {
+    margin-left: 6px;
+    top: -3px;
+  }
+
+  .btn[disabled],
+  .btn.disabled {
+    margin: 0;
+  }
+}

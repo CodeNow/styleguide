@@ -1,0 +1,134 @@
+.modal-integrations {
+  max-width: 642px;
+  transition: max-height .15s ease-in;
+
+  // unverified state
+  &.unverified {
+    max-height: 400px;
+  }
+
+  // header slack logo
+  .modal-heading .img {
+    margin-right: 9px;
+    position: relative;
+    top: 5px;
+  }
+
+  // api token
+  .input.monospace {
+    color: $gray-darker;
+    font-size: 13px;
+    letter-spacing: -.25px;
+
+    &[readonly] {
+      color: $white;
+    }
+  }
+
+  // list
+  .list ~ .small {
+    margin: 6px;
+  }
+
+  .list-item {
+    background: $white;
+    color: $gray-dark;
+    cursor: pointer;
+    display: block;
+    line-height: 45px;
+    margin: 0;
+    max-height: 45px;
+    min-height: 45px;
+    padding: 0 9px;
+    position: relative;
+    transition: max-height .15s ease-in-out;
+
+    &.expanded {
+      max-height: 150px;
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+      max-height: 45px;
+    }
+
+    &:first-child {
+      border-radius: 3px 3px 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0 3px 3px;
+    }
+
+    &:only-child {
+      border-radius: 3px;
+    }
+
+    + .list-item {
+      border-top: 1px solid $gray-lighter;
+    }
+
+    .gravatar {
+      margin: 12px 9px 0 0;
+    }
+
+    .toggle-wrapper {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+    }
+  }
+
+  // badge
+  .badge-warning {
+    animation: scale-in .15s ease-in forwards;
+    background: $white;
+    border-radius: 50%;
+    color: $orange;
+    height: 16px;
+    left: 3px;
+    position: absolute;
+    top: 5px;
+    width: 16px;
+    z-index: 1;
+  }
+
+  .icons-warning {
+    height: 21px;
+    top: -8px;
+    width: 18px;
+  }
+
+  // well
+  .well {
+    border: 0;
+    border-left: 2px solid $gray-lightest;
+    border-radius: 0;
+    cursor: default;
+    line-height: 1.2;
+    margin-left: 9px;
+    max-height: none;
+    padding-left: 12px;
+    white-space: normal;
+
+    @include media(xxs) {
+      .br {
+        display: none;
+      }
+    }
+  }
+
+  .select {
+    color: $gray-darker;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    margin: 6px 0 15px;
+  }
+
+  @include media(xxs) {
+    .label-footer .br {
+      display: none;
+    }
+  }
+}

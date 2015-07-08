@@ -1,0 +1,59 @@
+// .active-panel
+.active-panel {
+  height: 100%;
+  position: relative;
+  z-index: $z-views-active-panel;
+
+  // for tabs when in views
+  .views & {
+    height: calc(100% - 45px);
+  }
+
+  // ace overrides
+  .ace_scrollbar {
+    overflow: hidden;
+  }
+
+  .ace_text-input {
+    font-size: 16px;
+  }
+
+  // panels
+  > div {
+    height: 100%;
+
+    // extra space if terminal in views
+    .views & {
+
+      &.term-js {
+        height: calc(100% - 30px);
+      }
+    }
+  }
+}
+
+// .blank-panel
+.blank-panel {
+  align-items: center;
+  display: flex;
+  height: calc(100% - 45px);
+  justify-content: center;
+  margin-top: -1px;
+  position: relative;
+
+  .btn-sm {
+    font-size: 14px;
+    height: auto;
+    line-height: inherit;
+    padding: 15px;
+
+    + .btn-sm {
+      margin-left: 6px;
+    }
+  }
+
+  .iconnables {
+    display: block;
+    margin: 0 auto 6px;
+  }
+}

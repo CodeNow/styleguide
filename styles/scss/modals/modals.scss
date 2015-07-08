@@ -1,0 +1,267 @@
+// div.modal-backdrop
+.modal-backdrop {
+  align-items: center;
+  animation: fade-in .3s forwards;
+  background: rgba($white,.81);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  padding: 90px 15px;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: $z-modal;
+
+  @include media(sm) {
+    padding: 15px;
+  }
+
+  @media (max-height: 768px) {
+    padding: 15px;
+  }
+}
+
+// div.modal-dialog
+.modal-dialog {
+  animation: scale-in-modal .2s ease-in forwards;
+  background: $gray-lighterest;
+  border: 2px solid $gray-lighter;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  max-width: 84vw;
+  min-width: 370px;
+  position: relative;
+
+  @include media(sm) {
+    min-width: 360px;
+    width: 100%;
+  }
+
+  &.xl {
+    flex: 1 1 auto;
+  }
+
+  // sizing for confirmation modals
+  &.modal-confirm {
+    max-width: 540px;
+    padding-top: 21px;
+  }
+
+  // search
+  .input-search {
+    display: block;
+    margin: 0 auto;
+  }
+
+  // validation in modals:
+  .validate-wrapper {
+    cursor: default;
+    display: block;
+    height: 0;
+    margin: 0 9px 6px;
+    transition: all .2s ease-in;
+
+    .validate-rules {
+      align-items: baseline;
+      display: flex;
+      height: 36px;
+      justify-content: center;
+      right: 0;
+    }
+
+    .btn:first-child {
+      margin-left: 6px;
+    }
+  }
+
+  // modal alert
+  .alert {
+    align-items: center;
+    display: flex;
+    flex: 0 0 36px;
+    font-size: 13px;
+    justify-content: center;
+    margin: -2px -2px 0;
+
+    .btn-xxs {
+      margin-left: 6px;
+    }
+  }
+}
+
+// header.modal-header
+.modal-header {
+  background: $white;
+  border-bottom: 1px solid $gray-lighter;
+  border-radius: 3px 3px 0 0;
+  flex: 0 0 auto;
+  padding: 0 15px;
+  text-align: center;
+
+  .container-title-wrapper {
+    color: $gray;
+    margin: 12px 0 6px;
+
+    .container-title {
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    .icons-warning,
+    .icons-arrow-down,
+    .spinner-wrapper {
+      flex: 0 0 18px;
+      height: 18px;
+    }
+  }
+
+  .p {
+    color: $gray-light;
+    line-height: 36px;
+  }
+
+  // tabs
+  .modal-tabs {
+    margin: 0 -15px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .btn-radio {
+    margin-bottom: 9px;
+    padding: 0 3px;
+    width: 102px;
+
+    .btn-text {
+      font-size: 13px;
+      height: 30px;
+      line-height: 1.2;
+      overflow: hidden;
+      white-space: normal;
+    }
+  }
+}
+
+// p.modal-description
+.modal-description {
+  padding: 0 21px;
+
+  &:last-child {
+    padding-bottom: 21px;
+  }
+
+  + .list {
+    font-weight: 500;
+    margin: 15px 0 15px 45px;
+  }
+}
+
+// .modal-heading
+.modal-heading {
+  font-size: 18px;
+  line-height: 60px;
+}
+
+// .modal-body
+.modal-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 15px;
+
+  // spinner
+  > .spinner-wrapper {
+    align-items: center;
+    color: $gray-light;
+    flex: 1 1 auto;
+  }
+
+  .btn-checkbox {
+    display: block;
+    margin: 9px;
+  }
+
+  .label-checkbox {
+    transition: padding .15s ease-in;
+  }
+
+  // nested footer
+  .modal-footer {
+    margin: 12px 0 0;
+    padding: 12px 0 0;
+  }
+}
+
+// .modal-footer
+.modal-footer {
+  border-radius: 0 0 3px 3px;
+  border-top: 1px solid $gray-lighter;
+  flex: 0 0 auto;
+  margin: 0 15px 15px;
+  padding: 12px 0 0;
+  z-index: 1; // footer overlaps body
+
+  .btn-group,
+  .green,
+  .orange,
+  .white {
+    float: right;
+
+    + .btn-group,
+    + .green,
+    + .orange,
+    + .white {
+      margin-right: 6px;
+    }
+
+    + .link {
+      margin-top: 12px;
+    }
+  }
+
+  // cancel buttons left
+  .btn-cancel,
+  .btn-group .btn:first-child {
+    float: left;
+  }
+
+  .label-checkbox {
+    font-size: 13px;
+    line-height: 24px;
+    margin: 9px 6px 0 0;
+  }
+
+  // validation
+  .btn-file-errors {
+    border-radius: 12px;
+    float: left;
+    font-size: 16px;
+    height: 24px;
+    line-height: 24px;
+    margin: 10px 9px 0;
+    padding: 0 9px;
+    position: relative;
+    width: auto;
+  }
+
+  .btn-block {
+    float: none;
+    margin: 0;
+    width: 100%;
+  }
+
+  .icons-git {
+    margin-right: 9px;
+    top: 6px;
+  }
+
+  .modal-footer-warning {
+    color: $gray;
+    line-height: 45px;
+    padding-left: 12px;
+  }
+}

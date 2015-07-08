@@ -1,0 +1,80 @@
+// If anyone has to add a quick hack, they add it to shame.scss,
+// this means that they’re putting their hacks out there in
+// the open; it means that they are aware that what they’re doing
+// is hacky, it forces them to document what the problem was, how
+// the hack fixes it, and how they might fix it for real
+// given more time. —harry@csswizardry
+
+// js helpers
+.js-char-width {
+  position: absolute; // collapsed
+  visibility: hidden; // no events, not visible, no tab order
+}
+
+// webkit flicker bug:
+// https://code.google.com/p/chromium/issues/detail?id=138415
+// https://code.google.com/p/chromium/issues/detail?id=311583
+%webkit-flicker {
+  -webkit-backface-visibility: hidden;
+}
+
+
+// thrown in here to stop lint errors in forms-table.scss
+.table-drag-drop {
+
+  .dndPlaceholder:first-child {
+    display: none !important;
+  }
+}
+
+.dndPlaceholder {
+  background: $purple-light;
+  height: 2px;
+  position: relative;
+
+  &::after,
+  &::before {
+    background: $purple-light;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 4px;
+    position: absolute;
+    top: -1px;
+    width: 4px;
+    z-index: $z-show;
+  }
+
+  &::after {
+    left: -2px;
+  }
+
+  &::before {
+    right: -2px;
+  }
+}
+
+.dndDragging {
+  box-shadow: // shadow + borders
+    0 2px 3px rgba($black,.1),
+    inset 0 -1px 0 $gray-lighter,
+    inset 0 1px 0 $gray-lighter,
+    inset -1px 0 0 $gray-lighter,
+    inset 1px 0 0 $gray-lighter;
+
+  &:hover,
+  &:active,
+  &.active {
+    background: $white;
+  }
+}
+
+.dndDraggingSource {
+  background: $gray-lightest !important;
+  box-shadow: none;
+  color: $gray-light;
+
+  .cell-action {
+    opacity: .5;
+  }
+}

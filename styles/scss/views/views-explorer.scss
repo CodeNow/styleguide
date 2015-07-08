@@ -1,0 +1,48 @@
+// button.toggle-theme.tooltip
+.toggle-theme {
+  box-shadow: 6px 0 12px rgba($white,.9);
+  float: left;
+  padding: 0;
+  z-index: 1;
+
+  // tooltips
+  &::before,
+  &::after {
+    margin-left: 12px;
+    margin-top: 9px;
+  }
+
+  &.light > .theme::before {
+    background: rgba($purple,.75);
+  }
+
+  &.dark > .theme::after {
+    background: rgba($gray-dark,.75);
+  }
+}
+
+.theme {
+  height: 100%;
+  width: 45px;
+
+  &::before,
+  &::after {
+    border-radius: 50%;
+    content: '';
+    display: inline-block;
+    height: 18px;
+    margin: 15px auto;
+    width: 18px;
+  }
+
+  &::before {
+    background: rgba($purple,.25);
+    border: 2px solid $purple;
+  }
+
+  &::after {
+    background: rgba($gray-dark,.1);
+    border: 2px solid $gray-dark;
+    margin-left: -6px;
+  }
+}

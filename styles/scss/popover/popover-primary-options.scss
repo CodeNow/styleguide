@@ -1,0 +1,21 @@
+.popover-primary-options {
+  transform-origin: 95% 0 !important; // right edge popover
+
+  .arrow {
+    left: auto !important; // right edge popover
+    right: 4px;
+  }
+
+  .popover-list-item {
+    white-space: normal;
+  }
+
+  .no-actions .label-checkbox {
+    cursor: not-allowed;
+  }
+
+  .input-checkbox {
+    height: 36px;
+    margin: 0 9px;
+  }
+}

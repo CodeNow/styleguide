@@ -1,0 +1,52 @@
+// global layout
+html {
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: rgba($black,0);
+}
+
+body {
+  color: $gray-darker;
+  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+  font-feature-settings: 'kern';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  min-height: 100vh;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility; // kerning magic
+
+  &.modal-open {
+    overflow: hidden;
+  }
+}
+
+// svg files
+.svg-defs {
+  display: none !important;
+}
+
+// utility
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+// if .disabled communicates to the user that an element is not available to them,
+// .no-touching 'disables' an element and DOES NOT communicate
+.no-touching,
+%no-touching {
+  pointer-events: none !important;
+}

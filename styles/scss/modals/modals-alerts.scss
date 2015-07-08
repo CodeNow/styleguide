@@ -1,0 +1,19 @@
+.modal-alert {
+  max-width: 420px;
+  top: 10%;
+
+  .modal-body {
+    padding: 30px;
+  }
+
+  // text
+  .p {
+    font-size: 15px;
+  }
+
+  // title
+  .strong {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+}

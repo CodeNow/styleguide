@@ -1,0 +1,20 @@
+// always has highest z-index
+.modal-backdrop-error {
+  z-index: $z-show;
+}
+
+.modal-error {
+
+  .modal-body {
+    flex: 0 1 auto;
+    max-height: calc(100vh - 150px);
+  }
+
+  .well-code {
+    font-size: 14px;
+    height: auto;
+    line-height: 1.2;
+    max-height: none;
+    padding: 12px;
+  }
+}

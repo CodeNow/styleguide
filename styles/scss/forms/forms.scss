@@ -1,0 +1,143 @@
+// form layout
+// row
+.label {
+  display: block;
+  margin-bottom: 21px;
+  position: relative;
+
+  @include media(xs) {
+    margin-bottom: 15px;
+  }
+}
+
+// label column (left)
+.label-col {
+  color: $gray;
+  float: left;
+  font-weight: 500;
+  height: $input-sm;
+  line-height: $input-sm;
+  padding-right: 15px;
+  width: 270px;
+  word-break: break-word;
+
+  @include media(md) {
+    width: 240px;
+  }
+
+  @include media(xs) {
+    float: none;
+    text-align: left;
+    width: 100%;
+  }
+
+  > .small.small {
+    line-height: 1;
+    margin-top: -6px;
+
+    @include media(xs) {
+      display: inline;
+      margin-left: 6px;
+    }
+  }
+}
+
+// input column (right)
+.input-col {
+  float: right;
+  text-align: left;
+  width: calc(100% - 271px);
+
+  @include media(md) {
+    width: calc(100% - 241px);
+  }
+
+  @include media(xs) {
+    float: none;
+    width: 100%;
+  }
+
+  // spinner
+  &.input-spinner {
+    margin: 6px 0 0;
+    text-align: right;
+
+    .small.small {
+      color: $gray;
+      margin: 0;
+    }
+  }
+
+  // fancy select spinner
+  .btn {
+    position: relative;
+
+    .spinner-wrapper {
+      color: $gray-light;
+      position: absolute;
+      right: 6px;
+      top: 4px;
+    }
+  }
+
+  // table spinner
+  .spinner-wrapper {
+    margin-top: 5px;
+  }
+}
+
+// .label-row: override .label-col for 2 or more inputs on a row
+.label-row {
+  display: flex;
+
+  .label-col {
+    flex: 1 1 auto;
+    height: auto;
+    padding: 0;
+  }
+
+  // equal sign between inputs
+  .span-col {
+    flex: 0 0 25px;
+    line-height: $input-sm;
+    padding-top: 36px;
+    text-align: center;
+    user-select: none;
+  }
+
+  // helpful messages
+  .small {
+    font-weight: 500;
+    line-height: 18px;
+    margin: 6px 0 0;
+
+    &.valid {
+      color: $green;
+    }
+
+    &.invalid {
+      color: $orange;
+    }
+
+    .iconnables {
+      float: left;
+      height: 20px;
+      margin-right: 3px;
+      width: 21px;
+    }
+  }
+}
+
+// jump
+.label-jump {
+  margin-bottom: 15px;
+
+  .small.small {
+    display: inline-block;
+  }
+
+  .select {
+    margin-left: 6px;
+    max-width: 150px;
+  }
+}

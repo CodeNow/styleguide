@@ -1,0 +1,134 @@
+// ******
+// colors
+// ******
+$black: #000;
+$white: #fff;
+
+$gray-lighterest: #f7f7f7;
+$gray-lightest: #f0f0f0;
+$gray-lighter: #dbdbdb;
+$gray-light: #bbb;
+$gray: #888;
+$gray-dark: #555;
+$gray-darker: #333;
+
+$green: #3ccb5a; // #1DD156
+$green-light: #2bd94f;
+$green-lighter: #e8ffed;
+$green-dark: darken($green,6%);
+$green-darker: darken($green,12%);
+
+$purple: #5b3777;
+$purple-logo: #ccadd2;
+$purple-light: #834fab;
+$purple-lighter: #b6a6bd;
+$purple-lightest: #eee1f7;
+$purple-dark: darken($purple,10%);
+$purple-darker: #261731; // darken($purple,20%);
+
+// ace theme
+$ace-bg: #311d40;
+$ace-border: $purple-darker;
+
+$orange: #f2ae24;
+$orange-light: #f9b548;
+$orange-lighter: #f7c457;
+$orange-lightest: #fffbf5;
+$orange-dark: #db970d; // darken($orange,9%);
+$orange-darker: darken($orange,12%);
+
+$red: #f25058;
+$red-light: #ef737f;
+$red-lighter: #fde6e9;
+$red-dark: #e62932; // desaturate(darken($red,10),7);
+
+$blue: #0ca6f2; // previously #2ab0f6;
+$blue-light: #8bd5f9; // previously #86cff6;
+$blue-lighter: #f5fcff; // previously #f1faff;
+$blue-dark: #1e7daf;
+
+// ********
+// spinners
+// ********
+$spinner-offset: 187;
+$spinner-duration: 1.4s;
+
+// *******
+// z-index
+// *******
+// overrides
+$z-hide: -10000;
+$z-show: 10000;
+
+// hero
+$z-hero-aura: 1000;
+$z-hero-content: 1001;
+$z-hero-list: 1002;
+$z-hero-list-content: 1003;
+
+// views
+$z-views: 2000;
+$z-views-explorer: 2001;
+$z-views-toggle: 2002;
+$z-views-active-panel: 2003;
+
+// sidebars
+$z-sidebar: 3000;
+$z-sidebar-content: 3001; // header and footer are higher for box-shadows
+$z-sidebar-header: 3002;
+$z-sidebar-footer: 3003;
+
+// modals
+$z-modal-backdrop: 4000;
+$z-modal-aside: 4001;
+$z-modal: 4002;
+
+// popovers
+$z-popover: 5000;
+$z-popover-title-filter: 5001;
+$z-popover-context-menu: 5002;
+$z-popover-content: 5003;
+$z-popover-title: 5004;
+$z-popover-overlay: 5005;
+$z-popover-fixed: 5006;
+$z-popover-arrow: 5007;
+
+// alerts
+$z-alert: 6000;
+
+// tooltips
+$z-tooltip: 7000;
+
+// spinners
+$z-spinner: 8000;
+
+// **********
+// dimensions
+// **********
+// intercom
+$intercom-width: 370px;
+
+// screen sizes
+$screen-xxs: 400px;
+$screen-xs: 600px;
+$screen-sm: 768px;
+$screen-md: 1024px;
+$screen-lg: 1440px;
+$screen-xl: 1920px;
+
+// button/input sizes
+$input-border: 2px;
+$input-border-radius: 3px;
+$input-border-radius-xxs: 2px;
+
+$input-md: 45px;
+$input-line-height-md: $input-md - ($input-border*2);
+
+$input-sm: 36px;
+$input-line-height-sm: $input-sm - ($input-border*2);
+
+$input-xs: 24px;
+$input-line-height-xs: $input-xs - ($input-border*2);
+
+$input-xxs: 18px;
+$input-line-height-xxs: $input-xxs - ($input-border*2);
