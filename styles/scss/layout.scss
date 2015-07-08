@@ -9,7 +9,7 @@
   float: left;
   margin-left: 15px;
   margin-top: 30px;
-  width: 240px;
+  width: 210px;
 }
 
 .nav-link {
@@ -18,7 +18,7 @@
 }
 
 .main {
-  margin-left: 270px;
+  margin-left: 240px;
   padding: 30px;
   position: relative;
 }
@@ -30,11 +30,6 @@
 
 .figure {
   display: inline-block;
-}
-
-.figcaption {
-  color: $gray-light;
-  font-style: italic;
   text-align: center;
 }
 
