@@ -1,6 +1,6 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
-var fileinclude = require('gulp-file-include');
+var fileinclude = require('gulp-file-include'); // html
+var sass = require('gulp-sass'); // sass
 
 gulp.task('fileinclude', function() {
   gulp.src(['html/index.html'])
@@ -8,6 +8,7 @@ gulp.task('fileinclude', function() {
       prefix: '@@',
       basepath: '@file'
     }))
+    .on('error', function(err){ console.log(err.message); }) // on error
     .pipe(gulp.dest('./'));
 });
 
@@ -16,6 +17,7 @@ gulp.task('styles', function() {
     .pipe(sass({
         errLogToConsole: true
     }))
+    .on('error', function(err){ console.log(err.message); }) // on error
     .pipe(gulp.dest('./styles/'));
 });
 
