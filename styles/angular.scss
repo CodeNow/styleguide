@@ -20,8 +20,12 @@
 @import "angular/globals/loader";
 @import "angular/globals/typography";
 
+// buttons
+@import "angular/components/buttons/buttons";
+@import "angular/components/buttons/buttons-debug";
+@import "angular/components/buttons/buttons-toolbar";
+
 // components
-@import "angular/components/buttons";
 @import "angular/components/cards";
 @import "angular/components/fancy-select";
 @import "angular/components/header";
@@ -29,6 +33,7 @@
 @import "angular/components/icons";
 @import "angular/components/lists";
 @import "angular/components/logo";
+@import "angular/components/logs";
 @import "angular/components/notifications";
 @import "angular/components/select";
 @import "angular/components/spinner";
@@ -37,6 +42,7 @@
 @import "angular/components/wells";
 
 // external componenets
+@import "angular/components/external/ace-theme";
 @import "angular/components/external/intercom";
 @import "angular/components/external/jstag";
 @import "angular/components/external/termjs";
@@ -68,7 +74,6 @@
 @import "angular/views/views-panel";
 @import "angular/views/views-prompt";
 @import "angular/views/views-tabs";
-@import "angular/views/views-themes";
 @import "angular/views/views-toolbar";
 
 // modals
@@ -109,5 +114,5 @@
 //deprecated
 @import "angular/deprecated/card-status";
 
-// shame
+// shame 🔔🔔
 @import "angular/shame";
