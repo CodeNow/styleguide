@@ -1,12 +1,12 @@
 .figure-bears-wrapper,
-.figure-lockup-wrapper,
-.figure-mark-wrapper {
+.figure-logo-lockup-wrapper,
+.figure-logo-icon-wrapper {
   margin: 0 -6px;
 }
 
 .figure-bears,
-.figure-lockup,
-.figure-mark {
+.figure-logo-lockup,
+.figure-logo-icon {
   background: $gray-lighterest;
   border: 1px solid $gray-lighter;
   border-radius: 3px;
@@ -14,8 +14,8 @@
   padding: 15px;
 }
 
-.figure-lockup,
-.figure-mark {
+.figure-logo-lockup,
+.figure-logo-icon {
   background: $gray-lighterest;
   border: 1px solid $gray-lighter;
   border-radius: 3px;
