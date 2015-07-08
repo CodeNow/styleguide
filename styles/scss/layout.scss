@@ -9,7 +9,7 @@
   float: left;
   margin-left: 15px;
   margin-top: 30px;
-  width: 240px;
+  width: 210px;
 }
 
 .nav-link {
@@ -18,23 +18,31 @@
 }
 
 .main {
-  margin-left: 270px;
+  margin-left: 240px;
   padding: 30px;
   position: relative;
 }
 
+.section + .section {
+  border-top: 1px solid $gray-lighter;
+  margin-top: 60px;
+  padding-top: 60px;
+}
+
 .h1 {
+  color: $gray-light;
   font-size: 32px;
   margin-bottom: 15px;
 }
 
-.figure {
-  display: inline-block;
+.h2 {
+  font-size: 39px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
-.figcaption {
-  color: $gray-light;
-  font-style: italic;
+.figure {
+  display: inline-block;
   text-align: center;
 }
 

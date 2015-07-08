@@ -7,7 +7,9 @@
     "gulp": "~3.9.0"
   },
   "devDependencies": {
-    "gulp-sass": "~2.0.3"
+    "gulp-sass": "~2.0.3",
+    "git": "~0.1.5",
+    "gulp-file-include": "~0.13.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,0 +1,17 @@
+.figure-bears-wrapper {
+  margin: 0 -6px;
+}
+
+.figure-bears {
+  background: $gray-lighterest;
+  border: 1px solid $gray-lighter;
+  border-radius: 3px;
+  margin: 6px 3px;
+  padding: 15px;
+}
+
+.figcaption {
+  color: $gray-light;
+  font-style: italic;
+  margin-top: 15px;
+}
