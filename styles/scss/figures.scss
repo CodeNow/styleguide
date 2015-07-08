@@ -1,12 +1,8 @@
-.figure-bears-wrapper,
-.figure-logo-lockup-wrapper,
-.figure-logo-icon-wrapper {
+.figure-wrapper {
   margin: 0 -6px;
 }
 
-.figure-bears,
-.figure-logo-lockup,
-.figure-logo-icon {
+.figure {
   background: $gray-lighterest;
   border: 1px solid $gray-lighter;
   border-radius: 3px;
@@ -25,11 +21,11 @@
   &:first-child .img {
     background-color: $purple;
   }
-  
+
   .img {
     background-color: $white;
-    padding: 45px;
     border-radius: 3px;
+    padding: 45px;
   }
 }
 

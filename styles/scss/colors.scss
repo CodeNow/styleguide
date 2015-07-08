@@ -17,8 +17,11 @@ $color-array-values: $black $white $gray-lighterest $gray-lightest $gray-lighter
 .figure-colors-wrapper {
 
   .figure {
+    background: none;
+    border: 0;
     display: block;
     margin: 0;
+    padding: 0;
     text-align: left;
   }
 
