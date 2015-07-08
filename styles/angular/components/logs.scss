@@ -1,0 +1,190 @@
+// *********************
+// logs & terminal
+// build logs: html (this file)
+// cmd logs: termjs
+// terminal: termjs
+// *********************
+
+// build log specific
+.build-log-wrapper {
+  padding: 9px 7px;
+  width: 100%;
+}
+
+// wrapper per step
+.build-log {
+  background: #372345; // rgba($white,.03) on $ace-bg
+  border: 1px solid $purple-darkest;
+  border-radius: $input-border-radius;
+  max-height: 39px;
+  min-height: 39px;
+  overflow: hidden;
+  position: relative;
+  transition: max-height .3s ease-in-out;
+
+  &:target {
+    border-color: $purple-light;
+    box-shadow: inset 1px 1px 0 $purple-light, inset -1px -1px 0 $purple-light;
+  }
+
+  &:last-child {
+    margin-bottom: 30px;
+
+    .modal-edit & {
+      margin-bottom: 9px;
+    }
+  }
+
+  &.in {
+    max-height: 9999px; // is this enough?
+  }
+
+  + .build-log {
+    margin-top: 6px;
+  }
+
+  // debug button
+  > .btn-debug {
+    font-family: 'Helvetica Neue', 'Segoe UI', sans-serif; // override monospace fonts
+    min-width: 0;
+    position: absolute;
+    right: 6px;
+    top: 8px;
+  }
+}
+
+// .build-log-header
+.build-log-header,
+.build-log-content {
+  padding: 10px 9px 9px 24px;
+}
+
+.build-log-header {
+  height: 39px;
+  padding-right: 75px;
+
+  // change padding if there's a header
+  + .build-log-content {
+    padding-bottom: 15px;
+    padding-top: 6px;
+  }
+}
+
+// .build-log-header.build-log-toggle
+.build-log-toggle {
+
+  // rotate arrow
+  &.in .build-log-header {
+
+    &:active::before {
+      transform: rotate3d(0,0,1,-90deg) scale3d(.6,.6,.6);
+    }
+
+    &::before {
+      transform: rotate3d(0,0,1,0);
+    }
+  }
+
+  // toggleable .build-log-header
+  .build-log-header {
+    background: rgba($white,.03);
+    border-bottom: 1px solid $purple-darker;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba($white,.045);
+    }
+
+    &:active {
+      background: rgba($white,.06);
+
+      &::before {
+        transform: rotate3d(0,0,1,0) scale3d(.6,.6,.6);
+      }
+    }
+
+    // arrow
+    &::before {
+      border-bottom: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid $purple-lighter;
+      content: '';
+      display: block;
+      left: 8px;
+      pointer-events: none;
+      position: absolute;
+      top: 17px;
+      transform: rotate3d(0,0,1,-90deg);
+      transition: transform .25s ease-in-out;
+    }
+
+    // arrow states
+    &:hover,
+    &:active {
+
+      &::before {
+        border-top-color: $purple-lightest;
+      }
+    }
+  }
+}
+
+// ***************************
+// log themes
+// reference for code- styles:
+// http://misc.flogisoft.com/bash/tip_colors_and_formatting
+// Not currently supported:
+// - Reverse/inverted
+// - Light colors (and background light colors)
+// ***************************
+.logs-runnable-dark,
+.logs-runnable-light {
+
+  .code-bold {
+    font-weight: 600;
+  }
+
+  .code-dim {
+    opacity: .5;
+  }
+
+  .code-underline {
+    text-decoration: underline;
+  }
+
+  // blinking animation
+  .code-blink {
+    animation: logs-blink 1s infinite;
+
+    // dim blinking animation
+    &.code-dim {
+      animation-name: logs-dim-blink;
+    }
+  }
+
+  .code-hidden {
+    visibility: hidden;
+  }
+
+  // override color for background colors
+  [class^='code-bg'] {
+    color: $white;
+  }
+}
+
+// dark theme
+.logs-runnable-dark {
+  background: $ace-bg;
+  color: $white;
+
+  @include logs-runnable-color(dark);
+}
+
+// light theme
+.logs-runnable-light {
+  background-color: $gray-lighterest;
+  color: $gray-darker;
+
+  @include logs-runnable-color(light);
+}
