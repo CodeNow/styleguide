@@ -5,4 +5,5 @@
 *.rdb
 *.sass-cache/
 *.iml
+*.css
 node_modules/
