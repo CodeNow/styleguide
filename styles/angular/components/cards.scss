@@ -1,0 +1,340 @@
+.card {
+  border: 1px solid transparent;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  min-width: 360px;
+  position: relative;
+  transition: none;
+
+  // states
+  &:hover:not(.disabled) {
+    background: $white;
+    border-color: $gray-light;
+
+    &:not(.card-loading) {
+      cursor: pointer;
+    }
+  }
+
+  &:active:not(.disabled),
+  &.active {
+    background: $white;
+    border-color: $purple-light;
+    color: $purple-light;
+  }
+
+  // sizes
+  &.card-sm {
+    border-width: 2px;
+    min-height: inherit;
+    min-width: inherit;
+    width: 210px;
+
+    .card-header {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .img {
+      margin-right: 6px;
+      position: relative;
+    }
+  }
+
+  // colors
+  &.gray {
+    background: $gray-lighterest;
+    border-color: $gray-lighter;
+  }
+
+  // focus state
+  &.focus {
+    border-color: rgba($blue,.45);
+    box-shadow: 0 0 6px rgba($blue,.45);
+  }
+
+  // empty state
+  &.empty {
+    background: transparent;
+    border-color: transparent;
+    color: $gray;
+    height: 333px;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+
+    .spinner-wrapper {
+      align-items: center;
+      height: 100%;
+    }
+  }
+
+  // list columns
+  .list-col {
+    margin: 0;
+
+    &:first-child {
+      color: $purple-lighter;
+      float: left;
+      text-align: right;
+      width: 35%;
+    }
+
+    &:last-child {
+      float: right;
+      font-size: 14px;
+      width: 65%;
+    }
+
+    &.monospace {
+      letter-spacing: -.5px;
+    }
+
+    .list-item {
+      padding: 0 6px;
+    }
+
+    // language icons
+    .iconnables {
+      float: left;
+      margin-left: -6px;
+    }
+  }
+
+  // well
+  .well {
+    background: $white;
+    border: 0;
+    border-radius: 0 0 3px 3px;
+    border-top: 1px solid $purple-lighter;
+    cursor: default;
+    margin: 0;
+    padding: 12px 9px;
+
+    // dismiss
+    .btn-close {
+      float: right;
+      height: 15px;
+      margin-left: 15px;
+      width: 15px;
+    }
+
+    .icon-close {
+      top: -14px;
+    }
+  }
+}
+
+// card layout
+// header
+.card-header {
+  display: flex;
+  justify-content: center;
+  margin: 18px 15px;
+}
+
+.container-title-wrapper {
+  align-items: center;
+  color: $gray-dark;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 100%;
+
+  &:hover {
+    color: $gray-darker;
+  }
+
+  &:active {
+    color: $purple-light;
+  }
+
+  .container-title {
+    flex: 0 0 auto;
+    font-size: 21px;
+    font-weight: 500;
+    padding-left: 3px;
+  }
+
+  .icons-warning,
+  .icons-arrow-down,
+  .spinner-wrapper {
+    flex: 0 0 21px;
+    height: 21px;
+  }
+
+  .spinner-wrapper {
+    color: $gray-light;
+    padding: 3px; //sizes element to replace .icons-warning
+  }
+
+  .icons-warning {
+    color: $orange;
+  }
+}
+
+// body
+.card-body,
+.card-button {
+  flex: 1 1 auto;
+  padding: 0 15px 15px;
+
+  &.empty {
+    align-items: center;
+    display: flex;
+    font-style: italic;
+    justify-content: center;
+  }
+
+  > .btn {
+    border-radius: 0;
+    display: block;
+    height: 54px;
+    padding: 6px 24px 6px 9px;
+    text-align: left;
+
+    &:hover,
+    &:active {
+      box-shadow: inset 0 1px 0 $gray-light;
+      z-index: 1;
+
+      &:first-child {
+        box-shadow: none;
+      }
+
+      .icons-arrow-down {
+        color: $gray-dark;
+      }
+    }
+
+    &:active {
+      box-shadow: inset 0 1px 0 currentColor;
+
+      &:first-child {
+        box-shadow: none;
+      }
+
+      > .small,
+      .icons-arrow-down {
+        color: currentColor;
+      }
+
+      .btn-xxs {
+        background: $purple-light;
+      }
+    }
+
+    &:first-child {
+      border-radius: 3px 3px 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0 3px 3px;
+      padding-right: 45px; // larger padding for lock icon
+
+      // icons for dockerfile tool
+      // wrapper needed for title text
+      .iconnables-wrapper {
+        height: 100%;
+        position: absolute;
+        right: 30px;
+        top: 0;
+        width: 14px;
+      }
+
+      .icons-unlock,
+      .icons-lock {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &.hint {
+      border-color: rgba($blue,.45);
+      box-shadow: 0 0 6px rgba($blue,.35);
+      z-index: 1;
+
+      &:hover {
+        border-color: rgba($blue,.6);
+        box-shadow: none;
+      }
+    }
+
+    + .btn {
+      border-top-width: 1px;
+      margin-top: -2px;
+
+      &.hint {
+        border-top-width: 2px;
+      }
+    }
+
+    &.active-notification {
+      padding-right: 60px;
+    }
+
+    // anchor icon of tool
+    > .iconnables:first-child {
+      float: left;
+      margin-right: 6px;
+      width: 18px;
+    }
+
+    // title of tool
+    > .h3 {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    // description of tool
+    > .small {
+      color: $gray;
+      display: block;
+      line-height: 15px;
+    }
+
+    // notifications
+    .btn-badge {
+      background: $gray-light;
+      color: $white;
+      position: absolute;
+      right: 30px;
+      top: 16px;
+    }
+
+    // tooltip in tool description
+    .underline {
+      cursor: pointer;
+      float: left;
+
+      // text after a tool
+      ~ .text-overflow {
+        display: inline-block;
+        width: calc(100% - 54px);
+      }
+    }
+
+    // right facing arrow
+    .icons-arrow-down {
+      color: $gray;
+      position: absolute;
+      right: 6px;
+      top: 0;
+      transform: rotate3d(0,0,1,-90deg);
+    }
+  }
+}
+
+//- loading state
+.card-loading {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  .spinner-wrapper {
+    margin-top: -60px;
+  }
+}

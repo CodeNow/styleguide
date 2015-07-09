@@ -1,0 +1,287 @@
+// popovers
+.popover {
+  // top & left offset to move popovers offscreen to prevent them
+  // from appearing before calculating their actual position
+  background: $white;
+  border: 2px solid $gray-lighter;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba($black,.1);
+  left: -10000px;
+  max-width: 300px;
+  opacity: 0;
+  position: absolute;
+  top: -10000px;
+  transform: scale3d(.9,.9,1);
+  transition: opacity .075s ease-in, transform .075s ease-in;
+  z-index: $z-popover;
+
+  &.in {
+    opacity: 1;
+    transform: scale3d(1,1,1);
+  }
+
+  // .popover.menu
+  &.menu {
+    cursor: default;
+    min-width: 180px;
+
+    .popover-content {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .iconnables {
+      float: left;
+      height: 36px;
+      margin: 0 9px 0 0;
+      width: 18px;
+    }
+  }
+
+  // .popover.bottom.menu.context-menu
+  &.context-menu {
+    position: fixed;
+    transition: none;
+    z-index: $z-popover-context-menu;
+
+    .iconnables {
+      float: left;
+      height: 36px;
+      margin: 0 9px 0 0;
+      width: 18px;
+    }
+  }
+
+  &.help {
+    @extend %help-top-card; // in help.scss
+
+    > .btn .iconnables {
+      transform: rotate(180deg); // rotates arrow for "more help" button
+    }
+  }
+
+  // .list
+  .list + .list {
+    border-top: 1px solid rgba($black,.1);
+  }
+
+  // li.divider
+  .divider {
+    background: rgba($black,.1);
+    margin: 3px 0;
+    min-height: 1px;
+  }
+
+  // form elements in popovers:
+  .btn-block {
+    width: 100%;
+  }
+}
+
+// popover lists
+// ul.popover-list
+.popover-list {
+  padding: 4px 0;
+}
+
+// li.popover-list-item
+.popover-list-item {
+  cursor: pointer;
+  line-height: 36px;
+  min-height: 36px;
+  overflow: hidden;
+  padding: 0 15px 0 9px;
+  white-space: nowrap;
+
+  // variations
+  &.no-actions {
+    cursor: default;
+    text-align: center;
+
+    &:hover,
+    &:active {
+      background: transparent;
+      border-color: transparent;
+    }
+  }
+
+  &.monospace {
+    font-size: 13px;
+  }
+
+  // states
+  &:hover {
+    background: rgba($purple-lightest,.45);
+  }
+
+  &:active,
+  &.active {
+    background: rgba($purple-lightest,.9);
+    color: $purple-light;
+
+    .iconnables,
+    .small {
+      color: $purple-light;
+    }
+
+    .gray {
+      background: $white;
+      border-color: currentColor;
+      color: $purple-light;
+    }
+  }
+
+  &.hint {
+    color: $blue;
+
+    &:hover {
+      background: $blue-lighter;
+    }
+
+    .small {
+      color: rgba($blue,.8);
+    }
+  }
+
+  .gravatar,
+  .iconnables {
+    color: $gray;
+    float: left;
+    margin: 6px 9px 0 0;
+
+    &.gravatar {
+      margin-top: 5px;
+    }
+  }
+
+  // links
+  .list-link {
+    margin: 0 -15px;
+    padding: 0 15px;
+  }
+
+  // checkbox
+  .input-checkbox {
+    height: 36px;
+    margin-right: 6px;
+    width: 18px;
+  }
+}
+
+// h3.popover-title
+.popover-title {
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+
+  .list-item {
+    padding-left: 15px;
+    position: relative;
+
+    &::after {
+      background: $gray-lighter;
+      border-radius: 50%;
+      content: '';
+      display: block;
+      height: 5px;
+      left: 3px;
+      position: absolute;
+      top: 7px;
+      width: 5px;
+    }
+
+    .iconnables {
+      height: 12px;
+      margin: 0 3px 0 5px;
+      top: 2px;
+      width: 12px;
+    }
+  }
+}
+
+// header
+.popover-header {
+  background: $gray-lighterest;
+  border-bottom: 1px solid $gray-lighter;
+  display: flex;
+  height: 54px;
+  padding: 9px 15px;
+
+  &.popover-header-sm {
+    height: 45px;
+  }
+}
+
+// flex for multiple buttons
+.popover-content-header {
+  display: flex;
+  justify-content: space-between;
+
+  > .btn-group,
+  > .btn {
+    margin: 6px 0 12px;
+
+    &:first-child {
+      margin-left: 6px;
+    }
+  }
+
+  // .list-item.small
+  .small {
+    line-height: 36px;
+    padding: 0 15px;
+  }
+
+  // search
+  .input-search {
+    margin: 6px auto 0;
+    width: 50%;
+  }
+}
+
+.popover-content {
+  padding: 6px;
+  position: relative;
+  z-index: $z-popover-content;
+
+  // filter
+  .label-jump {
+    margin-bottom: 9px;
+    text-align: center;
+  }
+}
+
+//- footer.popover-footer
+.popover-footer {
+  border-top: 1px solid $gray-lighter;
+  margin: 0 15px;
+  padding: 12px 0 15px;
+
+  .btn-sm {
+    padding: 0 12px;
+    right: 0;
+    top: 0;
+  }
+
+  .green,
+  .orange,
+  .white {
+    float: right;
+
+    + .green,
+    + .orange,
+    + .white {
+      margin-right: 6px;
+    }
+  }
+
+  // cancel buttons left
+  .btn-cancel,
+  .btn-group .btn:first-child {
+    float: left;
+  }
+
+  .btn-checkbox {
+    margin: 6px 0;
+  }
+}

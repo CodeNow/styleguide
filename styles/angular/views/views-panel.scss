@@ -1,0 +1,55 @@
+// .active-panel
+.active-panel {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: auto;
+  position: relative;
+  z-index: $z-views-active-panel;
+
+  // hide scrollbar (still allows scrolling)
+  .ace_scrollbar {
+    overflow: hidden;
+  }
+
+  // prevent mobile zoom
+  .ace_text-input {
+    font-size: 16px;
+  }
+
+  // ace container
+  > .ace-container {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+
+    > .ace_editor {
+      flex: 1 1 auto;
+    }
+  }
+}
+
+// .blank-panel
+.blank-panel {
+  align-items: center;
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  margin-top: -1px;
+  position: relative;
+
+  .btn-sm {
+    font-size: 14px;
+    height: auto;
+    line-height: inherit;
+    padding: 15px;
+
+    + .btn-sm {
+      margin-left: 6px;
+    }
+  }
+
+  .iconnables {
+    display: block;
+    margin: 0 auto 6px;
+  }
+}

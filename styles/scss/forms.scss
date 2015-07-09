@@ -1,0 +1,39 @@
+.forms-inputs {
+
+  + .forms-inputs {
+    margin-top: 60px;
+
+    .input {
+      display: block;
+    }
+  }
+
+  .input {
+    margin-left: 30px;
+    margin-top: 9px;
+    width: 40%;
+  }
+
+  .textarea {
+    margin-left: 30px;
+    max-height: 300px;
+    max-width: 560px;
+    min-height: 150px;
+    resize: vertical;
+
+    @include media(md) {
+      max-width: 75%;
+    }
+  }
+}
+
+.forms-toggles {
+  padding-left: 120px;
+  position: relative;
+
+  .toggle-wrapper {
+    left: 30px;
+    position: absolute;
+    top: 57px;
+  }
+}

@@ -1,0 +1,108 @@
+// ul.tabs
+.tabs {
+  float: left;
+  height: 45px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: calc(100% - 45px);
+}
+
+// li.tab-wrapper
+.tab-wrapper {
+  border-left: 1px solid $gray-lighter;
+  border-right: 1px solid $gray-lighter;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: -1px;
+  position: relative;
+
+  &:hover {
+    color: $gray-dark;
+  }
+
+  &:active,
+  &.active {
+    color: $purple-light;
+    font-weight: 500;
+  }
+
+  &.active {
+    box-shadow: 0 0 9px rgba($black,.075);
+
+    &:first-child {
+      box-shadow: -9px 0 0 $white, 0 0 9px rgba($black,.075);
+    }
+
+    &:last-child {
+      box-shadow: 9px 0 0 $white, 0 0 9px rgba($black,.075);
+    }
+  }
+
+  &.dirty .icons-dirty {
+    opacity: .5;
+    visibility: visible;
+  }
+
+  &:last-child {
+    border-right: 0;
+  }
+
+  &:only-child {
+    border: 1px solid #e6e6e6; // rgba($black,.1);
+    border-top: 0;
+  }
+
+  &.always-open .tab-name {
+    padding-right: 9px;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: .5;
+  }
+
+  &.error {
+    color: $red;
+  }
+
+  .icons-dirty {
+    display: inline-block;
+    float: left;
+    font-size: 21px;
+    line-height: 1.9;
+    opacity: 0;
+    pointer-events: none;
+    position: relative;
+    user-select: none;
+    visibility: hidden;
+    z-index: 1;
+  }
+
+  .btn-close {
+    border-color: transparent;
+    float: right;
+    height: 15px;
+    margin: 15px 6px 15px 9px;
+    width: 15px;
+  }
+}
+
+// span.tab-name
+.tab-name {
+  display: block;
+  float: left;
+  font-size: 14px;
+  height: 45px;
+  line-height: 45px;
+  padding: 0 1px 0 9px;
+  text-align: center;
+
+  &::after {
+    content: attr(ng-data-title);
+    display: block;
+    font-weight: 500;
+    opacity: 0;
+    pointer-events: none;
+  }
+}

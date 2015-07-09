@@ -1,0 +1,159 @@
+//- header—title, description, progress
+.environment-header {
+  border-bottom: 1px solid #ccc;
+  color: $gray-light;
+  margin: 15px 15px 18px;
+  padding: 15px 0 18px;
+
+  // new server button
+  .green {
+    float: right;
+    padding-right: 30px;
+    text-align: left;
+    width: 200px;
+
+    &.hint {
+      animation: scale .4s ease;
+    }
+  }
+
+  // help button
+  > .btn-icon {
+    border: 2px solid;
+    float: left;
+    left: 0;
+    padding: 0 12px;
+    right: 0;
+
+    &:active,
+    &.active {
+      color: $blue;
+    }
+
+    .iconnables {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+// body—form elements/cards
+.environment-body {
+  margin: 15px;
+}
+
+// card grid
+// max-width on config cards
+.card-grid {
+
+  .card {
+    float: left;
+    height: 448px;
+    margin-bottom: 15px;
+    min-width: 0;
+
+    + .card {
+      margin-left: 15px;
+    }
+
+    // center if only child
+    &:only-child {
+      float: none;
+      margin: 0 auto;
+    }
+
+    @include media(xxl) {
+      width: calc(20% - 12px);
+
+      // on the 6th card + 5 thereafter
+      &:nth-child(5n+6) {
+        margin-left: 0;
+      }
+    }
+
+    @include media(xl) {
+      width: calc(25% - 12px);
+
+      // on the 6th card + 5 thereafter
+      &:nth-child(5n+6) {
+        margin-left: 15px;
+      }
+
+      // on the 5th card + 4 thereafter
+      &:nth-child(4n+5) {
+        margin-left: 0;
+      }
+    }
+
+    @include media(lg) {
+      width: calc(33.333% - 10px);
+
+      // on the 6th card + 5 thereafter
+      &:nth-child(5n+6) {
+        margin-left: 15px;
+      }
+
+      // on the 5th card + 4 thereafter
+      &:nth-child(4n+5) {
+        margin-left: 15px;
+      }
+
+      // on the 4th card + 3 thereafter
+      &:nth-child(3n+4) {
+        margin-left: 0;
+      }
+    }
+
+    @include media(md) {
+      width: calc(50% - 8px);
+
+      // on the 6th card + 5 thereafter
+      &:nth-child(5n+6) {
+        margin-left: 15px;
+      }
+
+      // on the 5th card + 4 thereafter
+      &:nth-child(4n+5) {
+        margin-left: 15px;
+      }
+
+      // on the 4th card + 3 thereafter
+      &:nth-child(3n+4) {
+        margin-left: 15px; // override media(xl)
+      }
+
+      // no the 3rd card + 2 thereafter
+      &:nth-child(2n+3) {
+        margin-left: 0;
+      }
+    }
+
+    @include media(xs) {
+      width: 100%;
+
+      // on the 6th card + 5 thereafter
+      &:nth-child(5n+6) {
+        margin-left: 15px;
+      }
+
+      // on the 5th card + 4 thereafter
+      &:nth-child(4n+5) {
+        margin-left: 15px;
+      }
+
+      // on the 4th card + 3 thereafter
+      &:nth-child(3n+4) {
+        margin-left: 15px; // override media(xl)
+      }
+
+      // no the 3rd card + 2 thereafter
+      &:nth-child(2n+3) {
+        margin-left: 0;
+      }
+
+      + .card {
+        margin-left: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.DS_Store
+*.log
+*.dump
+*.orig
+*.rdb
+*.sass-cache/
+*.iml
+*.css
+node_modules/
+index.html

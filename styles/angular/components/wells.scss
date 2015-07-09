@@ -1,0 +1,54 @@
+.well {
+  border-radius: 3px;
+  color: $gray-darker;
+  margin: 0 6px;
+  padding: 0 3px;
+
+  // border and bg not shown by default
+  &.in {
+    background: rgba($black,.025);
+    border: 1px solid rgba($black,.1);
+  }
+
+  // code sample
+  &.well-code {
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    margin: 0 -6px;
+    overflow: hidden;
+    padding: 0 6px;
+  }
+
+  &.well-inline {
+    height: auto;
+    line-height: inherit;
+    margin: 0;
+    padding: 0 3px;
+    position: relative;
+    top: 4px;
+  }
+
+  &.well-popover {
+    background-color: $orange-lightest;
+    border: 1px solid rgba($orange,.3);
+    color: $orange;
+    font-size: 15px;
+    line-height: 18px;
+    margin: 9px 9px 3px;
+    padding: 9px 12px;
+  }
+
+  .label-checkbox {
+    height: 36px;
+    line-height: 36px;
+  }
+
+  .validate-wrapper.validate-wrapper {
+
+    &.invalid-pattern,
+    &.invalid-name {
+      margin: 3px 0 9px;
+    }
+  }
+}

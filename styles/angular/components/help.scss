@@ -1,0 +1,223 @@
+// blue stlye for all help things
+.help.help {
+  background: $blue-lighter;
+  border: 1px solid $blue-light;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba($blue,.25);
+  color: rgba($blue,.8);
+
+  // bolded text in serviceHelpCards.js
+  // TODO: class this
+  b,
+  .strong {
+    color: $blue;
+  }
+}
+
+.help-top-card,
+%help-top-card {
+  font-size: 15px;
+  left: 75px;
+  line-height: 18px;
+  max-width: none; // overwrites max-width set in popover.scss
+  padding-bottom: 26px;
+  position: absolute;
+  transition: none;
+  width: 400px;
+  z-index: 1; // TODO: variable-ize this
+
+  // "more help" and "less help" buttons
+  > .btn {
+    background-color: $blue-lighter;
+    border-top: 1px solid rgba($blue-light,.4);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    bottom: 0;
+    font-size: 13px;
+    font-weight: 500;
+    height: 27px;
+    left: 0;
+    line-height: 18px;
+    padding-bottom: 3px;
+    position: absolute;
+    width: 100%;
+
+    &:hover {
+      color: rgba($blue,.7);
+    }
+
+    &:active {
+      color: $blue;
+    }
+
+    .iconnables {
+      height: 15px;
+      top: 4px;
+      width: 15px;
+    }
+  }
+}
+
+.help-padding {
+  color: transparent;
+  padding: 16px 25px;
+}
+
+.help-container {
+  left: 15px;
+  position: absolute;
+  right: 15px;
+  z-index: 1; // TODO: variable-ize this
+
+  &.fixed {
+    position: fixed;
+
+    .help {
+      box-shadow: 0 1px 3px rgba($blue,.25);
+    }
+  }
+
+  &.top {
+    top: 18px;
+  }
+
+  &.bottom {
+    bottom: 18px;
+  }
+
+  .modal-form & {
+    left: auto;
+    margin-bottom: 15px;
+    position: relative;
+    right: auto;
+  }
+
+  .help {
+    box-shadow: none;
+    display: table;
+    margin: 0 auto;
+    padding: 6px 24px;
+    text-align: center;
+
+    // anchor icon
+    .iconnables {
+      float: left;
+      margin-right: 3px;
+    }
+  }
+}
+
+// badge on help button
+.help-badge {
+  background: $blue;
+  border-radius: 50%;
+  color: $white;
+  font-size: 12px;
+  font-weight: 500;
+  height: 18px;
+  line-height: 18px;
+  position: absolute;
+  right: -9px;
+  text-align: center;
+  top: -9px;
+  width: 18px;
+}
+
+.triggered-help-item {
+  border-bottom: 1px solid rgba($blue-light,.4);
+  color: rgba($blue,.8);
+  font-size: 15px;
+  line-height: 18px;
+  padding: 12px 0;
+  position: relative;
+
+  // "x" button for triggered help items
+  .btn-icon {
+    color: rgba($blue,.45);
+    font-size: 15px;
+    height: 21px;
+    left: -9px;
+    line-height: 1;
+    position: absolute;
+    top: 12px;
+    width: 21px;
+
+    &:hover {
+      color: rgba($blue,.75);
+    }
+
+    &:active {
+      color: $blue;
+    }
+
+    .iconnables {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  // text in triggered help items
+  .p {
+    float: left;
+    margin-left: 15px;
+    width: 240px;
+  }
+
+  // "show me" button
+  .btn-sm {
+    background-color: $white;
+    border: 2px solid $blue;
+    color: $blue;
+    float: right;
+    font-weight: 500;
+    margin: 1px 3px;
+
+    &:hover {
+      border-color: rgba($blue,.7);
+    }
+
+    &:active {
+      border-color: $blue;
+    }
+  }
+}
+
+.help-lists-wrapper {
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  padding: 0 12px;
+}
+
+.general-help-container {
+  line-height: 27px;
+  padding: 12px 18px;
+}
+
+.general-help-item {
+  color: rgba($blue,.8);
+  cursor: pointer;
+  display: block;
+  margin: 0 -30px;
+  padding: 0 30px;
+
+  &:hover {
+    background-color: rgba($blue-light,.15);
+  }
+
+  &:active {
+    background-color: rgba($blue-light,.25);
+  }
+
+  .iconnables {
+    height: 13px;
+    left: 6px;
+    width: 13px;
+  }
+
+  // reset
+  .link {
+    color: currentColor;
+    display: block;
+    text-decoration: none;
+  }
+}
