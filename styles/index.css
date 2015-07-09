@@ -7640,3 +7640,13 @@ input[type="checkbox"] {
     left: 30px;
     position: absolute;
     top: 57px; }
+
+.btn-icon.btn-sm .iconnables {
+  height: 18px;
+  right: -2px;
+  top: -3px; }
+
+.btn-icon .iconnables {
+  height: 21px;
+  right: -1px;
+  top: 3px; }
