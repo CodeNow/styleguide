@@ -56,5 +56,9 @@
   background: $gray-lighterest;
   border: 1px solid $gray-lighter;
   border-radius: 3px;
-  margin: 15px 0;
+  margin: 15px 3px;
+
+  &.pre-code {
+    padding: 15px;
+  }
 }
