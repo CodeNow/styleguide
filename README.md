@@ -1,29 +1,16 @@
-Styles for Runnable brand and UI elements
+Styles for Runnable brand and UI
 
-## Setting up
+## Setting Up
 
-##### 1. Clone this repo locally
+##### 1. Clone this repository locally
 ##### 2. Install gulp globally (if you haven’t already)
 
     $ npm install --global gulp
 
-##### 3. Install gulp at the root folder for this repo
+##### 3. Install packages
 
-    $ npm install --save-dev gulp
+    $ npm install
 
-##### 4. Install the Sass plugin for gulp
-
-    $ npm install --save-dev gulp-sass
-
-##### 5. Install the plugin for file include
-
-    $ npm install --save-dev gulp-file-include
-
-##### 6. Run gulp
+##### 4. Run gulp
 
     $ gulp
-
-## Dependencies
-
-- gulp
-- Sass
