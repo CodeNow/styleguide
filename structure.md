@@ -1,22 +1,22 @@
 Branding
-- Icon
-- Wordmark
-- Bears
+- ~~Icon~~
+- ~~Wordmark~~
+- ~~Bears~~
 
 UI
-- Colors (all)
-- Themes (ace & term)
-- Typography
-- Icons
-  - Outlined
-  - Full color
-  - Octicons based
-- Buttons
+- ~~Colors (all)~~
+- ~~Themes (ace & term)~~
+- ~~Typography~~
+- ~~Icons~~
+  - ~~Outlined~~
+  - ~~Full color~~
+  - ~~Octicons based~~
+- ~~Buttons~~
 - Forms
-  - Inputs
+  - ~~Inputs~~
   - Fancy Select
-  - Toggles
-  - Tags
+  - ~~Toggles~~
+  - ~~Tags~~
 - Tables
 - Toolbar
 - Modals
