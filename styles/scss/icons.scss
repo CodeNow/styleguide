@@ -7,4 +7,20 @@
   .figcaption {
     font-size: 13px;
   }
+
+  .icon-outline {
+    cursor: pointer;
+
+    .iconnables {
+      transition: none;
+    }
+
+    &:hover,
+    &:active {
+
+      .iconnables {
+        color: $purple-light;
+      }
+    }
+  }
 }
