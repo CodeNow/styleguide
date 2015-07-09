@@ -1,17 +1,17 @@
-.figure-bears-wrapper,
-.figure-logo-lockup-wrapper,
-.figure-logo-icon-wrapper {
+.figure-wrapper {
   margin: 0 -6px;
 }
 
-.figure-bears,
-.figure-logo-lockup,
-.figure-logo-icon {
+.figure {
   background: $gray-lighterest;
   border: 1px solid $gray-lighter;
   border-radius: 3px;
   margin: 6px 3px;
   padding: 15px;
+
+  .iconnables {
+    margin-top: 15px;
+  }
 }
 
 .figure-logo-lockup,
@@ -25,16 +25,19 @@
   &:first-child .img {
     background-color: $purple;
   }
-  
+
   .img {
     background-color: $white;
-    padding: 45px;
     border-radius: 3px;
+    padding: 45px;
   }
 }
 
 .figure-typography {
+  background-color: transparent;
+  border: 0;
   margin: 0;
+  padding: 0;
   text-align: left;
   width: 100%;
 
