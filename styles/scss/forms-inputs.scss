@@ -13,4 +13,12 @@
     margin-top: 9px;
     width: 40%;
   }
+
+  .textarea {
+    margin-left: 30px;
+    max-height: 300px;
+    max-width: 560px;
+    min-height: 150px;
+    resize: vertical;
+  }
 }
