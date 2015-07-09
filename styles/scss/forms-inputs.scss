@@ -1,0 +1,16 @@
+.forms-inputs {
+
+  + .forms-inputs {
+    margin-top: 60px;
+
+    .input {
+      display: block;
+    }
+  }
+
+  .input {
+    margin-left: 30px;
+    margin-top: 9px;
+    width: 40%;
+  }
+}
