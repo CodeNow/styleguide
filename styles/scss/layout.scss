@@ -60,12 +60,16 @@
   font-size: 24px;
   line-height: 36px;
   margin-bottom: 15px;
+
+  + .h2 {
+    margin-top: 15px;
+  }
 }
 
 .h2 {
   font-size: 36px;
   margin-bottom: 15px;
-  margin-top: 15px;
+  margin-top: 45px;
 }
 
 .figure {
@@ -85,5 +89,6 @@
 
   &.pre-code {
     padding: 15px;
+    word-wrap: normal;
   }
 }
