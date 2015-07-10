@@ -7328,11 +7328,13 @@ input[type="checkbox"] {
   font-size: 24px;
   line-height: 36px;
   margin-bottom: 15px; }
+  .h1 + .h2 {
+    margin-top: 15px; }
 
 .h2 {
   font-size: 36px;
   margin-bottom: 15px;
-  margin-top: 15px; }
+  margin-top: 45px; }
 
 .figure {
   display: inline-block;
@@ -7347,7 +7349,8 @@ input[type="checkbox"] {
   border-radius: 3px;
   margin: 15px 3px; }
   .pre.pre-code {
-    padding: 15px; }
+    padding: 15px;
+    word-wrap: normal; }
 
 .figure .link {
   font-size: 13px;
