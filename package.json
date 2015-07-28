@@ -10,7 +10,10 @@
     "git": "^0.1.5",
     "gulp-file-include": "^0.13.2",
     "gulp-sass": "~2.0.3",
-    "gulp-autoprefixer": "~2.3.1"
+    "gulp-autoprefixer": "~2.3.1",
+    "gulp-changed": "~1.2.1",
+    "gulp-imagemin": "~2.3.0",
+    "imagemin-pngquant": "~4.1.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
