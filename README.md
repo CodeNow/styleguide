@@ -1,12 +1,8 @@
 Styles for Runnable brand and UI
-
-## Setting Up
-
-##### 1. Clone this repository locally
-##### 2. Install packages
-
+####1. Clone repository
+####2. Install packages
     $ npm install
-
-##### 3. Run gulp
-
+####3. Compile images
+    $ gulp imagemin
+####4. Run Gulp
     $ gulp

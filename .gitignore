@@ -6,4 +6,3 @@
 *.sass-cache/
 *.iml
 node_modules/
-*.scss
