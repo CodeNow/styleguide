@@ -16,8 +16,7 @@ var imgSrc = src + 'images/**/*.*';
 var dist = './dist/';
 var htmlDist = dist;
 var sassDist = dist + 'styles/';
-var imgDist = dist + 'images/**/*.*';
-
+var imgDist = dist + 'images/';
 
 // html files
 gulp.task('fileinclude', function() {
