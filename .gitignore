@@ -6,3 +6,4 @@
 *.sass-cache/
 *.iml
 node_modules/
+/dist/

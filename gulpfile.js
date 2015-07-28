@@ -13,11 +13,10 @@ var htmlSrc = src + 'html/index.html';
 var sassSrc = src + 'styles/index.scss';
 var imgSrc = src + 'images/**/*.*';
 
-var dist = './dist/';
+var dist = ''; // empty for gh-pages
 var htmlDist = dist;
 var sassDist = dist + 'styles/';
-var imgDist = dist + 'images/**/*.*';
-
+var imgDist = dist + 'images/';
 
 // html files
 gulp.task('fileinclude', function() {
