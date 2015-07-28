@@ -16,7 +16,7 @@ gulp.task('fileinclude', function() {
     .on('error', function(err){
       console.log(err.message);
     })
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('./dist/'));
 });
 
 // sass
@@ -31,7 +31,7 @@ gulp.task('sass', function() {
     .pipe(autoprefixer({
         browsers: ['last 2 versions']
     }))
-    .pipe(gulp.dest('./src/styles/'));
+    .pipe(gulp.dest('./dist/styles/'));
 });
 
 // images
@@ -50,4 +50,5 @@ gulp.task('imagemin', function () {
 gulp.task('default', ['fileinclude', 'sass'], function() {
     gulp.watch('src/styles/**/*.scss', ['sass']);
     gulp.watch('src/html/*.html', ['fileinclude']);
+    gulp.watch('src/images/**/*.*', ['imagemin']);
 });
