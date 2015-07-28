@@ -1,4 +1,4 @@
-Styles for Runnable brand and UI
+# [Runnable Styleguide](http://codenow.github.io/styleguide/)
 
 ### Getting Started
 1. Clone repository `git clone https://github.com/CodeNow/styleguide/`
