@@ -7,6 +7,6 @@
 4. Run Gulp `gulp`
 
 ### Updating gh-pages
-1. Open `gulpfile.js` and change `var dist = './dist/';` to `var dist = '';`
-3. Compile images `gulp imagemin`
-4. Run Gulp `gulp`
+1. Checkout gh-pages `git checkout gh-pages` and pull latest `git pull origin master`
+2. Compile images `gulp imagemin`
+3. Run Gulp `gulp`
