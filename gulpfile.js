@@ -1,14 +1,20 @@
 var gulp = require('gulp');
-var changed = require('gulp-changed'); // if changes
+var debug = require('gulp-debug'); // debug
+var newer = require('gulp-newer'); // file changes
 var fileinclude = require('gulp-file-include'); // html
 var sass = require('gulp-sass'); // sass
 var autoprefixer = require('gulp-autoprefixer'); // autoprefixer
 var imagemin = require('gulp-imagemin'); // image optimizer
 var pngquant = require('imagemin-pngquant'); // pngquant
 
+// file locations
+var htmlSrc = 'src/html/index.html';
+var sassSrc = 'src/styles/index.scss';
+var imgSrc = 'src/images/**/*.*';
+
 // html files
 gulp.task('fileinclude', function() {
-  gulp.src(['src/html/index.html'])
+  gulp.src([htmlSrc])
     .pipe(fileinclude({
       prefix: '@@',
       basepath: '@file'
@@ -21,7 +27,7 @@ gulp.task('fileinclude', function() {
 
 // sass
 gulp.task('sass', function() {
-  gulp.src('src/styles/index.scss')
+  gulp.src(sassSrc)
     .pipe(sass({
         errLogToConsole: true
     }))
@@ -36,19 +42,22 @@ gulp.task('sass', function() {
 
 // images
 gulp.task('imagemin', function () {
-  return gulp.src('src/images/**/*.*')
-    .pipe(changed('src/images/**/*.*'))
+  return gulp.src(imgSrc)
+    .pipe(newer('dist/images'))
     .pipe(imagemin({
         progressive: true,
         svgoPlugins: [{removeViewBox: false}],
         use: [pngquant()]
+    }))
+    .pipe(debug({
+      title: 'imagemin'
     }))
     .pipe(gulp.dest('dist/images'));
 });
 
 // watch task
 gulp.task('default', ['fileinclude', 'sass'], function() {
-    gulp.watch('src/styles/**/*.scss', ['sass']);
-    gulp.watch('src/html/*.html', ['fileinclude']);
-    gulp.watch('src/images/**/*.*', ['imagemin']);
+    gulp.watch(htmlSrc, ['fileinclude']);
+    gulp.watch(sassSrc, ['sass']);
+    gulp.watch(imgSrc, ['imagemin']);
 });
