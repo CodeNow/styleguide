@@ -71,17 +71,13 @@ h4 {
 }
 
 .strong {
-  font-weight: 500;
+  font-weight: $weight-bold;
 }
 
 .underline {
   border-bottom: 1px dotted;
   cursor: pointer;
   font-style: normal; // remove italics if em
-}
-
-input ~ small {
-  margin-left: 12px; // match input padding
 }
 
 .hr {
@@ -93,7 +89,7 @@ input ~ small {
 .pre,
 %pre {
   background: none;
-  font-family: 'Source Code Pro', monospace !important;
+  font-family: $monospace !important;
   font-size: 14px !important;
   font-weight: 400;
   line-height: 1.4 !important;
@@ -101,8 +97,9 @@ input ~ small {
 }
 
 // monospace
+%monospace,
 .monospace {
-  font-family: 'Source Code Pro', monospace;
+  font-family: $monospace;
   font-size: 14px;
   white-space: pre;
   word-wrap: normal;
@@ -128,6 +125,7 @@ a {
 }
 
 // single line overflow
+%text-overflow,
 .text-overflow {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -149,6 +147,10 @@ a {
 // alignment
 .text-left {
   text-align: left;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .text-right {

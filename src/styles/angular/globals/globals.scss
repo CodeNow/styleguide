@@ -6,7 +6,7 @@ html {
 
 body {
   color: $gray-darker;
-  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+  font-family: $sans-serif;
   font-feature-settings: 'kern';
   font-size: 16px;
   font-weight: 400;
@@ -26,14 +26,18 @@ body {
 }
 
 // utility
-.clearfix:before,
-.clearfix:after {
-  content: '';
-  display: table;
-}
+%clearfix,
+.clearfix {
 
-.clearfix:after {
-  clear: both;
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
 }
 
 .float-right {

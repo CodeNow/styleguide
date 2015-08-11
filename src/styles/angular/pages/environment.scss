@@ -1,29 +1,30 @@
 //- header—title, description, progress
 .environment-header {
-  border-bottom: 1px solid #ccc;
-  color: $gray-light;
-  margin: 15px 15px 18px;
-  padding: 15px 0 18px;
+  margin: 24px 15px;
 
   // new server button
   .green {
-    float: right;
-    padding-right: 30px;
+    display: table;
+    margin: 0 auto;
     text-align: left;
-    width: 200px;
 
     &.hint {
       animation: scale .4s ease;
+    }
+
+    .icons-add {
+      height: 18px;
+      margin: 10px 6px 0 0;
+      width: 18px;
     }
   }
 
   // help button
   > .btn-icon {
-    border: 2px solid;
-    float: left;
-    left: 0;
+    border: 0;
+    left: 15px;
     padding: 0 12px;
-    right: 0;
+    position: absolute;
 
     &:active,
     &.active {
