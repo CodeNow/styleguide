@@ -10,3 +10,4 @@
 1. Checkout gh-pages `git checkout gh-pages` and pull latest `git pull origin master`
 2. Compile images `gulp imagemin`
 3. Run Gulp `gulp`
+4. Push to gh-pages `git push origin gh-pages`

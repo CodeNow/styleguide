@@ -9,9 +9,11 @@ var pngquant = require('imagemin-pngquant'); // pngquant
 
 // file locations
 var src = 'src/'
+var htmlDir = src + 'html/**/*.html';
 var htmlSrc = src + 'html/index.html';
+var sassDir = src +'styles/**/*.scss';
 var sassSrc = src + 'styles/index.scss';
-var imgSrc = src + 'images/**/*.*';
+var imgDir = src + 'images/**/*.*';
 
 var dist = ''; // empty for gh-pages
 var htmlDist = dist;
@@ -48,7 +50,7 @@ gulp.task('sass', function() {
 
 // images
 gulp.task('imagemin', function () {
-  return gulp.src(imgSrc)
+  return gulp.src(imgDir)
     .pipe(newer(imgDist))
     .pipe(imagemin({
         progressive: true,
@@ -63,7 +65,7 @@ gulp.task('imagemin', function () {
 
 // watch task
 gulp.task('default', ['fileinclude', 'sass'], function() {
-    gulp.watch(htmlSrc, ['fileinclude']);
-    gulp.watch(sassSrc, ['sass']);
-    gulp.watch(imgSrc, ['imagemin']);
+    gulp.watch(htmlDir, ['fileinclude']);
+    gulp.watch(sassDir, ['sass']);
+    gulp.watch(imgDir, ['imagemin']);
 });

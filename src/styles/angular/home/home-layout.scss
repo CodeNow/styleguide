@@ -12,22 +12,68 @@
   }
 }
 
-// header
-.home-header {
-  background: transparent;
-  display: 0 0 auto;
-  height: auto;
+.home-modal-dialog {
+  max-width: 375px;
 
-  .logo {
-    margin-left: 0;
+  .icons-close {
+    color: $gray-light;
+    cursor: pointer;
+    pointer-events: auto;
+    position: absolute;
+    right: 15px;
+    top: 18px;
 
-    @include media(sm) {
-      width: 150px;
+    &:hover {
+      color: $gray;
+    }
+
+    &:active {
+      color: $red;
     }
   }
 
+  .modal-body {
+    padding: 24px 30px;
+    text-align: center;
+
+    .span {
+      font-size: 21px;
+      margin: 12px 0 21px;
+    }
+
+    .small {
+      color: $gray;
+      margin-top: 21px;
+    }
+  }
+
+  .link {
+    color: currentColor;
+  }
+
+  .modal-footer {
+    color: $gray;
+    text-align: center;
+  }
+}
+
+// header
+.home-header {
+  background: transparent;
+  border: 0;
+  height: auto;
+
   .logo-anchor {
-    padding-right: 45px;
+    height: $input-sm;
+    margin-bottom: 21px; // to prevent floated nav wrapping
+    top: 12px;
+    width: 216px; // proportionate to $input-sm + <sup>
+  }
+
+  .logo {
+    left: 0;
+    margin-left: 0;
+    top: 0;
   }
 
   // vertically center
@@ -35,7 +81,7 @@
     border: 0;
     color: $white;
     line-height: 36px;
-    margin: 6px 3px;
+    margin: 12px 3px 0;
 
     @include media(sm) {
       font-size: 14px;
@@ -126,7 +172,7 @@
   .small,
   .link {
     color: $purple-lighter;
-    font-weight: 300px;
+    font-weight: 300;
   }
 
   .p {
@@ -148,7 +194,7 @@
     display: block;
     flex: 1 1 auto;
     font-size: 14px;
-    margin-top: 45px;
+    margin-top: $input-md;
     padding: 15px 0;
     text-align: center;
     width: 100%;
@@ -168,7 +214,7 @@
       left: -15px;
       line-height: 36px;
       position: absolute;
-      top: -45px;
+      top: -$input-md;
 
       &:hover,
       &:active {
@@ -230,11 +276,11 @@
     box-shadow: 0 2px 3px rgba($black,.1);
     display: block;
     fill: $white;
-    height: 45px;
+    height: $input-md;
     margin: 0 auto;
     position: relative;
     top: calc(50% - 23px);
-    width: 45px;
+    width: $input-md;
   }
 }
 

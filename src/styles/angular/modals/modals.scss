@@ -1,8 +1,8 @@
 // div.modal-backdrop
 .modal-backdrop {
   align-items: center;
-  animation: fade-in .3s forwards;
-  background: rgba($white,.81);
+  animation: fade-in .2s forwards;
+  background: rgba($white,.9);
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -24,7 +24,6 @@
 
 // div.modal-dialog
 .modal-dialog {
-  animation: scale-in-modal .2s ease-in forwards;
   background: $gray-lighterest;
   border: 2px solid $gray-lighter;
   border-radius: 3px;
@@ -50,41 +49,43 @@
     padding-top: 21px;
   }
 
+  &.modal-repository-details {
+    width: 390px;
+  }
+
   // search
   .input-search {
     display: block;
     margin: 0 auto;
   }
 
-  // validation in modals:
-  .validate-wrapper {
-    cursor: default;
-    display: block;
-    height: 0;
-    margin: 0 9px 6px;
-    transition: all .2s ease-in;
-
-    .validate-rules {
-      align-items: baseline;
-      display: flex;
-      height: 36px;
-      justify-content: center;
-      right: 0;
-    }
-
-    .btn:first-child {
-      margin-left: 6px;
-    }
-  }
-
   // modal alert
   .alert {
     align-items: center;
+    border-radius: $input-border-radius;
+    border-width: 1px;
     display: flex;
-    flex: 0 0 36px;
+    flex: 0 0 $input-sm;
     font-size: 13px;
     justify-content: center;
-    margin: -2px -2px 0;
+    margin: 0 auto 15px;
+    padding: 0 15px;
+
+    &.full-width {
+      border-left-width: $input-border;
+      border-radius: 0;
+      border-right-width: $input-border;
+      margin: -1px (-$input-border) 0;
+    }
+
+    &.gray {
+      background: $gray-lightest;
+    }
+
+    &.orange {
+      background: $orange-lighter;
+      color: $white;
+    }
 
     .btn-xxs {
       margin-left: 6px;
@@ -98,42 +99,92 @@
   border-bottom: 1px solid $gray-lighter;
   border-radius: 3px 3px 0 0;
   flex: 0 0 auto;
+  min-height: 60px;
   padding: 0 15px;
   text-align: center;
 
-  .container-title-wrapper {
-    color: $gray;
-    margin: 12px 0 6px;
-
-    .container-title {
-      font-size: 15px;
-      font-weight: 400;
-    }
-
-    .icons-warning,
-    .icons-arrow-down,
-    .spinner-wrapper {
-      flex: 0 0 18px;
-      height: 18px;
-    }
+  // text
+  .modal-heading {
+    @extend %text-overflow;
+    color: $gray-dark;
+    font-size: 18px;
+    font-weight: $weight-bold;
+    line-height: 60px;
+    padding: 0 24px; // spacing for close icon
   }
 
-  .p {
+  // close icon
+  .icons-close {
     color: $gray-light;
-    line-height: 36px;
+    cursor: pointer;
+    pointer-events: auto; // reset from .iconnables
+    position: absolute;
+    right: 15px;
+    top: 18px;
+
+    &:hover {
+      color: $gray;
+    }
+
+    &:active {
+      color: $red;
+    }
+  }
+}
+
+// tabs
+.modal-tabs {
+  display: block;
+  margin: 0 auto;
+  transition: width .15s ease-in-out;
+  white-space: nowrap;
+
+  // show 1 tab
+  &.tabs-1 {
+    width: 90px;
   }
 
-  // tabs
-  .modal-tabs {
-    margin: 0 -15px;
+  // show 2 tabs
+  &.tabs-2 {
+    width: 90px * 2;
+  }
+
+  // show all tabs except logs
+  &.tabs-7 {
+    width: 90px * 7;
+  }
+
+  // show all tabs
+  &.tabs-all {
     overflow-x: auto;
-    white-space: nowrap;
+    width: 100%;
+  }
+
+  // for animation on .tabs-all
+  &.ng-animate {
+    overflow: visible;
   }
 
   .btn-radio {
+    color: $gray-dark;
     margin-bottom: 9px;
     padding: 0 3px;
-    width: 102px;
+
+    &:active,
+    &.active {
+      color: $purple-light;
+    }
+
+    // animation start state
+    &.ng-enter {
+      opacity: 0;
+      transition: opacity .15s ease-in;
+    }
+
+    // animation leave state
+    &.ng-enter.ng-enter-active {
+      opacity: 1;
+    }
 
     .btn-text {
       font-size: 13px;
@@ -155,14 +206,8 @@
 
   + .list {
     font-weight: 500;
-    margin: 15px 0 15px 45px;
+    margin: 15px 0 15px $input-md;
   }
-}
-
-// .modal-heading
-.modal-heading {
-  font-size: 18px;
-  line-height: 60px;
 }
 
 // .modal-body
@@ -178,6 +223,7 @@
     align-items: center;
     color: $gray-light;
     flex: 1 1 auto;
+    margin: 15px auto;
   }
 
   .btn-checkbox {
@@ -187,6 +233,18 @@
 
   .label-checkbox {
     transition: padding .15s ease-in;
+  }
+
+  // empty p tag
+  .p.empty {
+    color: $gray;
+    font-weight: 500;
+    margin: 60px 0 30px;
+    text-align: center;
+
+    &:only-child {
+      margin-bottom: 60px;
+    }
   }
 
   // nested footer
@@ -261,7 +319,7 @@
 
   .modal-footer-warning {
     color: $gray;
-    line-height: 45px;
+    line-height: $input-md;
     padding-left: 12px;
   }
 }

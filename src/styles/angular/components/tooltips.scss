@@ -19,6 +19,12 @@
     margin-left: 6px;
   }
 
+  // bottom with arrow on the right
+  &.bottom-arrow-right::before {
+    margin-left: auto;
+    margin-right: 6px;
+  }
+
   // .right
   &.right {
 
@@ -190,6 +196,11 @@
     white-space: normal;
     width: 240px;
 
+    &::before {
+      left: 30px;
+      right: auto;
+    }
+
     .list-item {
       height: 24px;
       line-height: 24px;
@@ -215,7 +226,7 @@
 
   // single line tooltips
   &.tooltip-text {
-    font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+    font-family: $sans-serif;
     padding: 9px;
 
     // reverse for dark theme

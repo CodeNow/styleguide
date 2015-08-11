@@ -89,6 +89,15 @@ input {
 
   &[type="search"] {
     border-radius: $input-md;
+    min-height: $input-md; // safari
+
+    // reset so padding is consistent across browsers
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
   }
 
   &.input-sm {
@@ -97,6 +106,7 @@ input {
 
     &[type="search"] {
       border-radius: $input-sm;
+      min-height: $input-sm; // safari
     }
   }
 
@@ -107,6 +117,7 @@ input {
 
     &[type="search"] {
       border-radius: $input-xs;
+      min-height: $input-xs; // safari
     }
   }
 
@@ -117,7 +128,28 @@ input {
 
     &[type="search"] {
       border-radius: $input-xxs;
+      min-height: $input-xxs; // safari
     }
+  }
+}
+
+// radio
+input[type="radio"] {
+  -webkit-appearance: none;
+  border: 1px solid $gray-lighter;
+  border-radius: 50%;
+  height: 12px;
+  transition: border-width .1s ease-in;
+  width: 12px;
+
+  &:hover {
+    border-color: $gray-light;
+  }
+
+  &:active,
+  &:checked {
+    border-color: $purple-light;
+    border-width: 4px;
   }
 }
 
@@ -195,22 +227,26 @@ input {
   }
 }
 
-// icons
-.input-root {
+// prefix input with…
+.input-prefix {
   position: relative;
 
   &::after {
     color: $gray-light;
-    content: '/';
+    content: attr(data-prefix);
     display: block;
     font-weight: 500;
     height: $input-sm;
     left: 0;
     line-height: $input-sm;
+    padding-left: 8px;
     position: absolute;
     text-align: center;
     top: 0;
-    width: 21px;
+  }
+
+  &.input-prefix-monospace::after {
+    @extend %monospace;
   }
 
   .input {

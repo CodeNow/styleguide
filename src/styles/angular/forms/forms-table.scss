@@ -98,6 +98,10 @@
     border-top: 0;
     margin-top: 0;
 
+    .thead {
+      border-radius: 0;
+    }
+
     .tr:not(.thead) {
 
       &:first-child {
@@ -111,7 +115,7 @@
     }
   }
 
-  .tr:last-child {
+  .tr:last-child:not(:only-child) {
     border-radius: 0;
     padding-bottom: 0;
   }
@@ -170,6 +174,11 @@
     &.tr-deletion {
       border-top: 0;
     }
+  }
+  
+  // do not add border if ng-hide
+  &.ng-hide + .tr {
+    border-top: 0;
   }
 }
 
@@ -256,15 +265,25 @@
 
   // cells with multiple lines
   .multi-line & {
-    height: 45px;
+    height: $input-md;
     line-height: 1.2;
     padding-top: 7px;
+
+    &:last-child {
+
+      .btn-xs {
+        margin-top: 3px;
+      }
+
+      .btn-xxs {
+        margin-top: 6px;
+      }
+    }
   }
 
   .small {
     color: $gray;
     display: block;
-    // float: right;
     font-size: 11px;
   }
 
@@ -294,17 +313,13 @@
     }
   }
 
-  &:last-child {
-    padding: 0;
-    width: 24px;
-  }
-
   &.disabled {
     visibility: hidden;
   }
 
   // status icons
-  .iconnables {
+  .icons-warning,
+  .icons-link {
     height: 38px;
     width: 18px;
 
@@ -327,6 +342,12 @@
     opacity: .3;
     width: 9px;
   }
+
+  // actions
+  > .btn .icons-overflow {
+    top: 5px;
+    width: 18px;
+  }
 }
 
 .cell-type {
@@ -334,7 +355,7 @@
 
   .multi-line & {
     color: $gray;
-    line-height: 45px;
+    line-height: $input-md;
     padding-top: 0;
   }
 
@@ -363,10 +384,10 @@
 }
 
 // drag and drop styles
-.table-drag-drop .thead {
-  border-bottom: 1px solid $gray-lighter;
+.table-drag-drop {
+  position: relative; // keeps width of DnD placeholder
+}
 
-  + .tr {
-    border-top: 0;
-  }
+.thead + .table-drag-drop {
+  border-top: 1px solid $gray-lighter; // border when there's a header
 }
