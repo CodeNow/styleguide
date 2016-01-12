@@ -24,7 +24,7 @@ UI
 - Tooltips
 - Notifications
 - Alerts
-- Spinner
+- ~~Spinner~~
 - Animations
 
 CSS
