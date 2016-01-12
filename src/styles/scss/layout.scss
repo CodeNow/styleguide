@@ -45,12 +45,12 @@ body > svg {
 
 .main {
   margin-left: 240px;
-  padding: 30px;
+  padding: 30px 30px 300px;
   position: relative;
 
   @media (max-width: 960px) {
-    padding-top: 90px;
     margin: 0;
+    padding-top: 90px;
   }
 }
 

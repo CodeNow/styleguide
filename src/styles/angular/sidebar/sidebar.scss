@@ -6,135 +6,17 @@
   flex-direction: column;
   float: left;
   font-size: 15px;
-  height: calc(100vh - 60px);
-  line-height: 24px;
   position: relative;
   transition: none;
   width: 240px;
-  z-index: $z-sidebar;
 
+  // for debug
   &.full-height {
-    height: 100vh;
-  }
-
-  // size if sidebar is present
-  + .content {
-    float: right;
-    height: calc(100vh - 60px);
-    position: relative;
-    width: calc(100% - 240px);
-
-    > .spinner-wrapper {
-      position: absolute;
-    }
+    height: calc(100vh - 55px);
   }
 
   .icons-status {
     flex: 0 0 auto;
     margin-right: 6px;
-  }
-}
-
-// main sidebar
-.nav-sidebar {
-  background: $gray-lighterest;
-  float: left;
-
-  .spinner-wrapper {
-    margin-top: 30px;
-  }
-}
-
-.containers {
-  color: $gray;
-  flex: 1 1 auto;
-  overflow-y: auto;
-  padding-top: 9px;
-
-  // configure, "hide", and "X more…" buttons
-  .btn {
-    color: currentColor;
-    flex: 0 0 auto;
-    font-size: 13px;
-    font-style: italic;
-    height: 27px;
-    line-height: 27px;
-    opacity: .7;
-    padding: 0 6px;
-
-    &:hover {
-      opacity: .85;
-    }
-
-    &:active,
-    &.active {
-      color: $purple-light;
-      opacity: 1;
-    }
-  }
-}
-
-.list-containers {
-  border-bottom: 1px solid $gray-lighter; // lines below categories
-  margin: 0 9px;
-  padding: 9px 0;
-
-  .list-item {
-    align-items: center;
-    color: currentColor;
-    display: flex;
-    height: 27px;
-    line-height: 27px;
-    margin: 0 -9px;
-    padding: 0 18px;
-
-    &:hover {
-      background: rgba($gray-light,.1);
-
-      .btn-hide {
-        display: block;
-      }
-    }
-
-    &:active,
-    &.active {
-      background: $purple-lightest;
-      color: $purple-light;
-    }
-
-    // reset repo name header
-    &.small {
-      color: $gray-dark;
-      pointer-events: auto;
-    }
-
-    // text
-    > .span {
-      flex: 1 1 auto;
-    }
-
-    // configure button
-    > .btn-configure {
-      height: 100%;
-      margin-right: -6px;
-      width: 27px;
-    }
-
-    .icons-advanced {
-      height: 100%;
-      width: 12px;
-    }
-
-    // hide button
-    > .btn-hide {
-      display: none;
-      line-height: 30px;
-      padding-right: 0;
-    }
-  }
-
-  // "X more…" button
-  > .btn {
-    padding: 0 0 0 24px;
   }
 }

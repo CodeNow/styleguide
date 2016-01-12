@@ -9,15 +9,18 @@
 
 //   California Style Sheets
 
+// scss-lint:disable StringQuotes
+
 // global
-@import "scss/layout.scss";
-@import "scss/links.scss";
-@import "scss/figures.scss";
+@import "scss/layout";
+@import "scss/links";
+@import "scss/figures";
 
 // specific
-@import "scss/runnabear.scss";
-@import "scss/colors.scss";
-@import "scss/themes.scss";
-@import "scss/icons.scss";
+@import "scss/runnabear";
+@import "scss/colors";
+@import "scss/themes";
+@import "scss/icons";
 @import "scss/forms";
 @import "scss/buttons";
+@import "scss/spinners";

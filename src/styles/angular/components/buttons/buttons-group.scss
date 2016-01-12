@@ -1,4 +1,4 @@
- // btn-groups
+// btn-groups
 .btn-group {
   @extend %clearfix;
   display: inline-block;
@@ -81,6 +81,37 @@
   }
 }
 
+// vertical btn-groups
+.btn-group-vertical {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+
+  > .btn {
+    display: block;
+    float: none;
+    width: 100%;
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+
+    &:first-child:not(:last-child) {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child:not(:first-child) {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    + .btn {
+      margin-top: -$input-border;
+    }
+  }
+}
+
 // .btn-toggle for rounded
 .btn-group.btn-toggle {
   border-radius: $input-md;
@@ -121,61 +152,6 @@
 
       &.btn-xs {
         padding-right: 9px;
-      }
-    }
-  }
-
-  // colors
-  &.purple {
-    background: $purple;
-    border: 2px solid $purple;
-
-    > .btn {
-      background: transparent;
-      border-color: transparent;
-      color: rgba($white,.3);
-      font-weight: 500;
-
-      &:hover {
-        color: rgba($white,.45);
-
-        .iconnables {
-          opacity: .45;
-        }
-      }
-
-      &:active {
-        color: rgba($white,.6);
-
-        .iconnables {
-          opacity: .6;
-        }
-      }
-
-      &.active {
-        background: #9662bd;
-        color: $white;
-
-        .iconnables {
-          opacity: 1;
-        }
-      }
-
-      // no states if disabled
-      &.disabled {
-
-        &:hover,
-        &:active {
-          color: rgba($white,.3);
-
-          .iconnables {
-            opacity: .3;
-          }
-        }
-      }
-
-      .iconnables {
-        opacity: .3;
       }
     }
   }

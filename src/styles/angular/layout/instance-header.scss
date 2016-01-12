@@ -1,0 +1,204 @@
+// instance header: status, dns mappings, container url, save (deprecated)
+.instance-header {
+  background: $white;
+  flex: 0 0 auto;
+  position: relative;
+  z-index: $z-views-header;
+}
+
+.instance-header-title {
+  color: $gray-darker;
+  font-size: 24px;
+  font-weight: $weight-normal;
+  line-height: 54px;
+  padding: 0 72px; // for text-overflow, must be even so that text is centered properly
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  // containers list toggle
+  .btn.float-left {
+    color: $gray-light;
+    height: 55px;
+    left: 0;
+    padding-left: 0;
+    position: absolute;
+
+    &:hover {
+      color: $gray;
+    }
+
+    &:active,
+    &.active {
+      color: $purple-light;
+    }
+
+    .icons-hamburger {
+      top: 9px;
+    }
+
+    .icons-arrow-backward {
+      left: 4px;
+      top: 5px;
+      width: 21px;
+    }
+  }
+
+  // pr badge
+  .green {
+    margin-left: 9px;
+    padding: 0 3px 0 0;
+    top: -4px;
+
+    .iconnables {
+      height: 100%;
+      width: 18px;
+    }
+  }
+
+  // for debug view
+  .btn-status {
+    left: 12px;
+    position: absolute;
+    top: 15px;
+
+    .icons-status {
+      top: 6px;
+    }
+  }
+
+  // debug text
+  .strong .small {
+    color: $gray-light;
+    left: 6px;
+    line-height: 1;
+    position: relative;
+    top: -3px;
+  }
+
+  // isolation badge
+  .btn-badge {
+    position: absolute;
+    right: 12px;
+    top: 15px;
+  }
+
+  // save button in debug
+  .btn-save-wrapper {
+    position: absolute;
+    right: 12px;
+    top: 9px;
+
+    + .btn-badge {
+      right: 90px;
+    }
+  }
+}
+
+.instance-header-properties {
+  align-items: top;
+  border-bottom: 1px solid rgba($black,.1);
+  display: flex;
+  padding: 0 12px 12px;
+  width: 100%;
+
+  // status, dns mappings, save
+  > .btn,
+  > .btn-group {
+    flex: 0 0 auto;
+  }
+
+  // container url
+  > .input-group {
+    flex: 1 1 auto;
+
+    .input {
+      overflow-y: auto;
+    }
+
+    // new tab
+    .link {
+      padding: 0;
+    }
+
+    .btn-icon-xs {
+      min-width: 24px;
+    }
+
+    .icons-link-external {
+      left: 1px;
+      margin: 0 3px;
+      top: -1px;
+      width: 15px;
+    }
+  }
+
+  // save
+  > .btn-group {
+    margin-left: 6px;
+
+    .icons-arrow-down {
+      margin: 0;
+    }
+  }
+}
+
+// status button
+.btn-status {
+  padding: 0 9px;
+
+  &.red,
+  &.red:active:not([disabled]) {
+
+    .icons-status {
+      background: none;
+      border: 1px solid $red-lighter;
+    }
+  }
+
+  .icons-status {
+    margin-right: 6px;
+    top: 12px;
+  }
+
+  .icons-alert {
+    height: 100%;
+    margin-left: 6px;
+    width: 15px;
+  }
+}
+
+// dns button
+.btn.btn-dns {
+  margin: 0 6px;
+
+  // colored states
+  &.gray:active .btn-xxs {
+    background: $purple-light;
+  }
+
+  &.orange .btn-xxs {
+    background: $white;
+    color: $orange;
+  }
+
+  // red
+  &.red .btn-xxs {
+    background: $white;
+    color: $red;
+  }
+
+  // dns badge
+  .btn-xxs {
+    background: $gray-light;
+    border-radius: 16px;
+    color: $white;
+    font-size: 12px;
+    height: 16px;
+    line-height: 16px;
+    margin-right: 3px;
+    min-width: 16px;
+    padding: 0 4px;
+    top: -2px;
+  }
+}

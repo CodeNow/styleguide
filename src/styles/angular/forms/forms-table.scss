@@ -20,11 +20,6 @@
   .thead {
     border-bottom: 1px solid $gray-lighter;
 
-    // github link
-    .link {
-      float: left;
-    }
-
     &:only-child {
       border-bottom: 0;
     }
@@ -54,8 +49,16 @@
     }
   }
 
+  .cell {
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+  }
+
   .link {
-    float: right;
+    margin-right: 9px;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 
   // diff colors
@@ -75,12 +78,6 @@
     &:last-child {
       padding-bottom: 0;
     }
-  }
-
-  // reduce cell height
-  .cell {
-    height: 24px;
-    line-height: 24px;
   }
 
   // checkbox
@@ -175,7 +172,7 @@
       border-top: 0;
     }
   }
-  
+
   // do not add border if ng-hide
   &.ng-hide + .tr {
     border-top: 0;
@@ -187,31 +184,23 @@
 .thead {
   background: $gray-lightest;
   font-size: 13px;
-  font-weight: 500;
-  padding: 3px 0;
+  font-weight: $weight-bold;
 
-  &.thead-sm {
-    color: $gray;
-    font-weight: 400;
-
-    .cell {
-      height: 21px;
-      line-height: 24px;
-    }
+  &.divider {
+    padding: 3px 0;
   }
 
   .cell {
+    align-items: center;
+    display: flex;
     height: 30px;
-    line-height: 30px;
+    justify-content: space-between;
+    padding: 0 8px; // 9px - 1px border for alignment
 
-    &:only-child {
-      width: 100%;
+    .btn-xs {
+      flex: 0 0 auto;
+      top: -1px;
     }
-  }
-
-  .btn {
-    float: right;
-    top: 3px;
   }
 
   .btn-status {
@@ -267,7 +256,7 @@
   .multi-line & {
     height: $input-md;
     line-height: 1.2;
-    padding-top: 7px;
+    padding-top: 5px;
 
     &:last-child {
 
@@ -318,20 +307,36 @@
   }
 
   // status icons
-  .icons-warning,
+  .icons-alert,
+  .icons-close,
   .icons-link {
     height: 38px;
     width: 18px;
+  }
 
-    // warning icon
-    &.icons-warning {
-      color: $orange;
+  // alert icon
+  .icons-alert {
+    color: $orange;
+  }
+
+  // link icon
+  .icons-link {
+    color: $purple-light;
+    width: 15px;
+  }
+
+  // close icon
+  .icons-close {
+    color: $gray-light;
+    cursor: pointer;
+    pointer-events: auto; // reset from .iconnables
+
+    &:hover {
+      color: $red;
     }
 
-    // link icon
-    &.icons-link {
-      color: $purple-light;
-      width: 15px;
+    &:active {
+      color: $red-dark;
     }
   }
 
@@ -345,8 +350,8 @@
 
   // actions
   > .btn .icons-overflow {
-    top: 5px;
-    width: 18px;
+    top: -$input-border;
+    width: 15px;
   }
 }
 
@@ -388,6 +393,9 @@
   position: relative; // keeps width of DnD placeholder
 }
 
+// disable linting so we can keep table-drag-drop styles together
+// scss-lint:disable MergeableSelector
 .thead + .table-drag-drop {
   border-top: 1px solid $gray-lighter; // border when there's a header
 }
+// scss-lint:enable MergeableSelector

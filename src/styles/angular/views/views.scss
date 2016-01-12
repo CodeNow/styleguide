@@ -1,8 +1,8 @@
 // section.views
 .views {
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
-  height: calc(100vh - 132px); // viewport - header (x2)
   overflow: hidden;
   position: relative;
   z-index: $z-views;
@@ -16,11 +16,12 @@
     z-index: $z-modal;
   }
 
+  // for debug
   &.full-height {
-    height: 100vh;
-  }
+    height: calc(100vh - 55px);
 
-  .spinner-backdrop {
-    position: absolute;
+    &.deprecated {
+      height: calc(100vh - 72px);
+    }
   }
 }

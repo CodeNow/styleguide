@@ -10,26 +10,26 @@
 %arrow-down, {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-top: 6px solid rgba(0,0,0,.1);
+  border-top: 6px solid rgba($black,.1);
 }
 
 .arrow-left,
 %arrow-left {
-  border-bottom: 6px solid rgba(0,0,0,.1);
-  border-right: 6px solid rgba(0,0,0,.1);
+  border-bottom: 6px solid rgba($black,.1);
+  border-right: 6px solid rgba($black,.1);
   border-top: 4px solid transparent;
 }
 
 .arrow-right,
 %arrow-right {
   border-bottom: 4px solid transparent;
-  border-left: 6px solid rgba(0,0,0,.1);
+  border-left: 6px solid rgba($black,.1);
   border-top: 4px solid transparent;
 }
 
 .arrow-up,
 %arrow-up {
-  border-bottom: 6px solid rgba(0,0,0,.1);
+  border-bottom: 6px solid rgba($black,.1);
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
 }
@@ -57,17 +57,13 @@
     width: 18px;
   }
 
-  &.icons-round {
-    border-radius: 50%;
-  }
-
   // flip
   &.icons-arrow-forward {
-    transform: rotate3d(0,0,1,-90deg);
+    transform: rotate(-90deg);
   }
 
   &.icons-arrow-backward {
-    transform: rotate3d(0,0,1,90deg);
+    transform: rotate(90deg);
   }
 
   &.icons-file-tree {
@@ -75,14 +71,72 @@
   }
 }
 
+// round
+.icons-round {
+  background: currentColor;
+  border-radius: 50%;
+  fill: $white; // fill instead of color so background can be currentColor
+
+  .green & {
+    fill: $green;
+  }
+
+  .orange & {
+    fill: $orange-light;
+  }
+
+  .purple & {
+    fill: $purple-light;
+  }
+
+  .red & {
+    fill: $red;
+  }
+}
+
+// .icons-round in light-colored buttons
+.btn.gray,
+.btn.white {
+
+  .icons-round {
+    background: $gray-light;
+    fill: $white;
+  }
+
+  &:active .icons-round,
+  &.active .icons-round {
+    background: currentColor;
+  }
+}
+
+// fat check
+.icons-fat-check {
+  background: $gray-light;
+  border-radius: 50%;
+  color: $white;
+  max-height: 15px;
+  max-width: 15px;
+
+  &.active {
+    background: $green;
+  }
+}
+
 // status
 .icons-status {
   background: $gray-light;
+  border: 0;
   border-radius: 50%;
   display: inline-block;
   height: 9px;
+  opacity: .75;
   position: relative;
   width: 9px;
+
+  &:hover,
+  &:active {
+    opacity: 1;
+  }
 
   &.green,
   &.running,

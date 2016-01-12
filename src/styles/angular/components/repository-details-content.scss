@@ -1,40 +1,63 @@
 .repository-details-content {
+  display: flex;
+  flex-direction: column;
 
-  .label-jump {
-    display: block;
-    text-align: center;
+  > .label {
+    display: table;
+    margin: 0 auto 12px;
+
+    .spinner-wrapper {
+      align-items: center;
+      color: $gray-light;
+      height: 100%;
+      padding-left: 6px;
+    }
   }
 
-  .list-servers {
-    margin-top: 9px;
+  .list-servers.list-servers {
+    flex: 1 1 auto;
+    min-height: 90px;
+    position: relative;
 
-    .list-item.list-item {
+    > .spinner-wrapper {
+      background: transparent;
+      top: 0;
+    }
+
+    .list-item {
       @extend %text-overflow;
       font-size: 15px;
-      padding-right: 45px;
-      padding-left: 9px;
+      padding-right: 36px;
 
       &:active,
       &.active {
-        color: $purple-light;
         border-color: currentColor;
-        cursor: default;
+        color: $purple-light;
 
         .small {
           color: currentColor;
         }
 
         .icons-fat-check {
-          color: currentColor;
-          visibility: visible;
+          background-color: $purple-light;
         }
       }
 
+      &.active {
+        cursor: default;
+
+        &.disabled .icons-fat-check {
+          background-color: $gray-light;
+        }
+      }
+
+      &.active .icons-fat-check,
       &:not(.disabled):hover .icons-fat-check {
         visibility: visible;
       }
 
       &.disabled,
+      &.disabled:active,
       &.disabled:hover {
         background-color: transparent;
         border-color: transparent;
@@ -46,31 +69,20 @@
         }
       }
 
+      &:last-child {
+        margin-bottom: 15px;
+      }
+
       .small {
         color: $gray;
-        display: flex;
-      }
-
-      .span {
-        min-width: 0;
-      }
-
-      .link {
-        color: currentColor;
-        margin-left: 4px;
-        font-size: 13px;
-        flex: 0 0 auto;
       }
     }
   }
 
   .icons-fat-check {
-    color: $gray-light;
-    height: 100%;
     position: absolute;
-    right: 9px;
-    top: 0;
-    width: 27px;
+    right: 12px;
+    top: 18px;
     visibility: hidden;
   }
 
@@ -80,15 +92,19 @@
     color: $gray-dark;
     flex: 0 0 auto;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: $weight-bold;
     line-height: 18px;
-    margin-top: 15px;
+    margin-bottom: 9px;
     padding: 9px 12px;
+
+    .text-overflow {
+      margin-right: 36px;
+    }
   }
 
   .toggle-group {
-    float: right;
-    position: relative;
-    top: -9px;
+    position: absolute;
+    right: 0;
+    top: 16px;
   }
 }

@@ -1,6 +1,6 @@
 .card {
   border: 1px solid transparent;
-  border-radius: 3px;
+  border-radius: $input-border-radius;
   display: flex;
   flex-direction: column;
   min-width: 360px;
@@ -26,7 +26,7 @@
 
   // sizes
   &.card-sm {
-    border-width: 2px;
+    border-width: $input-border;
     min-height: inherit;
     min-width: inherit;
     width: 210px;
@@ -59,7 +59,6 @@
     background: transparent;
     border-color: transparent;
     color: $gray;
-    height: 333px;
     justify-content: center;
     min-width: 100%;
     text-align: center;
@@ -121,7 +120,7 @@
   .well {
     background: $white;
     border: 0;
-    border-radius: 0 0 3px 3px;
+    border-radius: 0 0 $input-border-radius $input-border-radius;
     border-top: 1px solid $purple-lighter;
     cursor: default;
     margin: 0;
@@ -142,18 +141,11 @@
 }
 
 // card layout
-// header
-.card-header {
-  display: flex;
-  justify-content: center;
-  margin: 18px 15px;
-}
-
 // body
 .card-body,
 .card-button {
   flex: 1 1 auto;
-  padding: 0 15px 15px;
+  padding: 15px;
 
   &.empty {
     align-items: center;
@@ -201,28 +193,11 @@
     }
 
     &:first-child {
-      border-radius: 3px 3px 0 0;
+      border-radius: $input-border-radius $input-border-radius 0 0;
     }
 
     &:last-child {
-      border-radius: 0 0 3px 3px;
-      padding-right: 45px; // larger padding for lock icon
-
-      // icons for dockerfile tool
-      // wrapper needed for title text
-      .iconnables-wrapper {
-        height: 100%;
-        position: absolute;
-        right: 30px;
-        top: 0;
-        width: 14px;
-      }
-
-      .icons-unlock,
-      .icons-lock {
-        height: 100%;
-        width: 100%;
-      }
+      border-radius: 0 0 $input-border-radius $input-border-radius;
     }
 
     &.hint {
@@ -238,10 +213,10 @@
 
     + .btn {
       border-top-width: 1px;
-      margin-top: -2px;
+      margin-top: -$input-border;
 
       &.hint {
-        border-top-width: 2px;
+        border-top-width: $input-border;
       }
     }
 
@@ -272,6 +247,7 @@
     // notifications
     .btn-badge {
       background: $gray-light;
+      border-radius: $input-border-radius;
       color: $white;
       position: absolute;
       right: 30px;
@@ -286,7 +262,7 @@
       // text after a tool
       ~ .text-overflow {
         display: inline-block;
-        width: calc(100% - 54px);
+        width: calc(100% - 90px);
       }
     }
 
@@ -300,9 +276,30 @@
       transform: rotate3d(0,0,1,-90deg);
     }
   }
+
+  // dockerfile tool icons
+  .btn-dockerfile {
+    padding-right: 45px; // larger padding for lock icon
+
+    // icons for dockerfile tool
+    // wrapper needed for title text
+    .iconnables-wrapper {
+      height: 100%;
+      position: absolute;
+      right: 30px;
+      top: 0;
+      width: 14px;
+    }
+
+    .icons-unlock,
+    .icons-lock {
+      height: 100%;
+      width: 100%;
+    }
+  }
 }
 
-//- loading state
+// loading state
 .card-loading {
   align-items: center;
   display: flex;

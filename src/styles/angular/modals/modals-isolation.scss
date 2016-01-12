@@ -1,0 +1,85 @@
+.modal-isolation {
+  color: $gray-dark;
+
+  // modal description
+  .well {
+    background: $gray-lightest;
+    color: $gray;
+    flex: 0 0 auto;
+    margin: 0 0 15px;
+    padding: 6px;
+  }
+
+  // list headers
+  .h4 {
+    color: $gray;
+    flex: 0 0 auto;
+    font-size: 13px;
+    font-weight: $weight-normal;
+    padding: 6px 12px;
+  }
+
+  // container lists
+  .list {
+    flex: 0 0 auto;
+    margin-bottom: 15px;
+  }
+
+  .list-item {
+    align-items: center;
+    background: $white;
+    display: flex;
+    height: 45px;
+    padding: 0 12px;
+
+    // new container icons
+    > .iconnables {
+      flex: 0 0 21px;
+    }
+
+    // container names
+    > .text-overflow:first-child {
+      flex: 1 1 auto;
+      font-weight: $weight-bold;
+      padding-right: 6px;
+    }
+
+    // backup status
+    > .small {
+      color: $gray-light;
+      cursor: default;
+      flex: 0 0 auto;
+    }
+  }
+
+  .checkbox {
+    margin-right: 9px;
+  }
+
+  .icons-check {
+    bottom: 1px;
+    height: 18px;
+    width: 18px;
+  }
+
+  // reset .list-item > .btn-xs
+  .btn-xs {
+    flex: 0 0 185px;
+    position: relative;
+    right: 0;
+    text-align: left;
+    top: 0;
+
+    &.modded {
+      top: -6px;
+    }
+
+    // "Branch uses a modified configuration"
+    + .small {
+      bottom: 1px;
+      font-size: 11px;
+      position: absolute;
+      right: 12px;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+.modal-invite {
+
+  .list-teammates {
+    margin-bottom: 15px;
+  }
+
+  .list-item {
+
+    .input {
+      font-size: 14px;
+      padding-right: 54px;
+
+      // send
+      ~ .green {
+        bottom: 13px;
+        margin: 6px;
+        right: 15px;
+        top: auto;
+      }
+    }
+
+    .icons-check {
+      color: $green;
+    }
+
+    // sending invite
+    .spinner-wrapper,
+    .send-confirmation {
+      position: absolute;
+      right: 21px;
+      top: 21px;
+    }
+  }
+}
