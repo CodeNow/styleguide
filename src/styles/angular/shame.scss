@@ -15,5 +15,41 @@
 // https://code.google.com/p/chromium/issues/detail?id=138415
 // https://code.google.com/p/chromium/issues/detail?id=311583
 %webkit-flicker {
+  // scss-lint:disable VendorPrefix
   -webkit-backface-visibility: hidden;
+  // scss-lint:enable VendorPrefix
+}
+
+// chrome paint/layout bug:
+// http://stackoverflow.com/questions/3485365/how-can-i-force-webkit-to-redraw-repaint-to-propagate-style-changes
+.header,
+.views-tabs,
+.views-toolbar,
+.server-header {
+  // don't render build logs behind these elements
+  @extend %webkit-flicker;
+}
+
+.views-tabs,
+.views-toolbar,
+.server-header {
+  z-index: $z-views-active-panel + 1; // set higher z-index than build logs
+}
+
+.server-header {
+  // can't rely on base styles
+  background: $white;
+}
+
+// arrows for nesting div in buttons
+.btn > .js-btn-wrapper {
+  border: 0;
+  height: 100%;
+  padding: 0;
+
+  > .icons-arrow-down {
+    float: right;
+    height: 100%;
+    margin-right: -6px;
+  }
 }

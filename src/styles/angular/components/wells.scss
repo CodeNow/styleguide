@@ -1,13 +1,13 @@
 .well {
-  border-radius: 3px;
+  border-radius: $input-border-radius;
   color: $gray-darker;
   margin: 0 6px;
   padding: 0 3px;
 
   // border and bg not shown by default
   &.in {
-    background: rgba($black,.025);
-    border: 1px solid rgba($black,.1);
+    background: $gray-lighterest;
+    border: 1px solid $gray-lighter;
   }
 
   // code sample
@@ -30,13 +30,30 @@
   }
 
   &.well-popover {
-    background-color: $orange-lightest;
-    border: 1px solid rgba($orange,.3);
-    color: $orange;
     font-size: 15px;
+    font-weight: $weight-normal;
     line-height: 18px;
     margin: 9px 9px 3px;
     padding: 9px 12px;
+
+    &.orange {
+      background-color: $orange-lightest;
+      border: 1px solid rgba($orange,.3);
+      color: $orange;
+    }
+
+    &.red {
+      background-color: $red-lighter;
+      border: 1px solid rgba($red,.3);
+      box-shadow: none;
+      color: $red;
+    }
+  }
+
+  &.red {
+    background-color: rgba($red,.05);
+    border-color: $red;
+    box-shadow: inset 0 0 0 1px $red;
   }
 
   .label-checkbox {

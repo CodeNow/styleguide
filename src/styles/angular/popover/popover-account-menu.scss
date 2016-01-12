@@ -1,27 +1,47 @@
 .popover-account-menu {
-  max-width: 180px;
-  transform-origin: 95% 0 !important;
+  min-height: 102px;
+  position: fixed;
+  width: 240px;
   z-index: $z-spinner + 1; // to appear above instance view spinner
 
-  .list {
-    max-height: 50vh;
-    overflow-y: auto;
+  .popover-list-item {
+    padding: 0 15px;
+  }
 
-    // override for slack icon
-    .iconnables {
-      width: 24px;
+  // active state
+  .icons-fat-check {
+    left: 10px;
+    opacity: 0;
+    position: absolute;
+    top: 17px;
+  }
+
+  .no-touching .icons-fat-check {
+    opacity: 1;
+  }
+
+  // trial badge
+  .btn-badge {
+    background: $gray-light;
+    border-radius: $input-border-radius;
+    color: $white;
+
+    &.red {
+      background: $red;
     }
   }
 
-  .list-item.disabled {
-    padding-right: 24px;
-    pointer-events: none;
-  }
+  // view-1 styles
+  .list {
 
-  .icons-fat-check {
-    color: $purple-light;
-    max-width: 18px;
-    position: absolute;
-    right: 0;
+    // arrow right
+    .icons-arrow {
+      width: 21px;
+    }
+
+    // external links
+    .icons-link-external {
+      padding: 0 5px;
+    }
   }
 }

@@ -8,7 +8,7 @@ var imagemin = require('gulp-imagemin'); // image optimizer
 var pngquant = require('imagemin-pngquant'); // pngquant
 
 // file locations
-var src = 'src/'
+var src = 'src/';
 var htmlDir = src + 'html/**/*.html';
 var htmlSrc = src + 'html/index.html';
 var sassDir = src +'styles/**/*.scss';

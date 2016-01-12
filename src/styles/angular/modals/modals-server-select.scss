@@ -1,5 +1,4 @@
 .modal-server-select {
-  max-width: 480px;
 
   // search
   .input-search {
@@ -18,6 +17,32 @@
   //- empty state (if there are no repositories)
   .p.empty {
     margin-top: 30px;
+  }
+
+  // select type of container
+  .btn-huge {
+    color: $gray;
+    float: left;
+    font-size: 16px;
+    height: 210px;
+    line-height: 1.4;
+    margin: 4% 2% 2%;
+    white-space: normal;
+    width: 46%;
+
+    &:last-child {
+      background: url(/build/images/other-containers.png) no-repeat center center $white;
+      background-size: cover;
+    }
+
+    .iconnables {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .small {
+      display: block;
+    }
   }
 }
 
@@ -39,20 +64,21 @@
     padding: 6px 130px 6px 15px;
     white-space: nowrap; // reset .multi-line default
 
-    &:hover {
+    &:hover:not(.disabled) {
       background: $white;
       border-color: $gray-lighter;
     }
 
-    &.no-touching {
+    &.disabled {
       color: $gray-light;
+      cursor: default;
 
       > .small {
         color: $gray-light;
       }
     }
 
-    &:active,
+    &:active:not(.disabled),
     &.active {
       background: $white;
       border-color: currentColor;
@@ -70,6 +96,16 @@
         min-height: 60px;
       }
     }
+  }
+
+  .row-author > .small:not(.monospace) {
+    flex: 1 1 auto; // pushes .monospace to the right
+    margin-right: 6px;
+  }
+
+  // empty state
+  .empty {
+    word-break: break-all;
   }
 
   // add button
@@ -97,8 +133,8 @@
   // spinner
   .spinner-wrapper {
     position: absolute;
-    right: 15px;
-    top: 21px;
+    right: 9px;
+    top: 20px;
   }
 
   // tiled view for template containers
@@ -115,7 +151,7 @@
       border-color: $gray-lighter;
       color: $gray-dark;
       float: left;
-      font-size: 16px;
+      font-size: 15px;
       height: 99px;
       margin: 3px;
       padding: 0;

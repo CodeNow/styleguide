@@ -1,0 +1,195 @@
+.popover-dns-mappings {
+  max-width: none;
+  width: 360px;
+
+  .popover-view {
+    min-height: 80px; // set initial height
+  }
+
+  .popover-content {
+    max-height: calc(100vh - 176px);
+
+    .empty {
+      margin: 15px 0;
+    }
+  }
+
+  .icons-status {
+    flex: 0 0 auto;
+    margin-right: 5px;
+  }
+
+  // specific to branch list
+  .list-branches {
+
+    .list-item {
+      align-items: center;
+      color: $gray;
+      display: flex;
+      font-size: 14px;
+      font-weight: $weight-bold;
+      padding: 0 15px;
+
+      &:active {
+        color: $purple-light;
+      }
+
+      &.small {
+        color: $gray-light;
+        font-weight: $weight-normal;
+      }
+    }
+
+    // name of branch
+    .text-overflow {
+      flex: 1 1 auto;
+    }
+
+    // isolation badge
+    .btn-badge {
+      margin: 0;
+    }
+
+    // spinners
+    .spinner-wrapper {
+      flex: 0 0 auto;
+    }
+
+    // selected branch
+    .icons-fat-check {
+      flex: 0 0 auto;
+      margin: 0 6px;
+    }
+  }
+}
+
+// view-1
+// rows
+.tr-dns {
+  cursor: pointer;
+  padding: 3px 15px;
+
+  &:only-child {
+    padding: 3px 15px; // override default for only-child
+  }
+
+  &:hover .icons-arrow-forward {
+    color: $gray;
+  }
+
+  &:active {
+
+    // override .popover-list-item default
+    .small.text-overflow {
+      color: $gray;
+    }
+
+    .cell + .cell,
+    .cell + .cell .small,
+    .icons-arrow-forward {
+      color: $purple-light;
+    }
+  }
+
+  // override borders
+  + .tr {
+    border: 0;
+  }
+
+  .iconnables {
+    margin: 0;
+    position: absolute;
+    right: 6px;
+    top: 18px;
+  }
+
+  .icons-arrow-forward {
+    color: $gray-light;
+  }
+
+  // check icon
+  .icons-check {
+    padding: 6px;
+
+    + .icons-arrow-forward {
+      opacity: 0;
+
+      &.in {
+        opacity: 1;
+        transition: opacity .15s 1.75s ease-in;
+      }
+    }
+  }
+
+  // check icon path
+  .path {
+    animation: check 1.5s .3s ease-out forwards;
+    stroke-dasharray: 18;
+    stroke-dashoffset: 18;
+    transform-origin: 50% 50%;
+  }
+
+  // cells
+  .cell {
+    color: $gray-dark;
+    flex: 1 1;
+    font-size: 14px;
+    font-weight: $weight-bold;
+    height: 54px;
+    max-width: 50%;
+    padding: 12px 0;
+    position: relative;
+
+    // url cell
+    &:first-child {
+      color: $gray;
+      font-size: 13px;
+      padding-right: 15px;
+
+      // arrow
+      &::after {
+        color: $gray-light;
+        content: '→';
+        display: block;
+        font-size: 18px;
+        position: absolute;
+        right: 0;
+        top: 15px;
+      }
+    }
+
+    // center text if single line
+    &.center {
+      align-items: center;
+      display: flex;
+    }
+
+    // second row of text
+    .small {
+      line-height: 19px;
+    }
+
+    .btn-badge {
+      font-size: 11px;
+      height: 16px;
+      line-height: 14px;
+      margin-top: 3px;
+      max-width: 100%;
+    }
+
+    // branch cell
+    + .cell {
+      padding-left: 9px;
+      padding-right: 15px;
+
+      .small {
+        margin-left: 14px;
+      }
+    }
+
+    // just changed animation (along with check)
+    &.fade-in {
+      animation: fade-in-half 1s .25s;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 // div.modal-backdrop
 .modal-backdrop {
   align-items: center;
-  animation: fade-in .2s forwards;
+  animation: fade .15s;
   background: rgba($white,.9);
   display: flex;
   flex-direction: column;
@@ -20,37 +20,62 @@
   @media (max-height: 768px) {
     padding: 15px;
   }
+
+  // if there's a second modal, show no background
+  + .modal-backdrop {
+    background: none;
+  }
 }
 
 // div.modal-dialog
 .modal-dialog {
+  animation: scale-in-modal .15s ease-in-out;
   background: $gray-lighterest;
-  border: 2px solid $gray-lighter;
-  border-radius: 3px;
+  border: $input-border solid $gray-lighter;
+  border-radius: $input-border-radius-lg;
   display: flex;
   flex-direction: column;
   max-height: 100%;
-  max-width: 84vw;
-  min-width: 370px;
+  min-width: 360px;
   position: relative;
+  transition: all .3s ease-in-out;
 
   @include media(sm) {
-    min-width: 360px;
     width: 100%;
   }
 
+  // expands modal
   &.xl {
     flex: 1 1 auto;
   }
 
-  // sizing for confirmation modals
-  &.modal-confirm {
-    max-width: 540px;
-    padding-top: 21px;
+  // sizes
+  &.modal-xl,
+  &.modal-lg,
+  &.modal-md,
+  &.modal-sm,
+  &.modal-xs {
+    width: 100%;
   }
 
-  &.modal-repository-details {
-    width: 390px;
+  &.modal-xl {
+    max-width: 84vw;
+  }
+
+  &.modal-lg {
+    max-width: 570px;
+  }
+
+  &.modal-md {
+    max-width: 510px;
+  }
+
+  &.modal-sm {
+    max-width: 450px;
+  }
+
+  &.modal-xs {
+    max-width: 390px;
   }
 
   // search
@@ -65,11 +90,12 @@
     border-radius: $input-border-radius;
     border-width: 1px;
     display: flex;
-    flex: 0 0 $input-sm;
+    flex: 0 0 auto;
     font-size: 13px;
     justify-content: center;
     margin: 0 auto 15px;
-    padding: 0 15px;
+    min-height: $input-sm;
+    padding: 6px 15px;
 
     &.full-width {
       border-left-width: $input-border;
@@ -83,8 +109,9 @@
     }
 
     &.orange {
-      background: $orange-lighter;
-      color: $white;
+      background: $orange-lightest;
+      border-color: $orange-lighter;
+      color: $orange;
     }
 
     .btn-xxs {
@@ -93,11 +120,31 @@
   }
 }
 
+// close
+.modal-header > .icons-close,
+.modal-body > .icons-close {
+  color: $gray-light;
+  cursor: pointer;
+  pointer-events: auto; // reset from .iconnables
+  position: absolute;
+  right: 15px;
+  top: 18px;
+  z-index: 2; // fix overlap with container-title-wrapper
+
+  &:hover {
+    color: $red;
+  }
+
+  &:active {
+    color: $red-dark;
+  }
+}
+
 // header.modal-header
 .modal-header {
   background: $white;
   border-bottom: 1px solid $gray-lighter;
-  border-radius: 3px 3px 0 0;
+  border-radius: $input-border-radius $input-border-radius 0 0;
   flex: 0 0 auto;
   min-height: 60px;
   padding: 0 15px;
@@ -112,52 +159,52 @@
     line-height: 60px;
     padding: 0 24px; // spacing for close icon
   }
-
-  // close icon
-  .icons-close {
-    color: $gray-light;
-    cursor: pointer;
-    pointer-events: auto; // reset from .iconnables
-    position: absolute;
-    right: 15px;
-    top: 18px;
-
-    &:hover {
-      color: $gray;
-    }
-
-    &:active {
-      color: $red;
-    }
-  }
 }
 
 // tabs
 .modal-tabs {
   display: block;
   margin: 0 auto;
-  transition: width .15s ease-in-out;
+  overflow-x: auto;
+  padding: 0 6px;
+  transition: max-width .15s ease-in-out;
   white-space: nowrap;
 
   // show 1 tab
   &.tabs-1 {
-    width: 90px;
+    max-width: 90px + 12px; // tab width + padding
   }
 
-  // show 2 tabs
   &.tabs-2 {
-    width: 90px * 2;
+    max-width: (90px * 2) + 12px;
   }
 
-  // show all tabs except logs
+  &.tabs-3 {
+    max-width: (90px * 3) + 12px;
+  }
+
+  &.tabs-4 {
+    max-width: (90px * 4) + 12px;
+  }
+
+  &.tabs-5 {
+    max-width: (90px * 5) + 12px;
+  }
+
+  &.tabs-6 {
+    max-width: (90px * 6) + 12px;
+  }
+
   &.tabs-7 {
-    width: 90px * 7;
+    max-width: (90px * 7) + 12px;
   }
 
-  // show all tabs
+  &.tabs-8 {
+    max-width: (90px * 8) + 12px;
+  }
+
   &.tabs-all {
-    overflow-x: auto;
-    width: 100%;
+    max-width: 100%;
   }
 
   // for animation on .tabs-all
@@ -173,6 +220,10 @@
     &:active,
     &.active {
       color: $purple-light;
+
+      &[disabled] {
+        color: $gray-dark;
+      }
     }
 
     // animation start state
@@ -182,8 +233,16 @@
     }
 
     // animation leave state
-    &.ng-enter.ng-enter-active {
+    &.ng-enter-active {
       opacity: 1;
+    }
+
+    // badge location
+    &.badge::after {
+      border: 1px solid $white;
+      line-height: $input-xxs - 2px;
+      right: 24px;
+      top: 3px;
     }
 
     .btn-text {
@@ -205,7 +264,7 @@
   }
 
   + .list {
-    font-weight: 500;
+    font-weight: $weight-bold;
     margin: 15px 0 15px $input-md;
   }
 }
@@ -235,18 +294,6 @@
     transition: padding .15s ease-in;
   }
 
-  // empty p tag
-  .p.empty {
-    color: $gray;
-    font-weight: 500;
-    margin: 60px 0 30px;
-    text-align: center;
-
-    &:only-child {
-      margin-bottom: 60px;
-    }
-  }
-
   // nested footer
   .modal-footer {
     margin: 12px 0 0;
@@ -264,27 +311,28 @@
   z-index: 1; // footer overlaps body
 
   .btn-group,
-  .green,
-  .orange,
-  .white {
-    float: right;
+  .btn {
 
-    + .btn-group,
-    + .green,
-    + .orange,
-    + .white {
+    &.float-right + .float-right {
       margin-right: 6px;
     }
 
     + .link {
       margin-top: 12px;
     }
-  }
 
-  // cancel buttons left
-  .btn-cancel,
-  .btn-group .btn:first-child {
-    float: left;
+    .iconnables {
+      height: 100%;
+      width: 18px;
+
+      &:first-child {
+        margin-right: 6px;
+      }
+
+      &:last-child {
+        margin-left: 6px;
+      }
+    }
   }
 
   .label-checkbox {
@@ -310,11 +358,6 @@
     float: none;
     margin: 0;
     width: 100%;
-  }
-
-  .icons-git {
-    margin-right: 9px;
-    top: 6px;
   }
 
   .modal-footer-warning {

@@ -5,10 +5,12 @@
 
   // focus except when invalid and always when pristine
   &:focus,
-  &.focus {
+  &.focus,
+  &.focus:not([disabled]):not(.disabled):hover {
 
     &:not(.ng-invalid),
-    &.ng-invalid.ng-pristine {
+    &.ng-invalid.ng-pristine,
+    &.ng-invalid.validate-on-blur {
       border-color: $purple-light;
     }
   }
@@ -16,19 +18,6 @@
   // invalid
   &.ng-invalid {
     border-color: $red;
-    padding-right: $input-line-height-md;
-
-    &.input-sm {
-      padding-right: $input-line-height-sm;
-    }
-
-    &.input-xs {
-      padding-right: $input-line-height-xs;
-    }
-
-    &.input-xxs {
-      padding-right: $input-line-height-xxs;
-    }
   }
 
   // pristine
@@ -135,8 +124,9 @@
 
 // when there are multiple requirements, appears below an input
 .list-validation {
+  color: $gray;
   font-size: 13px;
-  margin-top: 6px;
+  margin-top: 9px;
 
   // when invalid
   .list-item.ng-invalid {

@@ -1,19 +1,6 @@
 // on cards
 .container-title-wrapper {
-  color: $gray-dark;
-  cursor: pointer;
-  display: table;
-  height: $input-xs;
-  margin: 0 auto;
-  max-width: 100%;
-
-  &:hover {
-    color: $gray-darker;
-  }
-
-  &:active {
-    color: $purple-light;
-  }
+  display: flex;
 
   // if renaming instead of popover on verification
   &.title-verification {
@@ -21,41 +8,77 @@
 
     &:hover,
     &:active {
-      color: $gray-dark;
+      color: $gray-darker;
     }
   }
 
-  .icons-warning,
+  .server-status-card-pop-over {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex: 0 1 auto;
+    justify-content: center;
+    margin: 15px auto 0;
+    max-width: 100%;
+    padding: 0 15px;
+
+    &:hover {
+      color: $gray-darker;
+    }
+
+    &:active,
+    &.active {
+      color: $purple-light;
+    }
+
+    &.no-touching {
+      color: $gray;
+    }
+  }
+
+  .icons-alert,
   .icons-arrow-down,
   .spinner-wrapper {
+    flex: 0 0 21px;
     height: 21px;
-    top: 3px;
   }
 
   .spinner-wrapper {
     color: $gray-light;
-    padding: 3px; // sizes element to replace .icons-warning
+    padding: 3px; // sizes element to replace .icons-alert
   }
 
-  .icons-warning {
+  .icons-alert {
     color: $orange;
+    flex: 0 0 15px;
+
+    + .container-title {
+      margin-left: 5px;
+    }
   }
+}
+
+.card-header-details {
+  color: $gray;
+  padding: 0 15px;
 }
 
 .container-title {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
   font-size: 21px;
-  font-weight: 500;
-  padding-left: 3px;
+  font-weight: $weight-bold;
 }
 
 // on modal
-.modal-edit .container-title-wrapper {
-  margin: 12px auto 6px;
+.modal-dialog .container-title-wrapper {
+
+  .server-status-card-pop-over {
+    margin-bottom: 3px;
+  }
 
   .container-title {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: $weight-normal;
 
     // naming containers
     &.input {
@@ -70,13 +93,26 @@
         color: $gray-dark;
       }
     }
+
+    + .container-title {
+      color: $gray-light;
+      margin: 0;
+    }
   }
 
-  .icons-warning,
-  .icons-arrow-down,
+  .icons-alert,
+  .icons-arrow-down {
+    height: 15px;
+  }
+
   .spinner-wrapper {
-    flex: 0 0 18px;
-    height: 18px;
+    flex: 0 0 auto;
+    height: auto;
+  }
+
+  .spinner {
+    height: 12px;
+    width: 12px;
   }
 
   // rename button for verification flow

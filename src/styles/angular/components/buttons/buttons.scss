@@ -1,12 +1,11 @@
+// defaults to btn-md
 .btn {
   border: 0;
   border-radius: $input-border-radius;
   cursor: pointer;
   display: inline-block;
   font-size: 18px;
-  font-weight: 400;
-  height: $input-md;
-  line-height: $input-line-height-md;
+  font-weight: $weight-normal;
   padding: 0 15px;
   position: relative;
   text-align: center;
@@ -38,13 +37,6 @@
     opacity: .5;
   }
 
-  // github icon with text
-  > .icons-git {
-    margin-right: 6px;
-    top: 6px;
-    width: 21px;
-  }
-
   // if .arrow-down
   > .icons-arrow-down {
     float: right;
@@ -64,22 +56,25 @@
     top: 6px;
     width: 21px;
   }
-
-  // icons
-  .icons-round {
-    margin: 9px 0; // standard size buttons
-
-    &:first-child {
-      margin-right: 6px;
-    }
-
-    &:last-child {
-      margin-left: 6px;
-    }
-  }
 }
 
 // button sizes
+%btn-lg,
+.btn-lg {
+  border-radius: $input-border-radius-lg;
+  font-size: 21px;
+  height: $input-lg;
+  line-height: $input-line-height-lg;
+}
+
+%btn-md,
+.btn-md {
+  font-size: 18px;
+  height: $input-md;
+  line-height: $input-line-height-md;
+}
+
+%btn-sm,
 .btn-sm {
   font-size: 16px;
   height: $input-sm;
@@ -91,6 +86,7 @@
   }
 }
 
+%btn-xs,
 .btn-xs {
   font-size: 13px;
   height: $input-xs;
@@ -106,6 +102,7 @@
 }
 
 // only for inline buttons
+%btn-xxs,
 .btn-xxs {
   border-radius: $input-border-radius-xxs;
   font-size: 12px;
@@ -187,10 +184,6 @@
   }
 }
 
-.btn-badge {
-  font-weight: 500;
-}
-
 .btn-check {
 
   &.active {
@@ -225,6 +218,7 @@
 
 .blue,
 .gray,
+.gray-dark,
 .green,
 .orange,
 .purple,
@@ -232,7 +226,7 @@
 .white {
   border: $input-border solid transparent;
   color: $white;
-  font-weight: 500;
+  font-weight: $weight-bold;
   text-decoration: none;
 
   &:active {
@@ -253,7 +247,7 @@
 %blue {
   color: $gray-light;
 
-  &.btn {
+  &.btn:not([disabled]):not(.disabled) {
 
     &:hover,
     &.hover {
@@ -261,8 +255,9 @@
     }
 
     &:active,
-    &.active {
-      color: $blue-dark;
+    &.active,
+    &.active:hover {
+      color: $blue;
     }
   }
 }
@@ -273,87 +268,63 @@
   border-color: $gray-lighter;
   color: $gray-dark;
 
-  &.btn {
+  &.btn:not([disabled]):not(.disabled) {
 
-    &:hover {
+    &:hover,
+    &.hover {
       background: $white;
       border-color: $gray-light;
     }
 
     &:active,
-    &.active {
+    &.active,
+    &.active:hover {
       background: $white;
       border-color: $purple-light;
       color: $purple-light;
-
-      .iconnables {
-        color: currentColor;
-        transition: transform .15s;
-      }
-
-      .icons-round {
-        background: $purple-light;
-        color: $white;
-      }
     }
-
-    &[disabled],
-    &.disabled {
-
-      &:hover,
-      &:active,
-      &.active {
-        background: $gray-lighterest;
-        border-color: $gray-lighter;
-        color: $gray-dark;
-      }
-    }
-  }
-
-  // icons
-  .icons-round {
-    background: $gray;
-    color: $white;
   }
 }
 
+.gray-dark,
+%gray-dark {
+  background: $gray;
+  border-color: $gray-dark;
+
+  &.btn:not([disabled]):not(.disabled) {
+
+    &:hover,
+    &.hover {
+      background: $gray-dark;
+      border-color: $gray-darker;
+    }
+
+    &:active,
+    &.active,
+    &.active:hover {
+      background: $gray-darker;
+      border-color: $black;
+    }
+  }
+}
 
 .green,
 %green {
   background: #5fd377; // rgba($green,.81);
   border-color: $green;
 
-  &.btn {
+  &.btn:not([disabled]):not(.disabled) {
 
-    // states
     &:hover,
     &.hover {
       background: #8ae09c; // rgba($green,.6);
     }
 
     &:active,
-    &.active {
+    &.active,
+    &.active:hover {
       background: $green;
       transition: none;
-    }
-
-    &[disabled],
-    &.disabled {
-      border-color: transparent;
-
-      &:hover,
-      &:active,
-      &.active {
-        background: #6dd883; // rgba($green,.75);
-        border-color: transparent;
-      }
-    }
-
-    // icons
-    .icons-round {
-      background: $white;
-      color: $green;
-      float: left;
     }
   }
 }
@@ -363,7 +334,7 @@
   background: $orange-light;
   border-color: $orange;
 
-  &.btn {
+  &.btn:not([disabled]):not(.disabled) {
 
     &:hover,
     &.hover {
@@ -371,22 +342,10 @@
     }
 
     &:active,
-    &.active {
+    &.active,
+    &.active:hover {
       background: $orange;
-      // border-color: $orange2-dark;
       transition: none;
-    }
-
-    &[disabled],
-    &.disabled {
-      border-color: transparent;
-
-      &:hover,
-      &:active,
-      &.active {
-        background: rgba($orange,.75);
-        border-color: transparent;
-      }
     }
   }
 }
@@ -400,21 +359,25 @@
     border-color: $white;
     color: $white;
 
-    &:hover,
-    &.hover {
-      background: rgba($white,.1);
-    }
+    &:not([disabled]):not(.disabled) {
 
-    &:active,
-    &.active {
-      background: $white;
-      color: $purple-light;
+      &:hover
+      &.hover {
+        background: rgba($white,.1);
+      }
+
+      &:active,
+      &.active,
+      &.active:hover {
+        background: $white;
+        color: $purple-light;
+      }
     }
   }
 
   &.btn-group {
-    border: 2px solid $white;
-    border-radius: 3px;
+    border: $input-border solid $white;
+    border-radius: $input-border-radius;
 
     > .btn {
       border: 0;
@@ -434,13 +397,18 @@
     border-color: $red-dark;
     color: $white;
 
-    &:hover {
-      background: $red-light;
-    }
+    &:not([disabled]):not(.disabled) {
 
-    &:active,
-    &.active {
-      background: $red-dark;
+      &:hover,
+      &.hover {
+        background: $red-light;
+      }
+
+      &:active,
+      &.active,
+      &.active:hover {
+        background: $red-dark;
+      }
     }
   }
 }
@@ -453,28 +421,22 @@
   &.btn {
     background: $white;
 
-    &:hover {
-      border-color: $gray-light;
-    }
-
-    &:active,
-    &.active {
-      border-color: $purple-light;
-      color: $purple-light;
-    }
-
-    &[disabled],
-    &.disabled {
-      background: $gray-lighterest;
-      border-color: $gray-lighter;
-      color: $gray-light;
-      opacity: 1;
+    &:not([disabled]):not(.disabled) {
 
       &:hover,
+      &.hover {
+        border-color: $gray-light;
+      }
+
       &:active,
-      &.active {
-        background: $gray-lighterest;
-        border-color: $gray-lighter;
+      &.active,
+      &.active:hover {
+        border-color: $purple-light;
+        color: $purple-light;
+
+        .icons-round {
+          background: $purple-light;
+        }
       }
     }
   }
@@ -508,10 +470,11 @@
   &:active,
   &.active {
     color: $purple-light;
+    cursor: default;
   }
 
   &.active {
-    font-weight: 500;
+    font-weight: $weight-bold;
   }
 
   &:focus {

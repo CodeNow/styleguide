@@ -6,7 +6,7 @@
   border-radius: $input-border-radius $input-border-radius 0 0;
   height: $input-sm;
   overflow: hidden;
-  padding: 6px;
+  padding: 6px 8px; // 9px - 1px border for alignment
   transition: height .15s ease-in-out;
 
   &.in {
@@ -71,7 +71,6 @@
     overflow: visible;
     padding: 9px 72px 9px 9px;
     position: relative;
-    z-index: $z-sidebar + 1; // for tooltip…
 
     &.in {
       height: 72px;
@@ -103,7 +102,7 @@
   // hostname insert
   .label {
     border: 1px solid $gray-lighter;
-    border-radius: 3px;
+    border-radius: $input-border-radius;
     margin-bottom: 0;
 
     // hostname button

@@ -1,0 +1,304 @@
+.modal-settings {
+
+  @include media(xs) {
+    max-width: 100%;
+  }
+
+  // coming soon
+  .btn-text {
+    min-height: 32px;
+  }
+
+  .orange {
+    border: 0;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: $weight-normal;
+    height: 15px;
+    padding: 0 5px;
+  }
+
+  .modal-body {
+    position: relative;
+
+    // no overflow during transition
+    &.ng-animate {
+      overflow: hidden;
+      transition: all .3s; // set transition timing
+    }
+  }
+}
+
+// team form
+.form-team {
+
+  .list-teammates {
+
+    // delete transition
+    &.ng-leave {
+      overflow: hidden;
+      transition: all .3s;
+    }
+
+    &.ng-leave-active {
+      border-width: 0;
+    }
+
+    .btn-wrapper {
+      position: absolute;
+      right: 14px;
+      top: 0;
+
+      .float-right {
+        margin-left: 6px;
+      }
+    }
+
+    .btn-xs {
+      top: 16px;
+    }
+
+    // overflow for permissions and overflow
+    .text-overflow {
+      padding-right: 111px;
+    }
+
+    // overflow
+    .icons-overflow {
+      top: -2px;
+      width: 15px;
+    }
+
+    // permissions button
+    .btn-permission {
+      text-align: left;
+      width: 75px;
+    }
+  }
+
+  .list-teammates-pending {
+    background-image: repeating-linear-gradient(60deg, #f9f9f9, #f9f9f9 18px, transparent 18px, transparent 36px);
+
+    + .list-teammates-pending {
+      margin-top: 15px;
+    }
+
+    // additional padding for send button
+    .text-overflow {
+      padding-right: 120px;
+    }
+  }
+
+  .list-item {
+
+    // add transition
+    &.ng-enter {
+      border-width: 0;
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+      padding: 0;
+      transition: all .3s;
+    }
+
+    &.ng-enter-active {
+      border-width: 1px;
+      height: 57px;
+      opacity: 1;
+      padding: 8px 15px;
+    }
+
+    // delete transition
+    &.ng-leave {
+      overflow: hidden;
+      transition: all .3s;
+    }
+
+    &.ng-leave-active {
+      border-width: 0;
+      height: 0;
+      opacity: 0;
+      padding: 0;
+    }
+  }
+
+  // send
+  .spinner-wrapper,
+  .send-confirmation {
+    float: left;
+    margin: 18px 6px 0 0;
+  }
+
+  .spinner-wrapper {
+    margin-top: 20px;
+  }
+}
+
+// billing form
+.form-billing {
+
+  // empty state
+  &.empty {
+
+    .icons-calendar {
+      height: 90px;
+      margin: 0 auto;
+      position: relative;
+      width: 90px;
+    }
+
+    .h2 {
+      bottom: 9px;
+      color: $purple;
+      font-size: 42px;
+      left: 0;
+      position: absolute;
+      right: 0;
+    }
+
+    // need specificity to override .p.empty
+    .p.empty {
+      margin-bottom: 0;
+    }
+  }
+
+  // plan and payment area
+  .well {
+    margin: 0;
+    padding: 15px;
+
+    // center text
+    .p {
+      line-height: 29px;
+
+      // $
+      .sup {
+        margin-right: 1px;
+        top: -5px;
+      }
+
+      // emphasis on price
+      .span {
+        display: inline-block;
+        font-size: 21px;
+      }
+
+      // /user/month text
+      .small {
+        color: $gray;
+        display: inline;
+        margin-left: 3px;
+      }
+
+      // change/update button
+      .white {
+        float: right;
+        top: 3px;
+      }
+    }
+
+    // card type
+    .iconnables {
+      height: 32px;
+      margin-right: 9px;
+      top: 1px;
+      width: 18px;
+    }
+
+    // exp date
+    .strong + .small {
+      position: relative;
+      top: 2px;
+    }
+  }
+}
+
+// cc form
+.form-cc {
+
+  // flexbox on inputs
+  .row {
+    display: flex;
+    margin-bottom: 9px;
+
+    @include media(xxs) {
+      flex-wrap: wrap;
+    }
+  }
+
+  .input-sm {
+    letter-spacing: .5px;
+    margin: 0;
+    min-width: 0; // fix firefox bug with flexbox and input width
+
+    + .input-sm {
+      margin-left: 9px;
+
+      @include media(xxs) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .input-cc {
+    flex: 1 1 auto;
+    padding-right: 30px;
+
+    @include media(xxs) {
+      margin-bottom: 9px;
+    }
+
+    &.amex,
+    &.jcb,
+    &.mastercard,
+    &.visa {
+      background-position: 97% 49%;
+      background-repeat: no-repeat;
+      background-size: 21px 17px;
+    }
+
+    &.amex {
+      background-image: url(/build/images/logos/credit-cards/logo-cc-amex.svg);
+    }
+
+    &.jcb {
+      background-image: url(/build/images/logos/credit-cards/logo-cc-jcb.svg);
+    }
+
+    &.mastercard {
+      background-image: url(/build/images/logos/credit-cards/logo-cc-mastercard.svg);
+    }
+
+    &.visa {
+      background-image: url(/build/images/logos/credit-cards/logo-cc-visa.svg);
+    }
+  }
+
+  .input-exp {
+    flex: 0 0 90px;
+
+    @include media(xxs) {
+      margin-right: 9px;
+    }
+  }
+
+  .input-cvc {
+    flex: 0 0 54px;
+  }
+
+  // validation
+  .validation-message {
+    margin: 0 8px 12px;
+  }
+}
+
+// billing table
+.table-billing {
+  color: $gray-dark;
+  font-size: 15px;
+
+  // date
+  .cell:first-child {
+    max-width: 60px;
+  }
+}
