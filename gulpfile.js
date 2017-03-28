@@ -1,13 +1,11 @@
-var autoprefixer = require('gulp-autoprefixer');
-var debug = require('gulp-debug');
-var fileinclude = require('gulp-file-include');
 var gulp = require('gulp');
-var imagemin = require('gulp-imagemin');
-var newer = require('gulp-newer');
-var pngquant = require('imagemin-pngquant');
-var runSequence = require('run-sequence');
-var sass = require('gulp-sass');
-var webserver = require('gulp-webserver');
+var debug = require('gulp-debug'); // debug
+var newer = require('gulp-newer'); // file changes
+var fileinclude = require('gulp-file-include'); // html
+var sass = require('gulp-sass'); // sass
+var autoprefixer = require('gulp-autoprefixer'); // autoprefixer
+var imagemin = require('gulp-imagemin'); // image optimizer
+var pngquant = require('imagemin-pngquant'); // pngquant
 
 // file locations
 var src = 'src/';
@@ -16,7 +14,6 @@ var htmlSrc = src + 'html/index.html';
 var sassDir = src +'styles/**/*.scss';
 var sassSrc = src + 'styles/index.scss';
 var imgDir = src + 'images/**/*.*';
-var imgDirMisc = src + 'images/**/*.eps';
 
 var dist = './dist/';
 var htmlDist = dist;
@@ -66,30 +63,9 @@ gulp.task('imagemin', function () {
     .pipe(gulp.dest(imgDist));
 });
 
-// move Misc
-gulp.task('moveMisc', function () {
-  return gulp.src(imgDirMisc)
-    .pipe(debug({
-      title: 'moveMisc'
-    }))
-    .pipe(gulp.dest(imgDist));
-});
-
-// local webserver
-gulp.task('server', function() {
-  gulp.src(dist)
-    .pipe(webserver());
-});
-
-// build
-gulp.task('build', function(cb) {
-  runSequence(['fileinclude', 'sass', 'imagemin', 'moveEps'], cb);
-});
-
 // watch task
-gulp.task('default', function(cb) {
-  runSequence('build', 'server', cb);
-  gulp.watch(htmlDir, ['fileinclude']);
-  gulp.watch(sassDir, ['sass']);
-  gulp.watch(imgDir, ['imagemin', 'moveEps']);
+gulp.task('default', ['fileinclude', 'sass'], function() {
+    gulp.watch(htmlDir, ['fileinclude']);
+    gulp.watch(sassDir, ['sass']);
+    gulp.watch(imgDir, ['imagemin']);
 });
