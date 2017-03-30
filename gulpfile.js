@@ -83,7 +83,7 @@ gulp.task('server', function() {
 
 // build
 gulp.task('build', function(cb) {
-  runSequence(['fileinclude', 'sass', 'imagemin', 'moveEps'], cb);
+  runSequence(['fileinclude', 'sass', 'imagemin', 'moveMisc'], cb);
 });
 
 // watch task
@@ -91,5 +91,5 @@ gulp.task('default', function(cb) {
   runSequence('build', 'server', cb);
   gulp.watch(htmlDir, ['fileinclude']);
   gulp.watch(sassDir, ['sass']);
-  gulp.watch(imgDir, ['imagemin', 'moveEps']);
+  gulp.watch(imgDir, ['imagemin', 'moveMisc']);
 });
