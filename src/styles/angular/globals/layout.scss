@@ -9,8 +9,8 @@ body > svg {
 }
 
 .nav {
-  border: 1px solid $gray-light;
   border-radius: 6px;
+  border: 1px solid $gray-light;
   float: left;
   margin-left: 15px;
   margin-top: 30px;
@@ -19,9 +19,9 @@ body > svg {
 
   @media (max-width: 960px) {
     background-color: $white;
-    border: 0;
     border-bottom: 1px solid $gray-light;
     border-radius: 0;
+    border: 0;
     margin: 0;
     overflow-y: auto;
     padding: 6px 0;
