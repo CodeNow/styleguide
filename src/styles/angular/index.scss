@@ -13,13 +13,19 @@
 
 // global
 @import "globals/var";
-@import "globals/mixins";
 @import "globals/reset";
+@import "globals/mixins";
+@import "globals/responsive-utils";
+@import "globals/figures";
+@import "globals/typography";
+@import "globals/utility";
+@import "globals/grid";
+@import "globals/layout";
+@import "globals/links";
 @import "globals/globals";
 @import "globals/animations";
 @import "globals/images";
 @import "globals/loader";
-@import "globals/typography";
 
 // layout:
 //  .layout-wrapper (used as <body>)
@@ -68,8 +74,9 @@
 // components
 @import "components/animated-panel";
 @import "components/badges";
-@import "components/cards";
 @import "components/cards-title";
+@import "components/cards";
+@import "components/colors";
 @import "components/fancy-select";
 @import "components/help";
 @import "components/icons";
@@ -78,9 +85,11 @@
 @import "components/logs";
 @import "components/notifications";
 @import "components/repository-details-content";
+@import "components/runnabear";
 @import "components/select";
 @import "components/spinner";
 @import "components/tags";
+@import "components/themes";
 @import "components/tooltips";
 @import "components/wells";
 

@@ -3,6 +3,7 @@
 // **********
 $monospace: 'Source Code Pro', monospace;
 $sans-serif: system, -apple-system, 'Helvetica Neue', sans-serif;
+$weight-light: 300;
 $weight-bold: 500;
 $weight-normal: 400;
 
@@ -152,12 +153,18 @@ $intercom-width: 370px;
 $header-height: 60px;
 
 // screen sizes
+$screen-xxxs: 350px;
 $screen-xxs: 400px + $layout-navigation-width;
 $screen-xs: 600px + $layout-navigation-width;
 $screen-sm: 768px + $layout-navigation-width;
 $screen-md: 1024px + $layout-navigation-width;
 $screen-lg: 1440px + $layout-navigation-width;
 $screen-xl: 1920px + $layout-navigation-width;
+
+$directions-list: col row;
+$flex-directions: column row;
+$screen-size-list: xl lg md sm xs xxs xxxs;
+$screen-sizes: $screen-xl $screen-lg  $screen-md $screen-sm  $screen-xs $screen-xxs $screen-xxxs;
 
 // logs & terminal
 $terminal-line-height: 19px;
@@ -182,3 +189,34 @@ $input-line-height-xs: $input-xs - ($input-border * 2);
 
 $input-xxs: 18px;
 $input-line-height-xxs: $input-xxs - ($input-border * 2);
+
+$z-modal: 100;
+$z-modal-close: 101;
+
+// margin/padding sizes
+$none: 0;
+$xxs: 9px;
+$xs: 12px;
+$sm: 15px;
+$md: 30px;
+$lg: 45px;
+$xl: 60px;
+
+$size-directions: top right bottom left;
+$size-list: none xxs xs sm md lg xl;
+$sizes: $none, $xxs, $xs, $sm, $md, $lg, $xl;
+
+// for the graph
+$bugs-z: 3; // faded white + bugs
+$circle-z: 2; // solid white
+$graph-x-z: 1; // x-axis lines
+
+$circle-size: 2500px;
+$circle-size-sm: $circle-size * .75;
+$circle-size-xs: $circle-size * .4;
+$circle-width: 2px;
+$bug-orange: #f2863c;
+$bug-popover-bg: #9685be;
+
+$spin-time: 15;
+$spin-seconds: #{$spin-time}s;

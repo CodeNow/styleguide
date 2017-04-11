@@ -1,4 +1,3 @@
-
 // normalize.css v3.0.1 | MIT License | git.io/normalize
 // Prevent iOS text size adjust after orientation change, without disabling user zoom.
 html {
@@ -58,7 +57,7 @@ abbr[title] {
 // Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
 b,
 strong {
-  font-weight: $weight-bold;
+  font-weight: bold;
 }
 
 // Address styling not present in Safari and Chrome.
@@ -107,9 +106,9 @@ svg:not(:root) {
 }
 
 // Grouping content
-// Address margin not present in IE 8/9 and Safari.
-figure {
-  margin: 1em 40px;
+figure,
+blockquote {
+  margin: 0;
 }
 
 // Address differences between Firefox and other browsers.
@@ -288,6 +287,16 @@ input[type="week"]:focus,
 textarea:focus,
 .uneditable-input:focus {
   box-shadow: none;
+}
+
+// headings
+h1,
+h2,
+h3,
+h4 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
 }
 
 // lists
