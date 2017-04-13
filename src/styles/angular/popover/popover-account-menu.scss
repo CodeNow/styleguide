@@ -1,11 +1,28 @@
 .popover-account-menu {
-  min-height: 102px;
   position: fixed;
   width: 240px;
   z-index: $z-spinner + 1; // to appear above instance view spinner
 
+  // override default .popover-view
+  .popover-view {
+    flex-direction: row;
+
+    @include media(sm) {
+      flex-direction: column;
+    }
+
+    &.vertical {
+      flex-direction: column;
+    }
+  }
+
   .popover-list-item {
     padding: 0 15px;
+  }
+
+  // override border-radius
+  .gravatar {
+    border-radius: $input-border-radius;
   }
 
   // active state
@@ -22,13 +39,7 @@
 
   // trial badge
   .btn-badge {
-    background: $gray-light;
     border-radius: $input-border-radius;
-    color: $white;
-
-    &.red {
-      background: $red;
-    }
   }
 
   // view-1 styles
@@ -42,6 +53,14 @@
     // external links
     .icons-link-external {
       padding: 0 5px;
+    }
+  }
+
+  .list-item-documentation {
+    display: none;
+
+    @media (max-height: 420px) {
+      display: block;
     }
   }
 }

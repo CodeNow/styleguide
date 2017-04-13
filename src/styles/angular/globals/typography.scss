@@ -1,10 +1,15 @@
 // headings
-.h1,
-.h2,
-.h3,
-.h4 {
-  font-weight: $weight-light;
-  line-height: 1.2;
+h1,
+h2,
+h3,
+h4 {
+  font-weight: $weight-bold;
+  line-height: 1.1;
+  margin: 0;
+
+  &.header-thin {
+    font-weight: $weight-light;
+  }
 }
 
 .h1 {
@@ -16,34 +21,47 @@
 }
 
 .h2 {
-  font-size: 36px;
+  font-size: 33px;
 
   @include media(sm) {
-    font-size: 30px;
+    font-size: 27px;
+  }
+
+  @include media(xs) {
+    font-size: 24px;
+  }
+
+  @include media(xxs) {
+    font-size: 21px;
   }
 }
 
 .h3 {
-  font-size: 30px;
+  font-size: 27px;
 
   @include media(sm) {
     font-size: 24px;
   }
+
+  @include media(xs) {
+    font-size: 21px;
+  }
+
+  @include media(xxs) {
+    font-size: 18px;
+  }
 }
 
 .h4 {
-  font-size: 24px;
-
-  @include media(sm) {
-    font-size: 18px;
-  }
+  font-size: 18px;
 }
 
 // inline styles
 .small {
   font-size: 13px; // percentage was unreliable
-  font-weight: $weight-normal; // reset if within header tags
+  font-weight: $weight-normal;
 }
+
 
 .weight-light {
   font-weight: $weight-light;
@@ -53,12 +71,9 @@
   font-weight: $weight-normal;
 }
 
-.weight-strong {
+.weight-strong,
+.strong {
   font-weight: $weight-bold;
-}
-
-.em {
-  font-style: italic;
 }
 
 .underline {
@@ -77,12 +92,15 @@
   width: 100%;
 }
 
+// override ace
 .pre,
 %pre {
   // scss-lint:disable ImportantRule
-  font-family: $monospace;
+  background: none;
+  font-family: $monospace !important;
+  font-size: 14px !important;
   font-weight: $weight-normal;
-  line-height: 1.4;
+  line-height: 1.4 !important;
   white-space: pre;
 }
 
@@ -93,6 +111,11 @@
   font-size: 14px;
   white-space: pre;
   word-wrap: normal;
+}
+
+%sans-serif,
+.sans-serif {
+  font-family: $sans-serif;
 }
 
 // links
@@ -132,14 +155,17 @@ a {
 }
 
 // alignment
+%text-left,
 .text-left {
   text-align: left;
 }
 
+%text-center,
 .text-center {
   text-align: center;
 }
 
+%text-right,
 .text-right {
   text-align: right;
 }
@@ -157,6 +183,10 @@ a {
   color: $gray-light;
 }
 
+.text-gray-dark {
+  color: $gray-dark;
+}
+
 .text-green {
   color: $green;
 }
@@ -167,18 +197,6 @@ a {
 
 .text-purple {
   color: $purple;
-}
-
-.text-purple-light {
-  color: $purple-light;
-}
-
-.text-purple-lighter {
-  color: $purple-lighter;
-}
-
-.text-purple-lightest {
-  color: $purple-lightest;
 }
 
 .text-red {

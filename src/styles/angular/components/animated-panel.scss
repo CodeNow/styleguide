@@ -1,13 +1,19 @@
 .animated-panel-container {
+  max-width: 100%;
+  min-width: 100%;
   overflow: hidden;
   position: relative;
 
   .fade {
     opacity: 0;
-    transition: opacity 3s linear;
+    transition: opacity .3s linear;
 
     &.in {
       opacity: 1;
+
+      &[disabled] {
+        opacity: .5;
+      }
     }
   }
 }
@@ -31,6 +37,7 @@
   }
 
   &.in {
+    position: relative;
     transform: translate3d(0,0,0);
   }
 }

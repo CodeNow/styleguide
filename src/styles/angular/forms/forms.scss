@@ -1,45 +1,184 @@
-.forms-inputs {
+// form layout
+// row
+.label {
+  margin-bottom: 21px;
+  position: relative;
 
-  + .forms-inputs {
-    margin-top: 60px;
+  @include media(xs) {
+    margin-bottom: 15px;
+  }
 
-    .input {
-      display: block;
+  &:not(.grid-block) {
+    display: block;
+  }
+}
+
+// label column (left)
+.label-col {
+  color: $gray;
+  float: left;
+  font-weight: $weight-bold;
+  height: $input-sm;
+  line-height: $input-sm;
+  padding: 0 15px 0 9px;
+  width: 240px;
+  word-break: break-word;
+
+  @include media(md) {
+    width: 210px;
+  }
+
+  @include media(xs) {
+    float: none;
+    text-align: left;
+    width: 100%;
+
+    &.float-left-xs {
+      float: left;
     }
   }
 
-  // for validation too
-  .validation-message,
-  .list-validation {
-    margin-left: 30px;
+  > .small.small {
+    line-height: 1;
+    margin-top: -6px;
+
+    @include media(xs) {
+      display: inline;
+      margin-left: 6px;
+    }
   }
 
-  .input {
-    margin-left: 30px;
-    margin-top: 9px;
-    width: 40%;
-  }
+  // link to all plans & errors
+  &.full-width {
+    float: none;
+    padding-right: 0;
 
-  .textarea {
-    margin-left: 30px;
-    max-height: 300px;
-    max-width: 560px;
-    min-height: 150px;
-    resize: vertical;
+    > .small {
+      margin-top: 12px;
+    }
 
-    @include media(md) {
-      max-width: 75%;
+    // .small.error
+    > .error {
+      color: $red;
+    }
+
+    // .small.badge
+    > .badge {
+      margin-right: 24px;
+
+      &::after {
+        right: -21px;
+      }
+    }
+
+    // external link
+    .iconnables {
+      float: right;
+      height: 13px;
+    }
+
+    // invite icon
+    .icons-team-invite {
+      float: left;
+      height: 18px;
+      margin-right: 3px;
+      top: -1px;
+      width: 18px;
     }
   }
 }
 
-.forms-toggles {
-  padding-left: 120px;
-  position: relative;
+// remove width limit if on its own row
+.clearfix > .label-col {
+  width: auto;
+}
 
-  .toggle-wrapper {
-    left: 30px;
-    position: absolute;
-    top: 57px;
+// use when label-col has description as sibling
+.label-description {
+  margin-bottom: 9px;
+
+  .label-col {
+    height: auto;
+    line-height: 1.4;
+  }
+
+  .small {
+    clear: both;
+    padding-left: 9px;
+  }
+}
+
+// input column (right)
+.input-col {
+  float: right;
+  text-align: left;
+  width: calc(100% - 241px);
+
+  @include media(md) {
+    width: calc(100% - 211px);
+  }
+
+  @include media(xs) {
+    float: none;
+    width: 100%;
+  }
+
+  // fancy select spinner
+  .btn {
+    position: relative;
+
+    .spinner-wrapper {
+      color: $gray-light;
+      margin-top: 0;
+      position: absolute;
+      right: 3px;
+    }
+  }
+
+  // table spinner
+  .spinner-wrapper {
+    margin-top: 5px;
+  }
+}
+
+// .label-row: override .label-col for 2 or more inputs on a row
+.label-row {
+  display: flex;
+
+  .label-col {
+    flex: 1 1 auto;
+    height: auto;
+    padding: 0;
+  }
+
+  // equal sign between inputs
+  .span-col {
+    flex: 0 0 25px;
+    line-height: $input-sm;
+    padding-top: 36px;
+    text-align: center;
+    user-select: none;
+  }
+
+  // helpful messages
+  .small {
+    font-weight: $weight-bold;
+    line-height: 18px;
+    margin: 6px 0 0;
+
+    &.valid {
+      color: $green;
+    }
+
+    &.invalid {
+      color: $orange;
+    }
+
+    .iconnables {
+      float: left;
+      height: 20px;
+      margin-right: 3px;
+      width: 21px;
+    }
   }
 }

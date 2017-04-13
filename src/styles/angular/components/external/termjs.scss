@@ -16,11 +16,28 @@
 // wrapper
 .term-js {
   cursor: text;
-  display: flex;
-  flex: 1 1 auto;
-  overflow-x: hidden;
-  padding: 9px 0 15px;
-  width: 100%;
+  margin: $xxs $xs 0;
+  overflow: hidden;
+  position: relative;
+
+  // disconnect message
+  .views-toolbar {
+    background: $red;
+    color: $red-lighter;
+    font-size: 14px;
+    font-weight: $weight-bold;
+    justify-content: center;
+    margin: 0 15px 12px 9px;
+
+    + .terminal {
+      opacity: .6;
+    }
+
+    .icons-lightning {
+      animation: fade .75s alternate infinite;
+      height: 15px;
+    }
+  }
 
   // dark theme
   .ace-runnable-dark & {
@@ -50,7 +67,12 @@
 
 .terminal {
   @extend %pre;
+  bottom: $md; // spacing for firefox
   flex: 1 1 auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
   width: 100%;
 
   > div {
