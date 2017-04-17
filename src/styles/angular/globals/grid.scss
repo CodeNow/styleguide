@@ -1,8 +1,8 @@
 .grid-block {
   align-items: stretch;
   display: flex;
-  flex-flow: row nowrap;
   flex: 1 1 auto;
+  flex-flow: row nowrap;
   justify-content: flex-start;
   overflow-x: hidden;
   overflow-y: auto;
@@ -12,7 +12,7 @@
   }
 
   // switch orientation to vertical (defaults to horizontal)
-  &.col {
+  &.vertical {
     flex-flow: column nowrap;
   }
 
@@ -54,15 +54,8 @@
     align-items: flex-end;
   }
 
-  // responsive grid
-  @for $i from 1 to 8 {
-    @for $x from 1 to 3 {
-      &.#{nth($directions-list,$x)}-#{nth($screen-size-list,$i)} {
-        @media (max-width: #{nth($screen-sizes,$i)}) {
-          flex-direction: #{nth($flex-directions,$x)};
-        }
-      }
-    }
+  &.align-baseline {
+    align-items: baseline;
   }
 }
 
@@ -80,21 +73,22 @@
   }
 
   + .grid-content {
-    margin-left: $sm;
+    margin-left: 15px;
   }
 }
 
 // vertical grid
-.col {
+.vertical {
 
   > .grid-content {
     margin-left: 0;
 
     + .grid-content {
-      margin-top: $sm;
+      margin-top: 15px;
     }
   }
 }
+
 
 // amount of blocks allowed within a parent
 %grid-2,

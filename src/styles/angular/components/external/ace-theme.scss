@@ -4,26 +4,27 @@
   position: relative;
 
   // read only button
-  > .btn-xs {
-    bottom: 6px;
+  > .btn-sm {
     cursor: default;
     font-family: $sans-serif; // use default font stack
+    font-size: 16px;
     position: absolute;
     right: 6px;
+    top: 6px;
     transition: opacity .15s ease-in-out;
     z-index: $z-views-active-panel + 1; // on top of the active panel
 
     // light theme
     .ace-runnable-light & {
-      background: $gray-light;
-      border: 1px solid rgba($black,.15);
+      background: rgba($gray,.75);
+      border: $input-border solid rgba($black,.15);
       color: $white;
     }
 
     // dark theme
     .ace-runnable-dark & {
-      background: $purple-darker;
-      border: 1px solid rgba($white,.15);
+      background: rgba($purple-darker,.75);
+      border: $input-border solid rgba($white,.3);
     }
 
     &:hover,
@@ -64,9 +65,9 @@
 
   // dark
   .ace-runnable-dark & {
-    background: #3d294a;
-    border-color: $purple-darkest;
-    color: $purple-lighter;
+    background: $purple-dark;
+    border-color: $purple-darker;
+    color: $white;
   }
 }
 
@@ -416,7 +417,7 @@
     background-color: rgba($ace-bg,.6);
 
     .ace_gutter {
-      background-color: rgba($ace-bg,.6);
+      background-color: transparent;
       color: lighten(#5e4d6e,30%);
     }
 
@@ -433,7 +434,7 @@
   }
 
   .ace_gutter {
-    background: darken($ace-bg,3%);
+    background-color: transparent;
     color: lighten(#5e4d6e,12%);
   }
 

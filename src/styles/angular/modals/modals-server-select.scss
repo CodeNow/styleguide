@@ -1,67 +1,148 @@
+.modal-servers,
+.modal-servers .animated-panel {
+  max-width: 100%;
+  min-width: 100%; // fix animated panel container
+}
+
 .modal-server-select {
+  width: 600px; // must set for animated panel
 
-  // search
-  .input-search {
-    background-position: 57px center;
-    line-height: 23px;
-    margin-bottom: 15px;
-    padding-left: 73px;
-    width: 210px;
+  @include media(xs) {
+    width: 460px;
+  }
 
-    &:focus,
-    &:valid {
-      background-position: 8px center;
+  @include media(xxs) {
+    width: 370px;
+  }
+
+  // header buttons
+  .modal-header.lg {
+    align-items: center;
+    flex: 0 0 120px;
+    overflow: hidden;
+
+    @include media(xs) {
+      align-items: flex-end;
+      flex: 1 1 auto;
+      padding-bottom: 12px;
+      padding-top: 54px;
+    }
+
+    .btn {
+      border-radius: $input-border-radius-lg;
+      height: 60px;
+      line-height: 1.2;
+      padding: 0 21px;
+
+      @include media(xs) {
+        font-size: 13px;
+        padding: 0 15px;
+      }
+
+      @include media(xxs) {
+        flex: 1 1 50%;
+        flex-direction: column;
+        height: 94px;
+        padding: 15px;
+        white-space: normal;
+      }
+
+      + .btn {
+        margin-left: 15px;
+
+        @include media(xs) {
+          margin-left: 6px;
+        }
+      }
+
+      .iconnables {
+        height: 100%;
+        margin-right: 9px;
+
+        @include media(xs) {
+          height: 24px;
+          margin-right: 6px;
+        }
+
+        @include media(xxs) {
+          margin: 0 0 6px;
+        }
+      }
+
+      .btn-text {
+        @include media(xxs) {
+          text-align: center;
+        }
+      }
+
+      .small {
+        display: block;
+        opacity: .5;
+      }
+    }
+  }
+
+  // sort and search
+  .list-header {
+    align-items: center;
+    padding: 0 15px 15px;
+
+    // sort
+    .small {
+      color: $gray-light;
+    }
+
+    // search
+    .input-search {
+      margin: 0;
+      width: 150px;
     }
   }
 
   //- empty state (if there are no repositories)
-  .p.empty {
-    margin-top: 30px;
+  .well {
+    background: $gray-lightest;
+    margin: 0;
   }
 
-  // select type of container
-  .btn-huge {
-    color: $gray;
-    float: left;
-    font-size: 16px;
-    height: 210px;
-    line-height: 1.4;
-    margin: 4% 2% 2%;
-    white-space: normal;
-    width: 46%;
+  .list-servers {
+    flex: 0 0 auto;
 
-    &:last-child {
-      background: url(/build/images/other-containers.png) no-repeat center center $white;
-      background-size: cover;
-    }
+    .icons-dockerfile,
+    .icons-server {
+      height: 14px;
+      margin-left: 6px;
+      opacity: .75;
+      pointer-events: auto;
+      top: 2px;
+      width: 14px;
 
-    .iconnables {
-      display: block;
-      margin: 0 auto;
+      &:hover {
+        opacity: 1;
+      }
     }
+  }
 
-    .small {
-      display: block;
-    }
+  .list-item {
+    font-size: 18px;
+    height: 60px;
+  }
+
+  .btn-add {
+    padding: 0 9px;
+    width: auto;
   }
 }
 
 // repository/template list
 .list-servers {
-  max-width: 540px;
-
-  @include media(sm) {
-    max-width: none;
-  }
 
   > .list-item {
     border: $input-border solid transparent;
-    border-radius: $input-border-radius;
+    border-radius: $input-border-radius-lg;
     cursor: pointer;
-    font-size: 18px;
     font-weight: $weight-bold;
-    margin: 3px 0 0;
-    padding: 6px 130px 6px 15px;
+    padding: 6px 15px;
     white-space: nowrap; // reset .multi-line default
 
     &:hover:not(.disabled) {
@@ -70,31 +151,28 @@
     }
 
     &.disabled {
-      color: $gray-light;
       cursor: default;
 
-      > .small {
-        color: $gray-light;
+      > .small,
+      .btn-icon {
+        opacity: .6;
+      }
+
+      .btn-icon {
+        cursor: default;
       }
     }
 
     &:active:not(.disabled),
+    &.active:hover,
     &.active {
       background: $white;
       border-color: currentColor;
       color: $green;
-
-      .small {
-        color: currentColor;
-      }
     }
 
-    &.multi-line {
-
-      // only if in modal (for templates without descriptions)
-      .modal-dialog & {
-        min-height: 60px;
-      }
+    + .list-item {
+      margin-top: 3px;
     }
   }
 
@@ -108,33 +186,17 @@
     word-break: break-all;
   }
 
-  // add button
-  .btn-xs {
-    font-size: 14px;
-    line-height: 1;
-    right: 9px;
-    top: 15px;
-    width: 110px;
-
-    &.disabled {
-      opacity: .3;
-    }
-  }
-
   // next arrow
   .icons-arrow-down {
-    height: 100%;
-    position: absolute;
-    right: 3px;
-    top: 0;
+    height: 36px;
+    padding: 6px;
     transform: rotate3d(0,0,1,-90deg);
+    width: 36px;
   }
 
   // spinner
   .spinner-wrapper {
-    position: absolute;
-    right: 9px;
-    top: 20px;
+    padding: 10px;
   }
 
   // tiled view for template containers
@@ -166,6 +228,10 @@
       &.active {
         border-color: currentColor;
         color: $green;
+      }
+
+      &.btn-hint {
+        @extend %btn-hint;
       }
 
       // anchor image

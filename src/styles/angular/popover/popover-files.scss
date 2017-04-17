@@ -22,23 +22,22 @@
   .popover-content {
     min-height: 298px; // calc(450px - 122px);
     padding: 15px;
+
+    @media (max-height: 500px) {
+      min-height: 0;
+    }
   }
 
   .list-servers {
 
     .list-item {
-      font-size: 15px;
-      padding: 6px 21px 6px 9px;
+      padding: 6px 3px 6px 9px;
 
       &:active,
       &.active {
         border-color: $purple-light;
         color: $purple-light;
       }
-    }
-
-    .spinner-wrapper {
-      top: 18px;
     }
   }
 

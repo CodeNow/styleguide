@@ -5,7 +5,7 @@
   padding: 15px 30px;
 
   @include media(xs) {
-    padding: 15px;
+    padding: 9px 0;
   }
 
   // ******
@@ -15,7 +15,6 @@
 
   > .spinner-wrapper {
     align-items: center;
-    color: $gray-light;
     flex: 1 1 auto;
     margin: 15px auto;
   }
@@ -65,7 +64,7 @@
   > .table-actions,
   > .label,
   > .btn-group,
-  > .label,
+  > .label-description,
   > .clearfix,
   > .help-container,
   > .table {
@@ -73,7 +72,8 @@
   }
 
   // transition
-  > .label.js-animate {
+  > .label.js-animate,
+  > .slide.js-animate {
     transition: max-height .3s ease-in-out, opacity .3s ease-in-out;
 
     &.ng-enter {
@@ -106,27 +106,30 @@
   // ******
 
   // label (row)
-  .label {
+  &:not(.no-border) {
 
-    // sibling labels
-    + .label {
-      border-top: 1px solid $gray-lighter;
-      margin-top: 21px;
-      padding-top: 21px;
+    .label {
 
-      @include media(xs) {
-        margin-top: 15px;
+      // sibling labels
+      + .label {
+        border-top: 1px solid $gray-lighter;
+        margin-top: 21px;
+        padding-top: 21px;
+
+        @include media(xs) {
+          margin-top: 15px;
+        }
       }
-    }
 
-    // child labels (for verify modal)
-    > .label {
-      margin-bottom: 6px;
-    }
+      // child labels (for verify modal)
+      > .label {
+        margin-bottom: 6px;
+      }
 
-    // for rows (full-width) with only small text
-    > .small:only-child {
-      margin: 6px 9px;
+      // for rows (full-width) with only small text
+      > .small:only-child {
+        margin: 6px 9px;
+      }
     }
   }
 
@@ -152,7 +155,8 @@
   .input-col {
 
     // max-width on buttons
-    > .btn {
+    > .btn,
+    .btn-wrapped {
       display: block;
       font-size: 16px;
       max-width: 360px;
@@ -190,6 +194,13 @@
       }
     }
 
+    // checkbox buttons
+    .btn-checkbox {
+      display: inline-block;
+      margin: 6px 0 0;
+      width: auto;
+    }
+
     // labels
     .label {
       margin-bottom: 6px;
@@ -202,6 +213,73 @@
     // small text aligns with button/input padding
     .small {
       margin: 6px 9px;
+    }
+
+    .link .iconnables {
+      height: 12px;
+      margin-right: 2px;
+      top: 1px;
+      width: 12px;
+    }
+
+    // for even more helpful text
+    .well {
+      border: 1px solid $gray-lighter;
+      clear: both;
+      margin: 6px 0;
+      padding: 6px 8px;
+
+      @include media(xs) {
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      &.well-merged {
+        background: $white;
+        border-left: 0;
+        border-right: 0;
+        left: $input-border;
+        margin: 0;
+        position: absolute;
+        right: $input-border;
+      }
+
+      &.well-merged-top {
+        border-radius: $input-border-radius $input-border-radius 0 0;
+        border-top: 0;
+        top: $input-border;
+
+        + .textarea {
+          padding-top: 35px;
+        }
+      }
+
+      &.well-merged-bottom {
+        border-bottom: 0;
+        border-radius: $input-border-radius $input-border-radius 0 0;
+        bottom: $input-border;
+
+        + .textarea {
+          padding-bottom: 35px;
+        }
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      .btn-xxs {
+        border-width: 1px;
+        color: $gray;
+        font-weight: $weight-normal;
+        line-height: 16px;
+      }
+
+      .iconnables {
+        height: 100%;
+        margin-right: 2px;
+        width: 12px;
+      }
     }
   }
 
@@ -262,13 +340,26 @@
     }
   }
 
-  .btn > .spinner-wrapper {
-    margin-right: 11px;
+  // well
+  .well-600 {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+
+    @include media(xs) {
+      max-width: 100%;
+    }
   }
 
-  // well
-  .well.in {
-    background: $gray-lightest;
+  // warning text
+  .small-warning {
+    margin: 15px 0 0 9px;
+
+    .iconnables {
+      height: 15px;
+      margin-right: 3px;
+      width: 15px;
+    }
   }
 
   // **********

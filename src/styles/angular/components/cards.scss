@@ -1,6 +1,6 @@
 .card {
-  border: 1px solid transparent;
-  border-radius: $input-border-radius;
+  border: $input-border solid transparent;
+  border-radius: $input-border-radius-lg;
   display: flex;
   flex-direction: column;
   min-width: 360px;
@@ -71,10 +71,10 @@
 
     .iconnables {
       cursor: pointer;
-      height: 48px;
-      margin: 0 auto 15px;
+      height: 36px;
+      margin: 0 auto 24px;
       pointer-events: auto;
-      width: 48px;
+      width: 36px;
     }
 
     .h4 {
@@ -115,29 +115,6 @@
       margin-left: -6px;
     }
   }
-
-  // well
-  .well {
-    background: $white;
-    border: 0;
-    border-radius: 0 0 $input-border-radius $input-border-radius;
-    border-top: 1px solid $purple-lighter;
-    cursor: default;
-    margin: 0;
-    padding: 12px 9px;
-
-    // dismiss
-    .btn-close {
-      float: right;
-      height: 15px;
-      margin-left: 15px;
-      width: 15px;
-    }
-
-    .icon-close {
-      top: -14px;
-    }
-  }
 }
 
 // card layout
@@ -163,28 +140,33 @@
 
     &:hover,
     &:active {
-      box-shadow: inset 0 1px 0 $gray-light;
       z-index: 1;
 
       &:first-child {
         box-shadow: none;
       }
+    }
 
-      .icons-arrow-down {
-        color: $gray-dark;
+    &:not([disabled]):hover {
+      border-color: $gray-light;
+      box-shadow: inset 0 0 0 $gray-light;
+
+      &:first-child {
+        box-shadow: none;
       }
     }
 
-    &:active {
-      box-shadow: inset 0 1px 0 currentColor;
+    &:not([disabled]):active {
+      background: lighten($purple-lightest,6%);
+      border-color: $purple-light;
+      box-shadow: inset 0 0 0 $purple-light;
 
       &:first-child {
         box-shadow: none;
       }
 
-      > .small,
       .icons-arrow-down {
-        color: currentColor;
+        color: lighten($purple-light,18%);
       }
 
       .btn-xxs {
@@ -193,35 +175,20 @@
     }
 
     &:first-child {
-      border-radius: $input-border-radius $input-border-radius 0 0;
+      border-radius: $input-border-radius-lg $input-border-radius-lg 0 0;
     }
 
     &:last-child {
-      border-radius: 0 0 $input-border-radius $input-border-radius;
+      border-radius: 0 0 $input-border-radius-lg $input-border-radius-lg;
     }
 
-    &.hint {
-      border-color: rgba($blue,.45);
-      box-shadow: 0 0 6px rgba($blue,.35);
-      z-index: 1;
-
-      &:hover {
-        border-color: rgba($blue,.6);
-        box-shadow: none;
-      }
+    &.active-notification {
+      padding-right: 60px;
     }
 
     + .btn {
       border-top-width: 1px;
       margin-top: -$input-border;
-
-      &.hint {
-        border-top-width: $input-border;
-      }
-    }
-
-    &.active-notification {
-      padding-right: 60px;
     }
 
     // anchor icon of tool
@@ -239,9 +206,9 @@
 
     // description of tool
     > .small {
-      color: $gray;
       display: block;
       line-height: 15px;
+      opacity: .6;
     }
 
     // notifications
@@ -268,7 +235,7 @@
 
     // right facing arrow
     .icons-arrow-down {
-      color: $gray;
+      color: $gray-light;
       margin: 0;
       position: absolute;
       right: 6px;
@@ -289,12 +256,16 @@
       right: 30px;
       top: 0;
       width: 14px;
-    }
 
-    .icons-unlock,
-    .icons-lock {
-      height: 100%;
-      width: 100%;
+      .iconnables {
+        height: 100%;
+        width: 100%;
+      }
+
+      // missing dockerfile error
+      .icons-alert-alt {
+        color: $orange;
+      }
     }
   }
 }

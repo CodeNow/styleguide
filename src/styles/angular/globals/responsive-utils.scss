@@ -10,86 +10,86 @@
   display: none;
 }
 
-@include media(xxxs) {
-  .visible-xxxs {
+.visible-xxxs {
+  @include media(xxxs) {
     display: inherit;
   }
 }
 
-@include media(xxs) {
-  .visible-xxs {
+.visible-xxs {
+  @include media(xxs) {
     display: inherit;
   }
 }
 
-@include media(xs) {
-  .visible-xs {
+.visible-xs {
+  @include media(xs) {
     display: inherit;
   }
 }
 
-@include media(sm) {
-  .visible-sm {
+.visible-sm {
+  @include media(sm) {
     display: inherit;
   }
 }
 
-@include media(md) {
-  .visible-md {
+.visible-md {
+  @include media(md) {
     display: inherit;
   }
 }
 
-@include media(lg) {
-  .visible-lg {
+.visible-lg {
+  @include media(lg) {
     display: inherit;
   }
 }
 
-@include media(xl) {
-  .visible-xl {
+.visible-xl {
+  @include media(xl) {
     display: inherit;
   }
 }
 
-@include media(xxxs) {
-  .hidden-xxxs {
+.hidden-xxxs {
+  @include media(xxxs) {
     display: none !important;
   }
 }
 
-@include media(xxs) {
-  .hidden-xxs {
+.hidden-xxs {
+  @include media(xxs) {
     display: none !important;
   }
 }
 
-@include media(xs) {
-  .hidden-xs {
+.hidden-xs {
+  @include media(xs) {
     display: none !important;
   }
 }
 
-@include media(sm) {
-  .hidden-sm {
+.hidden-sm {
+  @include media(sm) {
     display: none !important;
   }
 }
 
-@include media(md) {
-  .hidden-md {
+.hidden-md {
+  @include media(md) {
     display: none !important;
   }
 }
 
-@include media(lg) {
-  .hidden-lg {
+.hidden-lg {
+  @include media(lg) {
     display: none !important;
   }
 }
 
-@include media(xl) {
-  .hidden-xl {
+.hidden-xl {
+  @include media(xl) {
     display: none !important;
   }
 }

@@ -14,16 +14,36 @@
   }
 }
 
+.btn-help {
+  border: 0;
+  color: $gray-light;
+  left: 0;
+  overflow: visible;
+  padding: 0 12px;
+  position: absolute;
+  top: 0;
+
+  &:hover {
+    color: lighten($blue,10%);
+  }
+
+  &:active,
+  &.active {
+    color: $blue;
+  }
+}
+
 .help-top-card,
 %help-top-card {
   font-size: 15px;
-  left: 75px;
+  left: 60px;
   max-width: none; // overwrites max-width set in popover.scss
   padding-bottom: 26px;
   position: absolute;
+  top: 0;
   transition: none;
   width: 400px;
-  z-index: 1; // TODO: variable-ize this
+  z-index: $z-modal-backdrop; // we want these to stay under modals...since they do not get dismissed on modal open
 
   // "more help" and "less help" buttons
   > .btn {
@@ -66,10 +86,11 @@
   left: $layout-navigation-width + 15px;
   position: absolute;
   right: 15px;
-  z-index: 1; // TODO: variable-ize this
+  z-index: $z-modal-backdrop - 1;
 
   &.fixed {
     position: fixed;
+    z-index: $z-modal-backdrop + 1;
 
     .help {
       box-shadow: 0 1px 3px rgba($blue,.25);
@@ -89,17 +110,16 @@
   }
 
   .modal-form & {
-    left: auto;
     margin-bottom: 15px;
-    position: relative;
-    right: auto;
+    position: static;
   }
 
   .help {
     box-shadow: none;
     display: table;
     margin: 0 auto;
-    padding: 6px 24px;
+    padding: 6px 24px 6px 36px;
+    position: relative;
     text-align: center;
 
     // anchor icon
@@ -108,71 +128,79 @@
       margin-right: 3px;
     }
   }
+
+  // close button
+  .btn {
+    left: 6px;
+    opacity: .5;
+    position: absolute;
+    top: 6px;
+    width: $input-xs;
+
+    &:hover {
+      color: $red;
+      opacity: 1;
+    }
+
+    &:active {
+      color: $red-dark;
+      opacity: 1;
+    }
+
+    .iconnables {
+      height: 100%;
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+}
+
+// hide the initial help alert when a modal is open
+.modal-open .environment-wrapper .help-container {
+  visibility: hidden;
 }
 
 .triggered-help-item {
   border-bottom: 1px solid rgba($blue-light,.4);
-  color: rgba($blue,.8);
-  font-size: 15px;
-  line-height: 18px;
-  padding: 12px 0;
+  flex-flow: row; // override grid xxs media query
+  line-height: 1.2;
+  overflow: visible;
+  padding: 15px 15px 15px 39px;
   position: relative;
+
+  .p {
+    line-height: 1.4;
+    padding: 2px 0;
+  }
 
   // "x" button for triggered help items
   .btn-icon {
-    color: rgba($blue,.45);
-    font-size: 15px;
-    height: 21px;
-    left: -9px;
+    height: 24px;
+    left: 6px;
+    opacity: .5;
     padding: 0;
     position: absolute;
-    top: 12px;
-    width: 21px;
+    top: 15px;
+    width: 24px;
 
     &:hover {
-      color: rgba($blue,.75);
+      opacity: .75;
     }
 
     &:active {
-      color: $blue;
-    }
-
-    .iconnables {
-      height: 18px;
-      width: 18px;
+      opacity: 1;
     }
   }
 
-  // text in triggered help items
-  .p {
-    float: left;
-    margin-left: 15px;
-    width: 240px;
-  }
-
-  // "show me" button
-  .btn-sm {
-    background-color: $white;
-    border: $input-border solid $blue;
-    color: $blue;
-    float: right;
-    font-weight: $weight-bold;
-    margin: 1px 3px;
-
-    &:hover {
-      border-color: rgba($blue,.7);
-    }
-
-    &:active {
-      border-color: $blue;
-    }
+  // 'show me' btn
+  .btn-xs {
+    margin-left: 9px;
   }
 }
 
 .help-lists-wrapper {
   max-height: calc(100vh - 120px);
   overflow-y: auto;
-  padding: 0 12px;
 }
 
 .general-help-container {
@@ -198,6 +226,7 @@
   .iconnables {
     height: 13px;
     left: 6px;
+    opacity: .6;
     top: 2px;
     width: 13px;
   }

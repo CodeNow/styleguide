@@ -1,8 +1,30 @@
 // instance wrapper
 .instance-wrapper {
-  display: flex;
-  flex-direction: column;
+  background: $ace-bg;
   height: 100vh;
+  max-width: calc(100vw - #{$layout-navigation-width + $instance-list-width});
   overflow: hidden;
   position: relative;
+
+  // debug view
+  &.instance-body {
+    height: auto;
+    max-width: 100vw;
+  }
+
+  > .spinner-wrapper {
+    background: $ace-bg;
+
+    .modal-open & {
+      z-index: $z-modal-backdrop - 1;
+    }
+  }
+
+  .instance > .grid-block {
+    overflow-x: auto;
+  }
+}
+
+.instance-empty {
+  background: $ace-bg;
 }
