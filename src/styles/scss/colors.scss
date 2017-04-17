@@ -1,0 +1,42 @@
+// list 39 colors
+$color-array: black white gray-lighterest gray-lightest gray-lighter gray-light gray gray-dark gray-darker green green-light green-lighter green-dark green-darker green-darkest purple purple-logo purple-light purple-lighter purple-lightest purple-dark purple-darker purple-darkest orange orange-light orange-lighter orange-lightest orange-dark orange-darker orange-darkest red red-light red-lighter red-dark blue blue-light blue-lighter blue-dark;
+$color-array-values: $black $white $gray-lighterest $gray-lightest $gray-lighter $gray-light $gray $gray-dark $gray-darker $green $green-light $green-lighter $green-dark $green-darker $green-darkest $purple $purple-logo $purple-light $purple-lighter $purple-lightest $purple-dark $purple-darker $purple-darkest $orange $orange-light $orange-lighter $orange-lightest $orange-dark $orange-darker $orange-darkest $red $red-light $red-lighter $red-dark $blue $blue-light $blue-lighter $blue-dark;
+
+@mixin colors() {
+  // 39 colors in total
+  @for $i from 1 to 39 {
+    // background
+    .color-#{nth($color-array,$i)} {
+      background: nth($color-array-values,$i);
+    }
+  }
+}
+
+@include colors();
+
+.figure-colors-wrapper {
+
+  .figure {
+    background: none;
+    border: 0;
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  .figure-color,
+  .figcaption {
+    float: left;
+    margin: 0;
+  }
+
+  .figcaption {
+    margin-left: 9px;
+  }
+}
+
+.figure-color {
+  height: 90px;
+  width: 150px;
+}

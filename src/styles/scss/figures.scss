@@ -1,0 +1,76 @@
+.figure-wrapper {
+  margin: 0 -6px;
+}
+
+.figure {
+  background: $gray-lighterest;
+  border: 1px solid $gray-lighter;
+  border-radius: 3px;
+  margin: 6px 3px;
+  padding: 15px;
+  vertical-align: top;
+
+  .iconnables {
+    margin-top: 15px;
+  }
+}
+
+.figure-logo-lockup,
+.figure-logo-icon {
+  background: $gray-lighterest;
+  border: 1px solid $gray-lighter;
+  border-radius: 3px;
+  margin: 6px 3px;
+  padding: 15px;
+
+  &:first-child .img {
+    background-color: $purple;
+  }
+
+  .img {
+    background-color: $white;
+    border-radius: 3px;
+    padding: 45px;
+  }
+}
+
+.figure-typography {
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+
+  .h1 {
+    color: $gray-darker;
+    font-size: 60px;
+  }
+
+  & > * {
+    align-items: baseline;
+    border-bottom: 1px dotted $gray-lighter;
+    display: flex;
+    line-height: 1;
+    margin: 15px 0;
+    padding-bottom: 15px;
+
+    &:first-child {
+      border-top: 1px dotted $gray-lighter;
+      padding-top: 15px;
+    }
+
+    .span {
+      color: $gray-light;
+      flex: 1 0 auto;
+      text-align: right;
+    }
+  }
+}
+
+.figcaption {
+  color: $gray-dark;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}

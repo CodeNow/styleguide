@@ -1,0 +1,15 @@
+// download links
+.figure .link {
+  font-size: 13px;
+  font-weight: 500;
+  display: block;
+}
+
+.figure .btn-xs {
+  display: block;
+  margin-bottom: 10px;
+
+  &:last-of-type {
+    margin-bottom: 0px;
+  }
+}
