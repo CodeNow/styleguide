@@ -2,9 +2,10 @@
 // font stack
 // **********
 $monospace: 'Source Code Pro', monospace;
-$sans-serif: system, -apple-system, 'Helvetica Neue', sans-serif;
+$sans-serif: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
 $weight-bold: 500;
 $weight-normal: 400;
+$weight-light: 300;
 
 // ******
 // colors
@@ -13,9 +14,9 @@ $weight-normal: 400;
 $black: #000;
 $white: #fff;
 
-$gray-lighterest: #f7f7f7;
-$gray-lightest: #f0f0f0;
-$gray-lighter: #dbdbdb;
+$gray-lighterest: #fcfcfc;
+$gray-lightest: #f3f3f3;
+$gray-lighter: #e6e6e6;
 $gray-light: #bbb;
 $gray: #888;
 $gray-dark: #555;
@@ -24,7 +25,7 @@ $gray-darker: #222;
 $green: #3ccb5a; // #1DD156
 $green-light: #2bd94f;
 $green-lighter: #e8ffed;
-$green-dark: #31b74d; // darken($green,6%);
+$green-dark: #5fd377;
 $green-darker: #2a9f43; // darken($green,12%);
 $green-darkest: #09200e;
 
@@ -36,6 +37,11 @@ $purple-lightest: #eee1f7;
 $purple-dark: #402754; // darken($purple,10%);
 $purple-darker: #261731; // darken($purple,20%);
 $purple-darkest: #1b0f24;
+$purple-blue: #475496; // blend of purple and blue
+
+// from marketing
+$purple-faded: #866f98;
+$purple-light-faded: #f8f5fc;
 
 // purple ace theme
 $ace-bg: #311d40;
@@ -53,11 +59,12 @@ $red: #f25058;
 $red-light: #ef737f;
 $red-lighter: #fde6e9;
 $red-dark: #e62932; // desaturate(darken($red,10),7);
+$red-darker: darken($red-dark,10%);
 
 $blue: #0ca6f2; // previously #2ab0f6;
 $blue-light: #8bd5f9; // previously #86cff6;
 $blue-lighter: #f5fcff; // previously #f1faff;
-$blue-dark: #1e7daf;
+$blue-dark: #0a9be2;
 
 // **********
 // log themes
@@ -115,7 +122,8 @@ $z-show: 10000;
 // views
 $z-views: 1000;
 $z-views-active-panel: 1001;
-$z-views-header: 1002;
+$z-views-sidebar: 1002;
+$z-views-sidebar-toggle: 1003;
 
 // modals
 $z-modal-backdrop: 2000;
@@ -143,30 +151,31 @@ $z-spinner: 6000;
 
 // layout
 $layout-navigation-width: 90px;
-$instance-list-width: 285px;
-
-// intercom
-$intercom-width: 370px;
+$instance-list-width: 300px;
 
 // header
 $header-height: 60px;
 
 // screen sizes
-$screen-xxs: 400px + $layout-navigation-width;
-$screen-xs: 600px + $layout-navigation-width;
-$screen-sm: 768px + $layout-navigation-width;
-$screen-md: 1024px + $layout-navigation-width;
-$screen-lg: 1440px + $layout-navigation-width;
-$screen-xl: 1920px + $layout-navigation-width;
+$screen-xxxs: 350px;
+$screen-xxs: 400px;
+$screen-xs: 600px;
+$screen-sm: 768px;
+$screen-md: 1024px;
+$screen-lg: 1440px;
+$screen-xl: 1920px;
+
+$screen-size-list: xl lg md sm xs xxs xxxs;
+$screen-sizes: $screen-xl $screen-lg  $screen-md $screen-sm  $screen-xs $screen-xxs $screen-xxxs;
 
 // logs & terminal
 $terminal-line-height: 19px;
 
 // button/input sizes
-$input-border: 2px;
+$input-border: 1px;
+$input-border-lg: 2px;
 $input-border-radius: 3px;
 $input-border-radius-lg: 6px;
-$input-border-radius-xxs: 2px;
 
 $input-lg: 54px;
 $input-line-height-lg: $input-lg - ($input-border * 2);
@@ -182,3 +191,16 @@ $input-line-height-xs: $input-xs - ($input-border * 2);
 
 $input-xxs: 18px;
 $input-line-height-xxs: $input-xxs - ($input-border * 2);
+
+// margin/padding sizes
+$none: 0;
+$xxs: 9px;
+$xs: 12px;
+$sm: 15px;
+$md: 30px;
+$lg: 45px;
+$xl: 60px;
+
+$size-directions: top right bottom left;
+$size-list: none xxs xs sm md lg xl;
+$sizes: $none, $xxs, $xs, $sm, $md, $lg, $xl;

@@ -1,13 +1,27 @@
 .well {
+  border: 1px solid transparent;
   border-radius: $input-border-radius;
-  color: $gray-darker;
-  margin: 0 6px;
-  padding: 0 3px;
 
-  // border and bg not shown by default
-  &.in {
-    background: $gray-lighterest;
-    border: 1px solid $gray-lighter;
+  &.padding-xs,
+  &.padding-sm,
+  &.padding-md,
+  &.padding-lg,
+  &.padding-xl {
+    border-radius: $input-border-radius-lg;
+  }
+
+  &.gray {
+    border-color: $gray-lighter;
+    font-weight: $weight-normal; // override .gray
+
+    .modal-body & {
+      background: $gray-lightest;
+    }
+  }
+
+  &.white {
+    background: $white;
+    border-color: $gray-lighter;
   }
 
   // code sample
@@ -30,11 +44,8 @@
   }
 
   &.well-popover {
-    font-size: 15px;
     font-weight: $weight-normal;
-    line-height: 18px;
-    margin: 9px 9px 3px;
-    padding: 9px 12px;
+    margin-top: 6px;
 
     &.orange {
       background-color: $orange-lightest;

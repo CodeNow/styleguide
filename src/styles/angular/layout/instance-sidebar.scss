@@ -1,175 +1,55 @@
 .instance-sidebar {
-  min-width: 300px;
-  overflow-y: auto;
+  background: $purple-dark;
+  border-right: 1px solid $purple-darkest;
+  bottom: 0;
+  box-shadow: 3px 0 3px rgba($black,.06);
+  color: $white;
+  flex: 0 0 $instance-list-width;
+  top: 0;
+  z-index: $z-views-sidebar;
 
-  // empty states for sections
-  .well {
-    color: $gray;
-    margin: 0 0 15px;
-    padding: 6px 9px;
+  // for tab spacing when sidebar is present
+  &.ng-hide + .views .views-tabs {
+    padding-left: (82px + 6px); // explorer toggle + tab padding
   }
 
-  // override button and fancy-select styles
-  .btn-group-vertical {
-    display: block;
-    overflow: hidden;
-
-    .btn {
-      text-align: left;
-    }
-  }
-
-  .btn-repository {
-    border-radius: $input-border-radius;
-    color: $gray;
-    font-size: 15px;
-    font-weight: $weight-normal;
-    padding: 6px 24px 6px 9px;
-
-    &:hover,
-    &:active {
-      z-index: 1; // on top of second button
-
-      .row-commit::after {
-        background: linear-gradient(to right, rgba($white,0), $white);
-      }
-    }
-
-    &:active,
-    &.active {
-
-      .row-author {
-        color: $purple-light;
-      }
-    }
-
-    // icon for commmit/branch
-    .row {
-      padding-left: 21px;
-      position: relative;
-
-      .iconnables {
-        height: 15px;
-        left: 0;
-        margin: 3px 6px 0 0;
-        position: absolute;
-        width: 15px;
-      }
-    }
-
-    .row-commit {
-      max-height: 42px; // 2 rows
-      overflow: hidden;
-      white-space: normal;
-
-      &::after {
-        background: linear-gradient(to right, rgba($gray-lighterest,0), $gray-lighterest);
-        bottom: 0;
-        content: '';
-        display: block;
-        height: 21px;
-        position: absolute;
-        right: 0;
-        width: 30px;
-      }
-    }
-
-    .row-author {
-      color: $gray-light;
-    }
-  }
-
-  .btn-auto-deploy {
-    background: $gray-lightest;
-    border: $input-border solid $gray-lighter;
-    border-top-width: 1px;
-    color: $gray;
-    cursor: default;
-    font-size: 13px;
-    padding: 0 9px;
-
-    .icons-launch {
-      filter: grayscale(100%);
-      height: 100%;
-      margin: 0 6px 0 -3px;
-      opacity: .75;
-      text-align: center;
-      width: 18px;
-
-      @include retina() {
-        margin-left: 0;
-        width: 15px;
-      }
-    }
-
-    .underline {
-      line-height: 1.2;
-      margin-top: 8px;
-    }
-
-    .toggle-wrapper {
-      top: 9px;
-
-      &.disabled {
-        cursor: not-allowed;
-        opacity: .5;
-      }
-    }
-  }
-
-  .icons-arrow-forward {
-    height: 100%;
-    position: absolute;
-    right: 3px;
-    top: 0;
-  }
-}
-
-.sidebar-section {
-  flex: 0 0 auto;
-  margin: 0 12px;
-
-  + .sidebar-section {
-    border-top: 1px solid $gray-lighter;
-  }
-}
-
-.explorer-section {
-
-  .sidebar-section-content {
-    padding-bottom: 12px;
-  }
-
-  .file-tree {
-    margin: 0;
+  // error states
+  .error {
+    opacity: .5;
   }
 }
 
 .sidebar-section-heading {
-  color: $gray-darker;
-  line-height: 54px;
-  position: relative;
+  border-bottom: 1px solid $purple-darkest;
+  flex: 0 0 61px; // match tab
+  margin: 0 $xs;
+  padding: $xs 0;
 
-  // for add buttons next to section headings, like in File Explorer
-  .btn {
-    height: 54px;
-    transition: opacity .15s ease-in-out;
+  > .btn-sm {
+    width: $input-sm;
+  }
 
-    &.ng-hide {
-      opacity: 0;
-    }
+  > .btn-xs {
+    line-height: 1; // reset to center
+    width: $input-xs;
+  }
 
-    .iconnables {
-      width: 24px;
-    }
+  .iconnables {
+    height: 100%;
+    width: 100%;
   }
 }
 
+// spacing for additional repositories
 .sidebar-section-item {
-  margin-bottom: 12px;
   position: relative;
 
-  &:last-child {
-    margin-bottom: 18px;
+  + .sidebar-section-item {
+    margin-top: 12px;
+  }
+
+  > .orange {
+    border-radius: 0 0 $input-border-radius $input-border-radius;
+    margin: 0;
   }
 }

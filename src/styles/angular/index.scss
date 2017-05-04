@@ -15,11 +15,14 @@
 @import "globals/var";
 @import "globals/mixins";
 @import "globals/reset";
+
+@import "globals/grid";
 @import "globals/globals";
 @import "globals/animations";
 @import "globals/images";
 @import "globals/loader";
 @import "globals/typography";
+@import "globals/utility";
 
 // layout:
 //  .layout-wrapper (used as <body>)
@@ -31,7 +34,7 @@
 //      .environment-body
 
 //      * instance page *
-//      .instances-list (instance nav)
+//      .list-instances (instance nav)
 //       .instance-wrapper
 //         .instance-header (0 0 auto)
 //           .instance-header-title
@@ -41,6 +44,152 @@
 
 // global layout
 @import "layout/layout";
+
+// sidebar
+@import "sidebar/sidebar";
+
+// buttons
+@import "components/buttons/buttons";
+@import "components/buttons/buttons-badge";
+@import "components/buttons/buttons-group";
+
+// specific buttons
+@import "components/buttons/buttons-debug";
+@import "components/buttons/buttons-toolbar";
+@import "components/buttons/buttons-user";
+@import "components/buttons/buttons-permissions";
+
+// components
+@import "components/aha-guide";
+@import "components/aha-modals";
+@import "components/animated-panel";
+@import "components/badges";
+@import "components/cards";
+@import "components/cards-title";
+@import "components/fancy-select";
+@import "components/help";
+@import "components/icons";
+@import "components/lists";
+@import "components/logs";
+@import "components/logs-theme";
+@import "components/notifications";
+@import "components/progress-bar";
+@import "components/select";
+@import "components/spinner";
+@import "components/tags";
+@import "components/tooltips";
+@import "components/wells";
+
+// components specific
+@import "components/lists-commits";
+@import "components/lists-teammates";
+@import "components/lists-tests";
+@import "components/notifications-trial";
+
+// external components
+@import "components/external/ace-theme";
+@import "components/external/drag-and-drop";
+@import "components/external/jstag";
+@import "components/external/termjs";
+
+// forms
+@import "forms/forms";
+@import "forms/forms-inputs";
+@import "forms/forms-input-groups";
+@import "forms/forms-table";
+@import "forms/forms-table-actions";
+@import "forms/forms-textarea";
+@import "forms/forms-toggles";
+@import "forms/forms-validation";
+
+// form specific
+@import "forms/forms-billing";
+@import "forms/forms-github";
+@import "forms/forms-payment";
+@import "forms/forms-plan";
+@import "forms/forms-table-vars";
+@import "forms/forms-trial";
+@import "forms/forms-whitelist";
+
+// views
+@import "views/views";
+@import "views/views-dockerfile-setup";
+@import "views/views-file-tree";
+@import "views/views-kubernetes-setup";
+@import "views/views-new-service";
+@import "views/views-panel";
+@import "views/views-prompt";
+@import "views/views-tabs";
+@import "views/views-toolbar";
+
+// modals
+@import "modals/modals";
+@import "modals/modals-alerts";
+@import "modals/modals-empty";
+@import "modals/modals-forms";
+@import "modals/modals-sheets";
+
+// modal specific
+@import "modals/modals-aha";
+@import "modals/modals-backdrop-error";
+@import "modals/modals-backup";
+@import "modals/modals-branch-setup";
+@import "modals/modals-confirm-setup";
+@import "modals/modals-edit";
+@import "modals/modals-edit-ace";
+@import "modals/modals-edit-dockerfile";
+@import "modals/modals-error";
+@import "modals/modals-github-scope";
+@import "modals/modals-guide";
+@import "modals/modals-infrastructure";
+@import "modals/modals-integrations";
+@import "modals/modals-invite";
+@import "modals/modals-invite-admin";
+@import "modals/modals-isolation";
+@import "modals/modals-org-select";
+@import "modals/modals-rename";
+@import "modals/modals-repository-details";
+@import "modals/modals-server-select";
+@import "modals/modals-settings";
+
+// popovers
+@import "popover/popover";
+@import "popover/popover-arrows";
+@import "popover/popover-tooltip";
+@import "popover/popover-fixed";
+@import "popover/popover-more-containers";
+@import "popover/popover-select";
+@import "popover/popover-views";
+
+// popover specific
+@import "popover/popover-account-menu";
+@import "popover/popover-add-branches";
+@import "popover/popover-add-tab";
+@import "popover/popover-aha";
+@import "popover/popover-aha-containers";
+@import "popover/popover-aha-demo";
+@import "popover/popover-aha-url";
+@import "popover/popover-branch-menu";
+@import "popover/popover-card-status";
+@import "popover/popover-container-menu";
+@import "popover/popover-debug";
+@import "popover/popover-environment";
+@import "popover/popover-demo";
+@import "popover/popover-demo-progress";
+@import "popover/popover-dns-mappings";
+@import "popover/popover-files";
+@import "popover/popover-new-server";
+@import "popover/popover-permissions";
+@import "popover/popover-primary-options";
+@import "popover/popover-pr-link";
+@import "popover/popover-rename";
+@import "popover/popover-rules";
+@import "popover/popover-team-management";
+@import "popover/popover-user";
+@import "popover/popover-validation";
+
+// tooltip popover specific
+@import "popover/tooltips/tooltip-tools";
 
 // instance layout
 @import "layout/instances-list";
@@ -55,121 +204,22 @@
 @import "layout/environment-body";
 @import "layout/environment-footer";
 
-// buttons
-@import "components/buttons/buttons";
-@import "components/buttons/buttons-badge";
-@import "components/buttons/buttons-group";
-
-// specific buttons
-@import "components/buttons/buttons-debug";
-@import "components/buttons/buttons-toolbar";
-@import "components/buttons/buttons-user";
-
-// components
-@import "components/animated-panel";
-@import "components/badges";
-@import "components/cards";
-@import "components/cards-title";
-@import "components/fancy-select";
-@import "components/help";
-@import "components/icons";
-@import "components/lists";
-@import "components/logo";
-@import "components/logs";
-@import "components/notifications";
-@import "components/repository-details-content";
-@import "components/select";
-@import "components/spinner";
-@import "components/tags";
-@import "components/tooltips";
-@import "components/wells";
-
-// components specific
-@import "components/lists-teammates";
-
-// external components
-@import "components/external/ace-theme";
-@import "components/external/drag-and-drop";
-@import "components/external/intercom";
-@import "components/external/jstag";
-@import "components/external/termjs";
-
-// forms
-@import "forms/forms";
-@import "forms/forms-build-commands";
-@import "forms/forms-inputs";
-@import "forms/forms-input-groups";
-@import "forms/forms-table";
-@import "forms/forms-table-actions";
-@import "forms/forms-textarea";
-@import "forms/forms-toggles";
-@import "forms/forms-validation";
-@import "forms/forms-whitelist";
-
-// sidebar
-@import "sidebar/sidebar";
-
-// views
-@import "views/views";
-@import "views/views-file-tree";
-@import "views/views-panel";
-@import "views/views-prompt";
-@import "views/views-tabs";
-@import "views/views-toolbar";
-
-// modals
-@import "modals/modals";
-@import "modals/modals-alerts";
-@import "modals/modals-empty";
-@import "modals/modals-forms";
-@import "modals/modals-sheets";
-
-// modal specific
-@import "modals/modals-backup";
-@import "modals/modals-edit";
-@import "modals/modals-edit-ace";
-@import "modals/modals-error";
-@import "modals/modals-integrations";
-@import "modals/modals-invite";
-@import "modals/modals-invite-admin";
-@import "modals/modals-isolation";
-@import "modals/modals-rename";
-@import "modals/modals-repository-details";
-@import "modals/modals-server-select";
-@import "modals/modals-settings";
-@import "modals/modals-welcome";
-
-// popovers
-@import "popover/popover";
-@import "popover/popover-arrows";
-@import "popover/popover-tooltip";
-@import "popover/popover-fixed";
-@import "popover/popover-more-containers";
-@import "popover/popover-select";
-@import "popover/popover-views";
-
-// popover specific
-@import "popover/popover-account-menu";
-@import "popover/popover-add-tab";
-@import "popover/popover-card-status";
-@import "popover/popover-container-menu";
-@import "popover/popover-debug";
-@import "popover/popover-dns-mappings";
-@import "popover/popover-files";
-@import "popover/popover-new-server";
-@import "popover/popover-permissions";
-@import "popover/popover-primary-options";
-@import "popover/popover-rename";
-@import "popover/popover-rules";
-@import "popover/popover-user";
-@import "popover/popover-url";
-
 // pages
+@import "pages/github-auth";
 @import "pages/server-selection";
 @import "pages/welcome";
 
 //deprecated
 @import "deprecated/card-status";
+@import "deprecated/compose-nav";
+@import "deprecated/connections";
+@import "deprecated/deleted-commit";
+@import "deprecated/demo-org-select";
+@import "deprecated/service-cta";
+@import "deprecated/instance-sidebar";
+@import "deprecated/popover-container-menu";
 
 // shame 🔔🔔
 @import "shame";
+
+@import "globals/responsive-utils";

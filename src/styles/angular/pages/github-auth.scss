@@ -1,0 +1,187 @@
+.layout-github {
+  background: $gray-lighterest;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+
+  @include media(xs) {
+    min-height: 630px;
+  }
+
+  .h1 {
+    font-size: 30px;
+  }
+
+  .figure {
+    background-color: $white;
+    border: 1px solid $gray-lighter;
+    border-bottom: 0;
+    border-radius: $input-border-radius-lg $input-border-radius-lg 0 0;
+    flex: 1 1 auto;
+    max-height: 450px;
+    max-width: 660px;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+    z-index: 1; // for border clipping
+
+    @include media(sm) {
+      width: 510px;
+    }
+
+    @media (max-width: 540px) {
+      border-left: 0;
+      border-radius: 0;
+      border-right: 0;
+      width: 100vw;
+    }
+
+    &::after {
+      animation: scrollbarIn 1.25s .75s 1 forwards;
+      background: rgba($black,.3);
+      border: 1px solid rgba($white,.1);
+      border-radius: 9px;
+      content: '';
+      display: block;
+      height: 210px;
+      position: absolute;
+      right: 3px;
+      top: 3px;
+      width: 6px;
+    }
+  }
+
+  .img {
+    animation: figureIn 1s .75s 1 forwards;
+    height: auto;
+    width: 660px;
+
+    @include media(sm) {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  .cursor {
+    animation: cursorIn 1s 1.25s 1 forwards ease-in-out;
+    height: 45px;
+    position: absolute;
+    right: 20px;
+    top: 210px;
+    transform: translate3d(-10px,240px,0);
+    width: 45px;
+
+    &::after,
+    &::before {
+      background-repeat: no-repeat;
+      background-size: 45px 45px;
+      content: '';
+      display: block;
+      height: 45px;
+      position: absolute;
+      top: 0;
+      width: 45px;
+    }
+
+    &::after {
+      animation: cursorSwap 1s 1.25s 1 forwards ease-in-out;
+      background-image: url(/build/images/cursor-default.svg);
+    }
+
+    &::before {
+      animation: cursorSwapPointer 1s 1.25s 1 forwards ease-in-out;
+      background-image: url(/build/images/cursor-pointer.svg);
+    }
+  }
+
+  .btn .iconnables {
+    height: 100%;
+    margin-left: 3px;
+    width: 15px;
+  }
+
+  .footer {
+    background: $gray-lighterest;
+    border-top: 1px solid $gray-lighter;
+    max-width: 100%;
+    width: 720px;
+    z-index: 1;
+  }
+
+  .icons-link-external {
+    height: 9px;
+    margin-left: 3px;
+    width: 9px;
+  }
+}
+
+@keyframes figureIn {
+  0% {
+    transform: translate3d(0,0,0);
+  }
+
+  100% {
+    transform: translate3d(0,-270px,0);
+  }
+}
+
+@keyframes cursorIn {
+  0% {;
+    transform: translate3d(-10px,240px,0);
+  }
+
+  80%,
+  100% {
+    transform: translate3d(0,0,0);
+  }
+}
+
+@keyframes cursorSwap {
+  0%,
+  70% {
+    opacity: 1;
+  }
+
+  80%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes cursorSwapPointer {
+  0%,
+  70% {
+    opacity: 0;
+  }
+
+  80%,
+  90% {
+    opacity: 1;
+    transform: scale3d(1,1,1) translate3d(0,0,0);
+  }
+
+  95% {
+    transform: scale3d(.9,.9,1) translate3d(0,0,0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale3d(1,1,1) translate3d(0,0,0);
+  }
+}
+
+@keyframes scrollbarIn {
+  0% {
+    transform: translate3d(0,0,0);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translate3d(0,234px,0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(0,234px,0);
+  }
+}

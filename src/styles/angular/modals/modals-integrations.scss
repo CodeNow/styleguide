@@ -2,16 +2,10 @@
   max-width: 642px;
   transition: max-height .15s ease-in;
 
-  // unverified state
-  &.unverified {
-    max-height: 400px;
-  }
-
-  // header slack logo
-  .modal-heading .img {
-    margin-right: 9px;
-    position: relative;
-    top: 5px;
+  @include media(xxs) {
+    .label-footer .br {
+      display: none;
+    }
   }
 
   // api token
@@ -31,8 +25,6 @@
   }
 
   .list-item {
-    background: $white;
-    color: $gray-dark;
     cursor: pointer;
     display: block;
     height: $input-md;
@@ -43,7 +35,7 @@
     transition: height .15s ease-in-out;
 
     &.expanded {
-      height: 114px;
+      height: 130px;
     }
 
     &.disabled {
@@ -84,6 +76,7 @@
 
   // well
   .well {
+    background: none;
     border: 0;
     border-left: 2px solid $gray-lightest;
     border-radius: 0;
@@ -108,11 +101,5 @@
     display: block;
     font-size: 16px;
     margin: 6px 0 15px;
-  }
-
-  @include media(xxs) {
-    .label-footer .br {
-      display: none;
-    }
   }
 }

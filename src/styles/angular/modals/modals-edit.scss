@@ -5,13 +5,23 @@
 
   @include media(md) {
     max-width: 810px;
+
+    .tabs-8,
+    .tabs-9 {
+      max-width: 100%;
+    }
   }
 
   @include media(sm) {
     max-width: 720px;
+
+    .tabs-6,
+    .tabs-7 {
+      max-width: 100%;
+    }
   }
 
-  &.ace-active {
+  &.expand {
 
     @include media(xxl) {
       max-width: 1800px;
@@ -28,10 +38,11 @@
 
   // css override for server building state
   &.disabled {
-    cursor: not-allowed !important;
+    cursor: not-allowed;
 
     .ace-container,
     .btn:not(.btn-cancel),
+    .can-disable,
     .container-title-wrapper,
     .input,
     .label,
@@ -39,25 +50,31 @@
     .tr,
     .table-actions {
       @extend %no-touching;
-      opacity: .6 !important;
+      opacity: .6;
+    }
+
+    .modal-tabs {
+      overflow: hidden;
     }
   }
 
   // nav
   .modal-header {
+    border-bottom: 0;
+    box-shadow: inset 0 -1px 0 $gray-lighter;
     overflow: hidden; // for animation on tabs
     padding: 0; // reset default header padding
     position: relative;
 
     &::before,
     &::after {
-      bottom: 0;
+      bottom: 1px;
       content: '';
       display: block;
       height: 100%;
       pointer-events: none;
       position: absolute;
-      width: 30px;
+      width: 15px;
       z-index: 1;
     }
 
@@ -69,11 +86,6 @@
     &::after {
       background: linear-gradient(90deg, rgba($white,0), rgba($white,.9));
       right: 0;
-    }
-
-    .icons-close {
-      right: 12px;
-      top: 12px;
     }
   }
 
@@ -125,8 +137,8 @@
   // ports
   .textarea {
     display: block;
-    max-height: 150px;
-    min-height: 90px;
+    max-height: 240px;
+    min-height: 120px;
     overflow-y: auto;
     resize: vertical;
 
@@ -181,12 +193,12 @@
 
   // ace container
   .ace-container {
+    min-height: 210px;
     position: relative;
 
     // translation rules
     &.ace-ignored-files {
       border-radius: $input-border-radius;
-      min-height: 210px;
     }
 
     .spinner-wrapper {
@@ -198,9 +210,14 @@
   .log-wrapper {
     border-radius: $input-border-radius;
     border-style: solid;
-    border-width: $input-border;
-    padding: 0;
+    border-width: 1px;
     position: relative;
+
+    .build-log-wrapper {
+      margin: -1px;
+      padding: 0;
+      width: auto;
+    }
 
     .build-log {
       z-index: auto; // reset
@@ -217,17 +234,24 @@
       transition: width .2s ease-in-out;
       white-space: nowrap;
 
-      &.text-next {
-        padding-right: 6px;
-        width: 88px;
-      }
-
       &.text-save {
-        width: 76px;
+        width: 72px;
       }
 
       &.text-save-build {
-        width: 140px;
+        width: 132px;
+      }
+
+      &.text-save,
+      &.text-save-build {
+        @include media(xxxs) {
+          text-align: center;
+          width: auto;
+
+          .float-left {
+            float: none;
+          }
+        }
       }
     }
 
@@ -244,14 +268,7 @@
     }
 
     .btn-cancel {
-      background: transparent;
-      border: $input-border solid transparent;
       transition: opacity .2s ease-in-out, transform .2s ease-in-out;
-
-      &:hover,
-      &:active {
-        background: $white;
-      }
 
       &.ng-leave {
         opacity: 1;
@@ -327,12 +344,9 @@
 // stack button
 .btn-group-stacks {
   display: flex;
-  margin-bottom: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
   margin-left: -1px; // line up with version button
-
-  @media (max-width: 836px) { // ~sm so that recommended text can fit with a small amount of padding
-    flex-wrap: wrap;
-  }
 
   @include media(xs) {
     margin-left: 0; // reset
@@ -340,64 +354,79 @@
   }
 
   > .btn {
-    border-color: $gray-lighter;
-    flex: 1 1 auto;
-    font-size: 14px;
+    flex: 0 1 25%;
+    font-size: 13px;
     height: 90px;
     line-height: normal; // reset
     padding: 0;
 
-    // styles for 3x2
-    @media (max-width: 836px) {
-      flex: 1 1 33.33%;
-      font-size: 13px;
+    &:not(:active):not(.active) {
+      border-color: $gray-lighter;
 
-      &:first-child {
-        border-radius: $input-border-radius 0 0;
+      &:hover:not([disabled]) {
+        border-color: $gray-light;
       }
+    }
 
-      &:nth-child(3):nth-child(3) { // override btn-group default
-        border-radius: 0 $input-border-radius 0 0;
-      }
+    &:active,
+    &.active {
+      box-shadow: none;
+    }
 
-      &:nth-child(4):nth-child(4) { // override btn-group default
-        border-radius: 0 0 0 $input-border-radius;
-        margin-left: 0;
-      }
+    &:first-child {
+      border-radius: $input-border-radius 0 0;
+    }
 
-      &:last-child {
-        border-radius: 0 0 $input-border-radius;
-        margin-right: 0;
-      }
+    &:nth-child(4):nth-child(4) { // override btn-group default
+      border-radius: 0 $input-border-radius $input-border-radius 0;
+    }
 
-      &:nth-child(n+4) {
-        margin-top: -2px;
+    &:nth-child(5):nth-child(5) {
+      border-radius: 0 0 0 $input-border-radius;
+      margin-left: 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0 $input-border-radius;
+    }
+
+    &:nth-child(n+5) {
+      margin-top: -$input-border;
+
+      &.recommended::after {
+        border-radius: 0 0 $input-border-radius $input-border-radius;
+        bottom: -21px;
+        top: auto;
       }
     }
 
     &.recommended {
+      border-radius: 0;
 
       &::after {
         background: $gray-lighter;
-        border-radius: $input-border-radius;
-        color: $gray-dark;
+        border-radius: $input-border-radius $input-border-radius 0 0;
+        color: $gray;
         content: 'Recommended';
         display: block;
         font-size: 11px;
+        font-weight: $weight-normal;
         height: 21px;
-        left: -2px;
+        left: -$input-border;
+        letter-spacing: -.25px;
         line-height: 20px;
         position: absolute;
-        right: -2px;
+        right: -$input-border;
         top: -21px;
       }
 
-      &:hover::after {
+      &:hover:not([disabled])::after {
         background: $gray-light;
+        color: $white;
       }
 
       &.active,
-      &:active {
+      &:active:not([disabled]) {
 
         &::after {
           background: $purple-light;
@@ -407,6 +436,7 @@
     }
 
     .iconnables {
+      display: block;
       height: 24px;
       margin: 9px auto 6px;
       width: 24px;
@@ -423,7 +453,38 @@
   }
 }
 
+// repository
+.label-build-commands,
+.label-container-cmd {
+
+  .input-col {
+    position: relative;
+  }
+
+  .btn-xxs {
+
+    @include media(md) {
+      float: none;
+    }
+
+    + .btn-xxs {
+      margin-left: 3px;
+    }
+  }
+
+  .checkbox {
+    margin: 3px 6px 0 0;
+  }
+}
+
+.label-build-commands .input-col .well.well-merged-top + .textarea {
+  @media (max-width: $screen-md) and (min-width: $screen-xs) {
+    padding-top: 54px;
+  }
+}
+
 // modal-logs
 .modal-logs {
   flex: 1 1 0;
+  min-height: 360px;
 }

@@ -8,23 +8,15 @@ h4 {
   margin: 0;
 
   &.header-thin {
-    font-weight: 300;
+    font-weight: $weight-light;
   }
 }
 
 .h1 {
-  font-size: 60px;
+  font-size: 45px;
 
   @include media(sm) {
-    font-size: 48px;
-  }
-
-  @include media(xs) {
-    font-size: 45px;
-  }
-
-  @include media(xxs) {
-    font-size: 27px;
+    font-size: 36px;
   }
 }
 
@@ -67,9 +59,19 @@ h4 {
 // inline styles
 .small {
   font-size: 13px; // percentage was unreliable
-  font-weight: $weight-normal; // reset if within header tags
+  font-weight: $weight-normal;
 }
 
+
+.weight-light {
+  font-weight: $weight-light;
+}
+
+.weight-normal {
+  font-weight: $weight-normal;
+}
+
+.weight-strong,
 .strong {
   font-weight: $weight-bold;
 }
@@ -77,6 +79,10 @@ h4 {
 .underline {
   border-bottom: 1px dotted;
   font-style: normal; // remove italics if em
+}
+
+.strike {
+  text-decoration: line-through;
 }
 
 .hr {
@@ -105,6 +111,11 @@ h4 {
   font-size: 14px;
   white-space: pre;
   word-wrap: normal;
+}
+
+%sans-serif,
+.sans-serif {
+  font-family: $sans-serif;
 }
 
 // links
@@ -144,14 +155,17 @@ a {
 }
 
 // alignment
+%text-left,
 .text-left {
   text-align: left;
 }
 
+%text-center,
 .text-center {
   text-align: center;
 }
 
+%text-right,
 .text-right {
   text-align: right;
 }
@@ -165,6 +179,14 @@ a {
   color: $gray;
 }
 
+.text-gray-light {
+  color: $gray-light;
+}
+
+.text-gray-dark {
+  color: $gray-dark;
+}
+
 .text-green {
   color: $green;
 }
@@ -175,6 +197,14 @@ a {
 
 .text-purple {
   color: $purple;
+}
+
+.text-red {
+  color: $red;
+}
+
+.text-white {
+  color: $white;
 }
 
 // block quote

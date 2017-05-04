@@ -1,189 +1,239 @@
 // instances list
-.instances-list {
+.list-instances {
   background: $gray-lighterest;
-  border-right: 1px solid $gray-lighter;
-  display: none;
-  float: left;
+  color: $gray;
+  font-size: 15px;
   height: 100vh;
+  min-width: $instance-list-width;
   overflow-y: auto;
+  padding: 0 $xs $lg;
   position: relative;
   width: $instance-list-width;
 
-  &.in {
-    display: block;
-
-    // if nav is open
-    + .instance-wrapper {
-      float: right;
-      width: calc(100% - #{$instance-list-width});
-    }
+  // search
+  .label-search {
+    height: 60px; // match instance header
   }
 
-  .list {
-    margin: 0 12px; // matches instance sidebar margin
-    padding: 9px 0 15px;
-
-    + .list {
-      border-top: 1px solid $gray-lighter;
-    }
-
-    // list of isolated containers
-    &.list-isolated {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-
-      .list-item {
-        padding: 0;
-      }
-    }
+  // search empty state
+  .search-empty {
+    height: 61px; // match tab bar height
   }
 
-  .list-item {
-    align-items: center;
-    border: 1px solid transparent;
-    display: flex;
-    font-size: 15px;
-    height: 30px;
-    line-height: 28px;
-
-    // list title
-    &.list-item-header {
-      color: darken($gray-light,10%);
-      padding: 0 9px 0 27px; // spacing for .status-icon
-
-      &:hover .icons-advanced {
-        opacity: .75;
-      }
-    }
-
-    // open/active and isolated states
-    &.open {
-      background: rgba($purple-light,.1);
-      border-color: rgba($purple-light,.3);
-      border-radius: $input-border-radius;
-
-      // is isolated
-      &.isolated {
-        flex-wrap: wrap;
-        height: auto;
-
-        .icons-overflow-isolated {
-          display: block;
-        }
-      }
-    }
-
-    // gear icon
-    .icons-advanced {
-      cursor: pointer;
-      opacity: .6;
-      pointer-events: auto;
-      transition: opacity .15s, transform .15s;
-
-      &:hover {
-        transform: rotate3d(0,0,1,30deg);
-      }
-
-      &:active {
-        opacity: 1;
-        transform: rotate3d(0,0,1,60deg);
-      }
-    }
+  // empty state
+  .well.empty {
+    background: $white;
+    border-color: $gray-lighter;
+    border-radius: $input-border-radius-lg;
+    font-size: 21px;
+    padding: $sm 24px 24px;
   }
 
-  .list-item-container {
-    @extend %text-overflow;
-    align-items: center;
-    color: $gray;
-    cursor: pointer;
-    display: flex;
-    flex: 1 1 auto;
-    font-weight: $weight-bold;
-    padding: 0 9px;
-
-    &:hover {
-      color: $purple-light;
-    }
-
-    &:active,
-    &.active {
-      color: $purple-light;
-    }
-
-    &.active {
-      cursor: default;
-    }
-  }
-
-  // status icon
   .icons-status {
-    flex: 0 0 9px;
-    margin-right: 9px;
+    margin-right: $xxs;
   }
 
-  // name
-  .text-overflow {
-    flex: 1 1 auto;
+  .failed,
+  .passed {
+    margin-left: -1px;
+    margin-right: $xxs - 1px; // normal .icons-status margin, -1px to accomodate larger size
   }
+}
 
-  // configure/overflow
-  .iconnables {
-    cursor: pointer;
-    flex: 0 0 15px;
-    margin-left: 5px;
-    pointer-events: auto; // override iconnables default
-  }
+.nav-section:first-child,
+*:not(.popover) + .nav-section {
+  border-top: $input-border solid $gray-lighter;
+}
 
-  .icons-overflow {
+.nav-section-header {
+  font-size: inherit; // reset
+  font-weight: $weight-normal; // reset
+  line-height: inherit; // reset
+  padding: $sm 0 $sm ($xxs * 2);
+
+  // "add a service" and "add a branch" buttons
+  .btn-xs {
     color: $gray;
-    flex: 0 0 auto;
-    margin-right: -6px;
-    padding: 0 5px;
+    padding-right: 1px;
+
+    .icons-arrow-forward {
+      height: $sm;
+      width: $sm;
+    }
+  }
+}
+
+.nav-card {
+  display: flex;
+  flex-direction: column;
+
+  &.active {
+    background-color: $white;
+    border: $input-border solid $gray-lighter;
+    border-radius: $input-border-radius-lg;
+    padding: ($xxs - $input-border);
+
+    .nav-card-header {
+      border: 0;
+      border-radius: 0;
+      color: $gray-dark;
+      cursor: auto;
+      height: $input-xs;
+      padding: 0 $xxs;
+      pointer-events: none;
+    }
+  }
+
+  &:not(.active) + .nav-card:not(.active) {
+    margin-top: 6px;
+  }
+
+  + .nav-card.active,
+  &.active + .nav-card {
+    margin-top: $xxs;
+  }
+
+  &:last-child {
+    margin-bottom: $sm;
+  }
+}
+
+.nav-card-header {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  padding: ($xxs - $input-border) ($xxs * 2 - $input-border); // match expanded card padding
+
+  &:hover:not(.active) {
+    background-color: $white;
+    border-color: $gray-lighter;
+  }
+
+  &:active:not(.active) {
+    color: $gray-dark;
+  }
+}
+
+.nav-environment-header {
+  align-items: center;
+  color: $gray-light;
+  display: flex;
+  font-size: 13px;
+  height: $input-xs;
+  margin: 6px 0;
+  padding: 0 ($xxs + $input-border);
+}
+
+.nav-card-header,
+.nav-card-section {
+
+  + .nav-card-section {
+    border-top: $input-border solid $gray-lightest;
+    margin-top: $xxs;
+  }
+}
+
+.nav-container-list .li + .li {
+  margin-top: 1px;
+}
+
+.nav-container {
+  align-items: center;
+  border: $input-border solid transparent;
+  border-radius: $input-border-radius;
+  display: flex;
+  height: 27px;
+  padding: 0 $xxs;
+
+  &:hover:not(.active) {
+    background-color: $gray-lighterest;
+    border-color: rgba($gray-lighter,.6);
+    cursor: pointer;
+  }
+
+  &:active:not(.active),
+  &.active {
+    background-color: lighten($purple-lightest,4);
+    border-color: rgba($purple-light,.1);
+    color: $purple-light;
+  }
+}
+
+.demo-transition {
+  transition: opacity .3s ease-out, transform .3s ease-out;
+  width: 100%;
+
+  &.ng-enter {
+    opacity: 0;
+    position: absolute;
+    transform: translate3d(50px,0,0);
+  }
+
+  &.ng-enter-active {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+  }
+
+  &.ng-leave {
+    opacity: 1;
+    position: absolute;
+    transform: rotate3d(0,0,1,0) scale3d(1,1,1) translate3d(0,0,0);
+  }
+
+  &.ng-leave-active {
+    opacity: 0;
+    transform: rotate3d(0,0,1,-9deg) scale3d(.95,.95,1) translate3d(-50px,0,0);
+  }
+}
+
+.btn-container-menu {
+  align-items: center;
+  border-radius: $input-border-radius;
+  color: $gray-light;
+  height: $input-xs;
+  line-height: 1;
+  margin-left: $xxs;
+  margin-right: -6px;
+  overflow: hidden;
+  padding: 4px;
+  pointer-events: auto;
+
+  &:not(.orange) {
+    border: 0;
+    width: $input-xs;
 
     &:hover {
-      color: $gray-dark;
+      color: $gray;
     }
 
     &:active,
     &.active {
       color: $purple-light;
     }
+  }
 
-    &.active {
-      display: block;
+  + .btn-container-menu {
+    margin-left: 6px;
+  }
+
+  &.orange {
+    color: $white;
+    font-size: 11px;
+    height: $input-xxs;
+    line-height: $input-xxs - $input-border * 2;
+    padding: 0 3px;
+
+    .iconnables {
+      height: $xs;
+      margin-right: 3px;
+      width: $xs;
     }
   }
 
-  .icons-advanced {
-    margin-right: -1px;
-  }
-
-  // "more…" button
-  .btn-more-containers {
-    color: darken($gray-light,10%);
-    font-style: italic;
-    left: 15px;
-
-    &:hover {
-      color: $purple-light;
-    }
-
-    &:active {
-      color: $purple-light;
-    }
-  }
-
-  .btn-add-branches {
-    height: 21px;
-    line-height: 17px;
-    margin: 9px 0 3px 21px;
-  }
-
-  // isolation badge
-  .btn-badge.btn-badge {
-    flex: 0 0 auto;
-    left: 9px;
-    margin: 0;
+  .iconnables {
+    height: 100%;
+    width: 16px;
   }
 }

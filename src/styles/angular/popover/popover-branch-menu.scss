@@ -1,0 +1,117 @@
+.popover-branch-menu,
+.popover-template-menu {
+  max-width: 360px;
+  width: 100%;
+
+  .popover-content.popover-content {
+    max-height: 375px;
+    min-height: 105px;
+    overflow-y: auto;
+
+    &:not(.padding-xs) {
+      padding: 0;
+    }
+
+    &.padding-xs {
+      padding: $xs;
+    }
+  }
+
+  .input-search + .list {
+    padding-top: $xs;
+  }
+}
+
+.popover-branch-menu {
+
+  .aha-guide {
+    border-bottom: 1px solid $gray-lighter;
+    font-size: 15px;
+    margin-top: 6px;
+    padding-bottom: 21px;
+  }
+
+  .well + .well,
+  .well + .input {
+    margin-top: $sm;
+  }
+
+  .popover-list-item {
+    padding: 0 $xxs;
+
+    .iconnables.icons-branch {
+      height: 18px;
+      margin-right: 0;
+      margin-top: 0;
+      opacity: .5;
+    }
+  }
+
+  // empty state
+  .empty {
+
+    .svg {
+      height: 45px;
+      margin-top: 15px;
+    }
+
+    .p {
+      font-size: 15px;
+    }
+  }
+}
+
+.popover-template-menu {
+
+  .popover-header {
+    display: flex;
+    height: auto;
+    padding: $xs;
+  }
+
+  .btn-radio {
+    border-radius: $input-border-radius-lg;
+    flex: 0 1 50%;
+    font-size: 13px;
+    font-weight: $weight-bold;
+    height: auto;
+    line-height: 1.4;
+    padding: 9px 15px;
+    text-align: left;
+
+    + .btn-radio {
+      margin-left: $xs;
+    }
+
+    .small {
+      font-size: 12px;
+      opacity: .6;
+    }
+  }
+
+  .list-item .iconnables.icons-repository {
+    margin-right: $sm;
+    width: 18px;
+  }
+
+  .btn-add {
+    margin-left: 15px;
+  }
+
+  // the empty state
+  .empty {
+
+    .img {
+      border-bottom: 1px solid $gray-lighter;
+      margin-bottom: $sm;
+      padding: 0 $md;
+      width: 270px;
+    }
+
+    .p {
+      color: $gray-dark;
+      font-size: 16px;
+      max-width: 240px;
+    }
+  }
+}
