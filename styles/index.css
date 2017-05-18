@@ -13655,8 +13655,10 @@ body > svg {
 .figure-logo-lockup,
 .figure-logo-icon {
   background: #fcfcfc;
-  border: 1px solid #e6e6e6;
   border-radius: 3px;
+  border: 1px solid #e6e6e6;
+  display: -ms-flexbox;
+  display: flex;
   margin: 6px 3px;
   padding: 15px; }
   .figure-logo-lockup:first-child .img,
