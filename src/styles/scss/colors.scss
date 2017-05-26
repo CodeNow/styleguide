@@ -17,14 +17,21 @@ $color-array-values: $black $white $gray-lighterest $gray-lightest $gray-lighter
 .figure-color-wrapper {
 
   .figure {
-    display: block;
+    display: flex;
+    justify-content: center;
     padding: 0;
+
+    .figcaption {
+      font-size: 13px;
+      margin: 0;
+      padding: 0 $sm;
+    }
   }
 }
 
 .figure-color {
-  justify-content: center;
   align-content: center;
   height: 80px;
+  justify-content: center;
   width: 120px;
 }
