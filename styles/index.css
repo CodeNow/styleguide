@@ -13699,7 +13699,6 @@ body > svg {
       text-align: right; }
 
 .figcaption {
-  color: #555;
   font-weight: bold;
   margin-top: 15px;
   margin-bottom: 10px; }
@@ -13840,8 +13839,8 @@ body > svg {
   margin-left: 9px; }
 
 .figure-color {
-  height: 90px;
-  width: 150px; }
+  height: 80px;
+  width: 120px; }
 
 .logs-runnable-dark,
 .logs-runnable-light {
