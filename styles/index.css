@@ -13822,23 +13822,15 @@ body > svg {
 .color-blue-dark {
   background: #0a9be2; }
 
-.figure-colors-wrapper .figure {
-  background: none;
-  border: 0;
+.figure-color-wrapper .figure {
   display: block;
-  margin: 0;
-  padding: 0;
-  text-align: left; }
-
-.figure-colors-wrapper .figure-color,
-.figure-colors-wrapper .figcaption {
-  float: left;
-  margin: 0; }
-
-.figure-colors-wrapper .figcaption {
-  margin-left: 9px; }
+  padding: 0; }
 
 .figure-color {
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   height: 80px;
   width: 120px; }
 
