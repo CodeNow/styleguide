@@ -13823,6 +13823,7 @@ body > svg {
   background: #0a9be2; }
 
 .figure-color-wrapper .figure {
+  border: 0;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
