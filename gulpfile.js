@@ -18,7 +18,7 @@ var sassSrc = src + 'styles/index.scss';
 var imgDir = src + 'images/**/*.*';
 var imgDirMisc = src + 'images/**/*.eps';
 
-var dist = './dist/';
+var dist = ''; // empty for gh-pages
 var htmlDist = dist;
 var sassDist = dist + 'styles/';
 var imgDist = dist + 'images/';
