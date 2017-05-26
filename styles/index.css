@@ -13726,6 +13726,9 @@ body > svg {
 .color-gray-light {
   background: #bbb; }
 
+.color-gray-logo {
+  background: #ccc; }
+
 .color-gray {
   background: #888; }
 
@@ -13818,9 +13821,6 @@ body > svg {
 
 .color-blue-lighter {
   background: #f5fcff; }
-
-.color-blue-dark {
-  background: #0a9be2; }
 
 .figure-color-wrapper .figure {
   border: 0;
