@@ -21,6 +21,7 @@ $color-array-values: $black $white $gray-lighterest $gray-lightest $gray-lighter
     display: flex;
     justify-content: center;
     padding: 0;
+    margin: 6px;
 
     .figcaption {
       font-size: 13px;
@@ -34,5 +35,5 @@ $color-array-values: $black $white $gray-lighterest $gray-lightest $gray-lighter
   align-content: center;
   height: 80px;
   justify-content: center;
-  width: 120px;
+  width: 150px;
 }
