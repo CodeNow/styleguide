@@ -1,6 +1,6 @@
 // list 39 colors
-$color-array: black white gray-lighterest gray-lightest gray-lighter gray-light gray gray-dark gray-darker green green-light green-lighter green-dark green-darker green-darkest purple purple-logo purple-light purple-lighter purple-lightest purple-dark purple-darker purple-darkest orange orange-light orange-lighter orange-lightest orange-dark orange-darker orange-darkest red red-light red-lighter red-dark blue blue-light blue-lighter blue-dark;
-$color-array-values: $black $white $gray-lighterest $gray-lightest $gray-lighter $gray-light $gray $gray-dark $gray-darker $green $green-light $green-lighter $green-dark $green-darker $green-darkest $purple $purple-logo $purple-light $purple-lighter $purple-lightest $purple-dark $purple-darker $purple-darkest $orange $orange-light $orange-lighter $orange-lightest $orange-dark $orange-darker $orange-darkest $red $red-light $red-lighter $red-dark $blue $blue-light $blue-lighter $blue-dark;
+$color-array: black white gray-lighterest gray-lightest gray-lighter gray-light gray-logo gray gray-dark gray-darker green green-light green-lighter green-dark green-darker green-darkest purple purple-logo purple-light purple-lighter purple-lightest purple-dark purple-darker purple-darkest orange orange-light orange-lighter orange-lightest orange-dark orange-darker orange-darkest red red-light red-lighter red-dark blue blue-light blue-lighter blue-dark;
+$color-array-values: $black $white $gray-lighterest $gray-lightest $gray-lighter $gray-light $gray-logo $gray $gray-dark $gray-darker $green $green-light $green-lighter $green-dark $green-darker $green-darkest $purple $purple-logo $purple-light $purple-lighter $purple-lightest $purple-dark $purple-darker $purple-darkest $orange $orange-light $orange-lighter $orange-lightest $orange-dark $orange-darker $orange-darkest $red $red-light $red-lighter $red-dark $blue $blue-light $blue-lighter $blue-dark;
 
 @mixin colors() {
   // 39 colors in total
@@ -14,29 +14,26 @@ $color-array-values: $black $white $gray-lighterest $gray-lightest $gray-lighter
 
 @include colors();
 
-.figure-colors-wrapper {
+.figure-color-wrapper {
 
   .figure {
-    background: none;
     border: 0;
-    display: block;
-    margin: 0;
+    display: flex;
+    justify-content: center;
+    margin: 6px;
     padding: 0;
-    text-align: left;
-  }
 
-  .figure-color,
-  .figcaption {
-    float: left;
-    margin: 0;
-  }
-
-  .figcaption {
-    margin-left: 9px;
+    .figcaption {
+      font-size: 13px;
+      margin: 0;
+      padding: 0 $sm;
+    }
   }
 }
 
 .figure-color {
-  height: 90px;
+  align-content: center;
+  height: 80px;
+  justify-content: center;
   width: 150px;
 }
